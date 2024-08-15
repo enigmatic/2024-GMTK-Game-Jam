@@ -1,11 +1,3 @@
 [gd_scene format=3 uid="uid://ddpfqi0kg1m3w"]
 
 [node name="Base" type="Node2D"]
-
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-offset_left = 372.0
-offset_top = 118.0
-offset_right = 855.0
-offset_bottom = 285.0
-theme_override_font_sizes/normal_font_size = 50
-text = "Autopublish Test"
