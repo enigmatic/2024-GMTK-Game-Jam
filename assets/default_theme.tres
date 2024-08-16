@@ -1,0 +1,60 @@
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://cce1uxp863s3k"]
+
+[ext_resource type="FontFile" uid="uid://ws02jxh62lbj" path="res://assets/fonts/Retro Gaming.ttf" id="1_hipsq"]
+[ext_resource type="Texture2D" uid="uid://cuatk13mbou7s" path="res://assets/ui/button.png" id="2_0hiag"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_8feib"]
+color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_eekwj"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+texture = ExtResource("2_0hiag")
+region_rect = Rect2(0, 0, 94, 36)
+modulate_color = Color(0.868985, 0.868985, 0.868985, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rfapm"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+texture = ExtResource("2_0hiag")
+region_rect = Rect2(0, 0, 94, 36)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0ht4r"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+texture = ExtResource("2_0hiag")
+region_rect = Rect2(0, 0, 94, 36)
+modulate_color = Color(0.678944, 0.678944, 0.678944, 1)
+
+[resource]
+default_font = ExtResource("1_hipsq")
+default_font_size = 32
+Button/colors/font_color = Color(0.851769, 0.851769, 0.851769, 1)
+Button/colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
+Button/colors/font_focus_color = Color(0.94902, 0.94902, 0.94902, 1)
+Button/colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/font_outline_color = Color(1, 1, 1, 1)
+Button/colors/font_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_disabled_color = Color(1, 1, 1, 0.4)
+Button/colors/icon_focus_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_normal_color = Color(1, 1, 1, 1)
+Button/colors/icon_pressed_color = Color(1, 1, 1, 1)
+Button/constants/h_separation = 0
+Button/constants/icon_max_width = 0
+Button/constants/outline_size = 0
+Button/font_sizes/font_size = 32
+Button/fonts/font = ExtResource("1_hipsq")
+Button/styles/disabled = null
+Button/styles/focus = SubResource("StyleBoxLine_8feib")
+Button/styles/hover = SubResource("StyleBoxTexture_eekwj")
+Button/styles/normal = SubResource("StyleBoxTexture_rfapm")
+Button/styles/pressed = SubResource("StyleBoxTexture_0ht4r")
