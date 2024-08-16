@@ -1,9 +1,56 @@
-[gd_scene load_steps=12 format=3 uid="uid://ddpfqi0kg1m3w"]
+[gd_scene load_steps=23 format=3 uid="uid://ddpfqi0kg1m3w"]
 
 [ext_resource type="Theme" uid="uid://cce1uxp863s3k" path="res://assets/default_theme.tres" id="1_jnofk"]
 [ext_resource type="Shader" path="res://assets/shaders/foliage.gdshader" id="2_eikgx"]
 [ext_resource type="Texture2D" uid="uid://cn8i14q6eeyvc" path="res://assets/icon.svg" id="3_qpd31"]
 [ext_resource type="Shader" path="res://assets/shaders/tree.gdshader" id="4_klir3"]
+[ext_resource type="Shader" path="res://assets/shaders/clouds.gdshader" id="5_7neub"]
+
+[sub_resource type="Gradient" id="Gradient_wdt31"]
+offsets = PackedFloat32Array(0.130919, 1)
+colors = PackedColorArray(0.0773214, 0.0807686, 0.0897352, 1, 0.321569, 0.2, 0.0431373, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_a3qdr"]
+gradient = SubResource("Gradient_wdt31")
+fill_from = Vector2(0.290598, 1)
+fill_to = Vector2(0.581197, 0.0854701)
+
+[sub_resource type="Gradient" id="Gradient_tyulx"]
+offsets = PackedFloat32Array(0, 0.125348, 1)
+colors = PackedColorArray(0.00170681, 0.167748, 0.681828, 1, 0.110186, 0.269372, 0.711637, 1, 0.531486, 0.706558, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ch5im"]
+gradient = SubResource("Gradient_tyulx")
+fill_from = Vector2(0.290598, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_1laa7"]
+noise_type = 3
+seed = 18
+frequency = 0.009
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_jxwxj"]
+width = 1024
+height = 1024
+seamless = true
+seamless_blend_skirt = 0.3
+noise = SubResource("FastNoiseLite_1laa7")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_5yk80"]
+seed = 30
+frequency = 0.0187
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_0p12a"]
+seamless = true
+seamless_blend_skirt = 0.395
+noise = SubResource("FastNoiseLite_5yk80")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ldn54"]
+shader = ExtResource("5_7neub")
+shader_parameter/cloud_speed = Vector2(0.01, 0)
+shader_parameter/clouds = SubResource("NoiseTexture2D_jxwxj")
+shader_parameter/clouds2 = SubResource("NoiseTexture2D_0p12a")
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_h8h1i"]
 
 [sub_resource type="Gradient" id="Gradient_32sng"]
 offsets = PackedFloat32Array(0.0275229, 0.198777, 0.70948)
@@ -38,16 +85,44 @@ noise = SubResource("FastNoiseLite_ql6w2")
 shader = ExtResource("2_eikgx")
 shader_parameter/skew_x = 0.0
 shader_parameter/skew_y = 0.0
-shader_parameter/pixelization = 32.0
-shader_parameter/radius = 32.0
+shader_parameter/pixelization = 36.465
+shader_parameter/radius = 29.97
 shader_parameter/base_color_amount = 0.25
 shader_parameter/outline_color = Color(0, 0.25, 0, 1)
 shader_parameter/green_noise = SubResource("NoiseTexture2D_x2vik")
 
 [node name="Base" type="Node2D"]
 
+[node name="Dirt" type="TextureRect" parent="."]
+offset_left = 2.0
+offset_right = 667.0
+offset_bottom = 651.0
+texture = SubResource("GradientTexture2D_a3qdr")
+
+[node name="Sky" type="TextureRect" parent="."]
+offset_top = -655.0
+offset_right = 665.0
+offset_bottom = -4.0
+texture = SubResource("GradientTexture2D_ch5im")
+
+[node name="Clouds" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_ldn54")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -419.0
+offset_top = -1446.0
+offset_right = 1021.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("NoiseTexture2D_h8h1i")
+
 [node name="StartMenu" type="Panel" parent="."]
 process_mode = 3
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -79,18 +154,18 @@ theme = ExtResource("1_jnofk")
 keep_pressed_outside = true
 text = "Play"
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
+[node name="Tree" type="Sprite2D" parent="."]
 texture_filter = 2
 texture_repeat = 2
 material = SubResource("ShaderMaterial_udsy5")
-position = Vector2(136, 228)
-scale = Vector2(0.748779, 0.616211)
+position = Vector2(288, -46)
+scale = Vector2(0.748779, 0.675293)
 texture = ExtResource("3_qpd31")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Foliage" type="Sprite2D" parent="."]
 texture_filter = 2
 texture_repeat = 2
 material = SubResource("ShaderMaterial_ltlpd")
-position = Vector2(119, 170)
-scale = Vector2(1.67187, 1.67187)
+position = Vector2(286, -130)
+scale = Vector2(0.855469, 0.90625)
 texture = ExtResource("3_qpd31")

@@ -13,7 +13,9 @@ void vertex() {
 }
 vec2 pixelizeCoordinates(vec2 coordinates)
 {
+
 	return floor(coordinates * pixelization ) / pixelization;
+	
 }
 
 void fragment() {
