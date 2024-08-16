@@ -42,9 +42,25 @@ texture_region_size = Vector2i(18, 18)
 4:0/0 = 0
 4:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 4:0/0/physics_layer_0/angular_velocity = 0.0
+4:0/0/metadata/_better_terrain = {
+0: [0],
+3: [-1],
+4: [0],
+8: [0],
+12: [0],
+"type": 0
+}
 5:0/0 = 0
 5:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 5:0/0/physics_layer_0/angular_velocity = 0.0
+5:0/0/metadata/_better_terrain = {
+0: [0],
+4: [0],
+7: [-1],
+8: [0],
+12: [0],
+"type": 0
+}
 6:0/0 = 0
 6:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 6:0/0/physics_layer_0/angular_velocity = 0.0
@@ -78,15 +94,34 @@ texture_region_size = Vector2i(18, 18)
 16:0/0 = 0
 16:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 16:0/0/physics_layer_0/angular_velocity = 0.0
+16:0/0/metadata/_better_terrain = {
+"type": 1
+}
 17:0/0 = 0
 17:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 17:0/0/physics_layer_0/angular_velocity = 0.0
+17:0/0/metadata/_better_terrain = {
+0: [1],
+4: [1],
+"type": 1
+}
 18:0/0 = 0
 18:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 18:0/0/physics_layer_0/angular_velocity = 0.0
+18:0/0/metadata/_better_terrain = {
+0: [1],
+4: [1],
+8: [1],
+"type": 1
+}
 19:0/0 = 0
 19:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 19:0/0/physics_layer_0/angular_velocity = 0.0
+19:0/0/metadata/_better_terrain = {
+4: [1],
+8: [1],
+"type": 1
+}
 20:0/0 = 0
 20:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 20:0/0/physics_layer_0/angular_velocity = 0.0
@@ -132,9 +167,25 @@ texture_region_size = Vector2i(18, 18)
 4:1/0 = 0
 4:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 4:1/0/physics_layer_0/angular_velocity = 0.0
+4:1/0/metadata/_better_terrain = {
+0: [0],
+4: [0],
+8: [0],
+12: [0],
+15: [-1],
+"type": 0
+}
 5:1/0 = 0
 5:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 5:1/0/physics_layer_0/angular_velocity = 0.0
+5:1/0/metadata/_better_terrain = {
+0: [0],
+4: [0],
+8: [0],
+11: [-1],
+12: [0],
+"type": 0
+}
 6:1/0 = 0
 6:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 6:1/0/physics_layer_0/angular_velocity = 0.0
@@ -168,15 +219,38 @@ texture_region_size = Vector2i(18, 18)
 16:1/0 = 0
 16:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 16:1/0/physics_layer_0/angular_velocity = 0.0
+16:1/0/metadata/_better_terrain = {
+4: [1],
+"type": 1
+}
 17:1/0 = 0
 17:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 17:1/0/physics_layer_0/angular_velocity = 0.0
+17:1/0/metadata/_better_terrain = {
+0: [1],
+4: [1],
+12: [1],
+"type": 1
+}
 18:1/0 = 0
 18:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 18:1/0/physics_layer_0/angular_velocity = 0.0
+18:1/0/metadata/_better_terrain = {
+0: [1],
+4: [1],
+8: [1],
+12: [1],
+"type": 1
+}
 19:1/0 = 0
 19:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 19:1/0/physics_layer_0/angular_velocity = 0.0
+19:1/0/metadata/_better_terrain = {
+4: [1],
+8: [1],
+12: [1],
+"type": 1
+}
 20:1/0 = 0
 20:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 20:1/0/physics_layer_0/angular_velocity = 0.0
@@ -234,15 +308,36 @@ texture_region_size = Vector2i(18, 18)
 16:2/0 = 0
 16:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 16:2/0/physics_layer_0/angular_velocity = 0.0
+16:2/0/metadata/_better_terrain = {
+4: [1],
+12: [1],
+"type": 1
+}
 17:2/0 = 0
 17:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 17:2/0/physics_layer_0/angular_velocity = 0.0
+17:2/0/metadata/_better_terrain = {
+0: [1],
+12: [1],
+"type": 1
+}
 18:2/0 = 0
 18:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 18:2/0/physics_layer_0/angular_velocity = 0.0
+18:2/0/metadata/_better_terrain = {
+0: [1],
+8: [1],
+12: [1],
+"type": 1
+}
 19:2/0 = 0
 19:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 19:2/0/physics_layer_0/angular_velocity = 0.0
+19:2/0/metadata/_better_terrain = {
+8: [1],
+12: [1],
+"type": 1
+}
 20:2/0 = 0
 20:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 20:2/0/physics_layer_0/angular_velocity = 0.0
@@ -300,15 +395,32 @@ texture_region_size = Vector2i(18, 18)
 16:3/0 = 0
 16:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 16:3/0/physics_layer_0/angular_velocity = 0.0
+16:3/0/metadata/_better_terrain = {
+12: [1],
+"type": 1
+}
 17:3/0 = 0
 17:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 17:3/0/physics_layer_0/angular_velocity = 0.0
+17:3/0/metadata/_better_terrain = {
+0: [1],
+"type": 1
+}
 18:3/0 = 0
 18:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 18:3/0/physics_layer_0/angular_velocity = 0.0
+18:3/0/metadata/_better_terrain = {
+0: [1],
+8: [1],
+"type": 1
+}
 19:3/0 = 0
 19:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 19:3/0/physics_layer_0/angular_velocity = 0.0
+19:3/0/metadata/_better_terrain = {
+8: [1],
+"type": 1
+}
 20:3/0 = 0
 20:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 20:3/0/physics_layer_0/angular_velocity = 0.0
@@ -366,15 +478,39 @@ texture_region_size = Vector2i(18, 18)
 16:4/0 = 0
 16:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 16:4/0/physics_layer_0/angular_velocity = 0.0
+16:4/0/metadata/_better_terrain = {
+4: [2],
+12: [2],
+"symmetry": 2,
+"type": 2
+}
 17:4/0 = 0
 17:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 17:4/0/physics_layer_0/angular_velocity = 0.0
+17:4/0/metadata/_better_terrain = {
+0: [1],
+4: [2],
+8: [1],
+12: [1],
+"type": 1
+}
 18:4/0 = 0
 18:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 18:4/0/physics_layer_0/angular_velocity = 0.0
+18:4/0/metadata/_better_terrain = {
+0: [2],
+"symmetry": 1,
+"type": 2
+}
 19:4/0 = 0
 19:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 19:4/0/physics_layer_0/angular_velocity = 0.0
+19:4/0/metadata/_better_terrain = {
+0: [2],
+8: [2],
+"symmetry": 1,
+"type": 2
+}
 20:4/0 = 0
 20:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 20:4/0/physics_layer_0/angular_velocity = 0.0
@@ -401,6 +537,7 @@ texture_region_size = Vector2i(18, 18)
 4: [0],
 8: [0],
 12: [0],
+"symmetry": 7,
 "type": 0
 }
 5:5/0 = 0
@@ -439,15 +576,38 @@ texture_region_size = Vector2i(18, 18)
 16:5/0 = 0
 16:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 16:5/0/physics_layer_0/angular_velocity = 0.0
+16:5/0/metadata/_better_terrain = {
+4: [2],
+12: [2],
+"type": 2
+}
 17:5/0 = 0
 17:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 17:5/0/physics_layer_0/angular_velocity = 0.0
+17:5/0/metadata/_better_terrain = {
+0: [2],
+4: [2],
+8: [2],
+12: [2],
+"type": 2
+}
 18:5/0 = 0
 18:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 18:5/0/physics_layer_0/angular_velocity = 0.0
+18:5/0/metadata/_better_terrain = {
+0: [2],
+"symmetry": 1,
+"type": 2
+}
 19:5/0 = 0
 19:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 19:5/0/physics_layer_0/angular_velocity = 0.0
+19:5/0/metadata/_better_terrain = {
+0: [2],
+8: [2],
+"symmetry": 1,
+"type": 2
+}
 20:5/0 = 0
 20:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 20:5/0/physics_layer_0/angular_velocity = 0.0
@@ -479,6 +639,7 @@ texture_region_size = Vector2i(18, 18)
 4: [0],
 8: [0],
 12: [0],
+"symmetry": 7,
 "type": 0
 }
 3:6/0 = 0
@@ -529,15 +690,39 @@ texture_region_size = Vector2i(18, 18)
 16:6/0 = 0
 16:6/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 16:6/0/physics_layer_0/angular_velocity = 0.0
+16:6/0/metadata/_better_terrain = {
+4: [2],
+8: [2],
+12: [2],
+"symmetry": 1,
+"type": 2
+}
 17:6/0 = 0
 17:6/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 17:6/0/physics_layer_0/angular_velocity = 0.0
+17:6/0/metadata/_better_terrain = {
+4: [0],
+12: [2],
+"type": 2
+}
 18:6/0 = 0
 18:6/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 18:6/0/physics_layer_0/angular_velocity = 0.0
+18:6/0/metadata/_better_terrain = {
+0: [2],
+4: [2],
+12: [2],
+"symmetry": 1,
+"type": 2
+}
 19:6/0 = 0
 19:6/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 19:6/0/physics_layer_0/angular_velocity = 0.0
+19:6/0/metadata/_better_terrain = {
+8: [2],
+"symmetry": 1,
+"type": 2
+}
 20:6/0 = 0
 20:6/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 20:6/0/physics_layer_0/angular_velocity = 0.0
@@ -771,8 +956,14 @@ metadata/_better_terrain = {
 "decoration": ["Decoration", Color(0.411765, 0.411765, 0.411765, 1), 3, [], {
 "path": "res://addons/better-terrain/icons/Decoration.svg"
 }],
-"terrains": [["Grass", Color(0.133333, 0.611765, 0.415686, 1), 0, [], {
+"terrains": [["Ground", Color(0.133333, 0.611765, 0.415686, 1), 0, [], {
 "coord": Vector2i(0, 0),
+"source_id": 1
+}], ["TreeLeaves", Color(0, 0.0546875, 0.000114087, 1), 0, [], {
+"coord": Vector2i(16, 0),
+"source_id": 1
+}], ["TreeTrunk", Color(0.58328, 0.928793, 0.309494, 1), 0, [], {
+"coord": Vector2i(16, 4),
 "source_id": 1
 }]],
 "version": "0.2"
@@ -784,9 +975,10 @@ size = Vector2(39, 38)
 [node name="Level-test" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
+position = Vector2(-6, -22)
 tile_set = SubResource("TileSet_m4nf0")
 format = 2
-layer_0/tile_data = PackedInt32Array(655361, 65537, 1, 655362, 131073, 1, 655363, 131073, 1, 655364, 131073, 1, 655365, 131073, 1, 655366, 131073, 1, 655367, 131073, 1, 655368, 131073, 1, 655369, 131073, 1, 655370, 131073, 1, 655371, 131073, 1, 655372, 131073, 1, 655373, 131073, 1, 655374, 131073, 1, 655375, 131073, 1, 655376, 131073, 1, 720897, 65537, 6, 786433, 65537, 6, 851969, 65537, 7, 720898, 262145, 5, 786434, 131073, 6, 851970, 131073, 7, 720899, 262145, 5, 786435, 131073, 6, 851971, 131073, 7, 720900, 131073, 6, 786436, 131073, 6, 851972, 131073, 7, 720901, 262145, 5, 786437, 262145, 5, 851973, 131073, 7, 720902, 262145, 5, 786438, 131073, 6, 851974, 131073, 7, 720903, 262145, 5, 786439, 262145, 5, 851975, 131073, 7, 720904, 131073, 6, 786440, 131073, 6, 851976, 131073, 7, 720905, 131073, 6, 786441, 262145, 5, 851977, 131073, 7, 720906, 262145, 5, 786442, 262145, 5, 851978, 131073, 7, 720907, 131073, 6, 786443, 131073, 6, 851979, 131073, 7, 720908, 131073, 6, 786444, 262145, 5, 851980, 131073, 7, 720909, 262145, 5, 786445, 131073, 6, 851981, 131073, 7, 720910, 262145, 5, 786446, 131073, 6, 851982, 131073, 7, 720911, 262145, 5, 786447, 262145, 5, 851983, 131073, 7, 720912, 131073, 6, 786448, 262145, 5, 851984, 131073, 7, 655377, 196609, 1, 720913, 196609, 6, 786449, 196609, 6, 851985, 196609, 7)
+layer_0/tile_data = PackedInt32Array(655361, 65537, 1, 655362, 131073, 1, 655363, 131073, 1, 655364, 131073, 1, 655365, 131073, 1, 655366, 131073, 1, 655367, 131073, 1, 655368, 131073, 1, 655369, 131073, 1, 655370, 131073, 1, 655371, 131073, 1, 655372, 131073, 1, 655373, 131073, 1, 655374, 131073, 1, 655375, 131073, 1, 655376, 327681, 1, 720897, 65537, 6, 786433, 65537, 6, 851969, 65537, 7, 720898, 262145, 1342177285, 786434, 131073, 1610612742, 851970, 131073, 7, 720899, 131073, 805306374, 786435, 262145, 805306373, 851971, 131073, 7, 720900, 262145, 1342177285, 786436, 262145, 1610612741, 851972, 131073, 7, 720901, 131073, 1610612742, 786437, 262145, 1610612741, 851973, 131073, 7, 720902, 262145, 1342177285, 786438, 131073, 805306374, 851974, 131073, 7, 720903, 262145, 5, 786439, 131073, 805306374, 851975, 131073, 7, 720904, 131073, 805306374, 786440, 262145, 805306373, 851976, 131073, 7, 720905, 131073, 1342177286, 786441, 262145, 5, 851977, 131073, 7, 720906, 131073, 805306374, 786442, 262145, 1342177285, 851978, 131073, 7, 720907, 262145, 5, 786443, 262145, 5, 851979, 131073, 7, 720908, 131073, 6, 786444, 262145, 5, 851980, 131073, 7, 720909, 262145, 805306373, 786445, 262145, 5, 851981, 131073, 7, 720910, 262145, 1610612741, 786446, 262145, 5, 851982, 131073, 7, 720911, 262145, 805306373, 786447, 262145, 5, 851983, 131073, 7, 720912, 262145, 1342177285, 786448, 262145, 1610612741, 851984, 131073, 7, 655377, 196609, 6, 786449, 196609, 6, 851985, 196609, 7, 720913, 196609, 6, 589841, 196609, 6, 524305, 196609, 1, 589840, 65537, 6, 524304, 65537, 1, 589832, 1114113, 6, 524296, 1048577, 6, 458760, 1179649, 6, 458761, 1245185, 4, 393224, 1048577, 5, 327688, 1114113, 4, 327689, 1245185, 2, 327687, 1114113, 2, 262151, 1114113, 0, 262152, 1179649, 0, 262153, 1245185, 0, 458762, 1245185, 4, 458763, 1179649, 268435461, 524295, 1245185, 4, 524294, 1245185, 5, 524293, 1245185, 268435462)
 
 [node name="TestDude" type="CharacterBody2D" parent="."]
 position = Vector2(52, 65)
