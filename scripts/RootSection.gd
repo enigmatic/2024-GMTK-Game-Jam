@@ -61,7 +61,10 @@ func nearest_point_to(x:Vector2):
 	return Geometry2D.get_closest_point_to_segment(x, source, p2);
 	
 func get_end_point():
-	return line.get_point_position(1);
+	if (_done):
+		return line.get_point_position(1);
+	else:
+		return line.get_point_position(0);
 
 func get_collision_RID():
 	return collisionArea.get_rid();
