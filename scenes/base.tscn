@@ -1,6 +1,48 @@
-[gd_scene load_steps=2 format=3 uid="uid://ddpfqi0kg1m3w"]
+[gd_scene load_steps=12 format=3 uid="uid://ddpfqi0kg1m3w"]
 
 [ext_resource type="Theme" uid="uid://cce1uxp863s3k" path="res://assets/default_theme.tres" id="1_jnofk"]
+[ext_resource type="Shader" path="res://assets/shaders/foliage.gdshader" id="2_eikgx"]
+[ext_resource type="Texture2D" uid="uid://cn8i14q6eeyvc" path="res://assets/icon.svg" id="3_qpd31"]
+[ext_resource type="Shader" path="res://assets/shaders/tree.gdshader" id="4_klir3"]
+
+[sub_resource type="Gradient" id="Gradient_32sng"]
+offsets = PackedFloat32Array(0.0275229, 0.198777, 0.70948)
+colors = PackedColorArray(0.499213, 0.321774, 0.139303, 1, 0.567527, 0.327045, 4.81307e-07, 1, 0.246045, 0.174396, 7.21961e-08, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_v2nlr"]
+seed = 5
+frequency = 0.007
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_wvxoe"]
+seamless = true
+color_ramp = SubResource("Gradient_32sng")
+noise = SubResource("FastNoiseLite_v2nlr")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_udsy5"]
+shader = ExtResource("4_klir3")
+shader_parameter/skew_x = 0.0
+shader_parameter/skew_y = 0.0
+shader_parameter/pixelization = 32.0
+shader_parameter/width = 16.0
+shader_parameter/height = 5.0
+shader_parameter/bottom_radius = 5.0
+shader_parameter/color_steps = 4.0
+shader_parameter/base_noise = SubResource("NoiseTexture2D_wvxoe")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ql6w2"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_x2vik"]
+noise = SubResource("FastNoiseLite_ql6w2")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ltlpd"]
+shader = ExtResource("2_eikgx")
+shader_parameter/skew_x = 0.0
+shader_parameter/skew_y = 0.0
+shader_parameter/pixelization = 32.0
+shader_parameter/radius = 32.0
+shader_parameter/base_color_amount = 0.25
+shader_parameter/outline_color = Color(0, 0.25, 0, 1)
+shader_parameter/green_noise = SubResource("NoiseTexture2D_x2vik")
 
 [node name="Base" type="Node2D"]
 
@@ -29,9 +71,26 @@ offset_right = 52.0
 offset_bottom = 28.5
 grow_horizontal = 2
 grow_vertical = 2
+alignment = 1
 
 [node name="PlayButton" type="Button" parent="StartMenu/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("1_jnofk")
 keep_pressed_outside = true
 text = "Play"
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+texture_filter = 2
+texture_repeat = 2
+material = SubResource("ShaderMaterial_udsy5")
+position = Vector2(136, 228)
+scale = Vector2(0.748779, 0.616211)
+texture = ExtResource("3_qpd31")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 2
+texture_repeat = 2
+material = SubResource("ShaderMaterial_ltlpd")
+position = Vector2(119, 170)
+scale = Vector2(1.67187, 1.67187)
+texture = ExtResource("3_qpd31")
