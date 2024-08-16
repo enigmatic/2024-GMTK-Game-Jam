@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var rootList = $Roots;
+@onready var rootList = $RootList;
 @onready var targetNode = $Target;
 
 var _nearestNode: Vector2;
@@ -14,20 +14,22 @@ func _input(event):
 		_findNearestRootNode(event.position)
 		
 		targetNode.position = _nearestNode
+		targetNode.look_at(event.position);
 		
 
 func _growRoot(target: Vector2):
-	var section = RootSection.new();
-	section.source = _nearestNode;
+	var scene = load("res://scenes/RootSection.tscn");
+	var section = scene.instantiate();
+	section.source = _nearestNode;	
 	section.target = target;
-	$Roots.add_child(section);
+	rootList.add_child(section);
 	
 func _findNearestRootNode(pos: Vector2):
 	var roots = rootList.get_children();
-	var nearest: Vector2 = roots[0].get_point_position(1);
+	var nearest: Vector2 = roots[0].get_end_point();
 	var nearDist = nearest.distance_to(pos);
 	for root in roots:
-		var testPos = root.get_point_position(1);
+		var testPos = root.get_end_point();
 		var dist = testPos.distance_to(pos);
 		if (dist < nearDist):
 			nearest = testPos;

@@ -58,7 +58,8 @@ jump={
 
 [layer_names]
 
-2d_physics/layer_1="ground"
+2d_physics/layer_1="roots"
+2d_physics/layer_2="rocks"
 
 [rendering]
 

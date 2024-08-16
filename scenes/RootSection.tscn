@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://xm0ofe0xm664"]
+
+[ext_resource type="Script" path="res://scripts/RootSection.gd" id="1_w5jjx"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_mhe8i"]
+b = Vector2(55, 38)
+
+[node name="RootSection" type="Node2D"]
+script = ExtResource("1_w5jjx")
+
+[node name="Line2D" type="Line2D" parent="."]
+default_color = Color(0, 0, 0, 1)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("SegmentShape2D_mhe8i")
