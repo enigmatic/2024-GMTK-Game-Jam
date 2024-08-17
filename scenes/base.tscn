@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://b15l1t355unu0" path="res://scenes/Tree.tscn" id="4_78xgr"]
 [ext_resource type="Shader" path="res://assets/shaders/clouds.gdshader" id="5_7neub"]
 [ext_resource type="Script" path="res://scripts/Camera.gd" id="6_tqy8j"]
-[ext_resource type="PackedScene" path="res://scenes/Root.tscn" id="7_cr1yp"]
+[ext_resource type="PackedScene" uid="uid://d3ro0rdbnkf6" path="res://scenes/Root.tscn" id="7_cr1yp"]
 
 [sub_resource type="Gradient" id="Gradient_tyulx"]
 offsets = PackedFloat32Array(0, 0.125348, 1)

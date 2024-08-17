@@ -33,6 +33,7 @@ shape = SubResource("SegmentShape2D_mhe8i")
 [node name="ConsumeTimer" type="Timer" parent="."]
 
 [node name="WaterDrop" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(103.908, 41.78)
 texture = SubResource("GradientTexture2D_3blog")
 
