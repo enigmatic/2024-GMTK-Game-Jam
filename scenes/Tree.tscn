@@ -1,10 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://b15l1t355unu0"]
+[gd_scene load_steps=12 format=3 uid="uid://b15l1t355unu0"]
 
 [ext_resource type="Shader" path="res://assets/shaders/tree.gdshader" id="1_bomo3"]
 [ext_resource type="Texture2D" uid="uid://cb08ebi6fysv8" path="res://assets/tree/4x4.png" id="2_y3cnv"]
 [ext_resource type="Script" path="res://scripts/Tree.gd" id="3_l2jbl"]
 [ext_resource type="Shader" path="res://assets/shaders/foliage.gdshader" id="3_xwv44"]
-[ext_resource type="PackedScene" uid="uid://c8s2uxk11a0ip" path="res://scenes/foliage.tscn" id="5_mf3q5"]
 
 [sub_resource type="Gradient" id="Gradient_32sng"]
 offsets = PackedFloat32Array(0.0275229, 0.198777, 1)
@@ -67,10 +66,22 @@ texture_filter = 2
 texture_repeat = 2
 material = SubResource("ShaderMaterial_ltlpd")
 layout_mode = 1
-offset_right = 4.0
-offset_bottom = 4.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -2.0
+offset_top = -2.0
+offset_right = 2.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("2_y3cnv")
 
 [node name="Foliages" type="Node" parent="."]
 
-[node name="Foliage" parent="Foliages" instance=ExtResource("5_mf3q5")]
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
