@@ -15,5 +15,5 @@ func _on_root_growing_root():
 	root_label.text = 'Roots: ' + str(rootCounter)
 
 func _on_root_water_gathered(amount):
-	score += 1;
+	score += amount;
 	score_label.text = "Score: " + str(score);
