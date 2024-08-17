@@ -2,6 +2,7 @@ extends Node2D
 
 @export var groundLevel: int = 0;
 @export var rootSectionMaxSize = 100;
+@export var rootSectionMinSize = 25;
 
 @onready var rootList = $RootList;
 @onready var targetNode = $Target;
@@ -21,7 +22,8 @@ func _input(event):
 		
 		if event is InputEventMouseButton and event.button_index == 1:
 			if event.is_released():
-				_growRoot(end_point);
+				if (_nearestNode.distance_to(end_point) > rootSectionMinSize):
+					_growRoot(end_point);
 				ghostLine.visible = false;
 				_planning_to_draw = false;
 			else:
@@ -52,6 +54,10 @@ func _findNearestRootNode(pos: Vector2):
 func _draw_ghost_line(target: Vector2):
 	ghostLine.set_point_position(0, _nearestNode);
 	ghostLine.set_point_position(1, target);
+	if (_nearestNode.distance_to(target) < rootSectionMinSize):
+		ghostLine.default_color = Color(1,1,1);
+	else:
+		ghostLine.default_color = Color(0,1,0);
 
 func _updateBasedOnTarget(target: Vector2):
 	var targetPos = target
