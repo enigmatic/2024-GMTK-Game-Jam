@@ -27,16 +27,19 @@ func _physics_process(delta):
 		var start_point = line.get_point_position(1);
 		var point = start_point.move_toward(target, growthRate * delta);
 		
-		var space_state = get_world_2d().direct_space_state
 		
-		# use global coordinates, not local to node		
-		var query = PhysicsRayQueryParameters2D.create(line.global_position + start_point, line.global_position + point, 4294967295, [get_collision_RID()] );
-		query.collide_with_areas = true
-		query.hit_from_inside = true
-		var result = space_state.intersect_ray(query)
-		
-		if result:
-			target = point;
+		# Don't need to look for intersections if we don't let the user try and make them
+		#
+		#var space_state = self.get_parent().get_world_2d().direct_space_state
+		#
+		## use global coordinates, not local to node		
+		#var query = PhysicsRayQueryParameters2D.create(line.global_position + start_point, line.global_position + point, 4294967295, [get_collision_RID()] );
+		#query.collide_with_areas = true
+		#query.hit_from_inside = true
+		#var result = space_state.intersect_ray(query)
+		#
+		#if result:
+			#target = point;
 			
 		if (is_equal_approx(point.x, target.x) && is_equal_approx(point.y, target.y)):
 			_done = true;

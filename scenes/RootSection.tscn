@@ -1,19 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://xm0ofe0xm664"]
+[gd_scene load_steps=4 format=3 uid="uid://xm0ofe0xm664"]
 
-[ext_resource type="Script" path="res://scripts/RootSection.gd" id="1_w5jjx"]
+[ext_resource type="Script" path="res://scripts/underground/RootSection.gd" id="1_3p7t0"]
+[ext_resource type="Script" path="res://scripts/underground/UndergroundCollidable.gd" id="2_h5hy5"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_mhe8i"]
 
 [node name="RootSection" type="Node2D"]
-script = ExtResource("1_w5jjx")
+script = ExtResource("1_3p7t0")
 
 [node name="Line2D" type="Line2D" parent="."]
 default_color = Color(0, 0, 0, 1)
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_mask = 0
+script = ExtResource("2_h5hy5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("SegmentShape2D_mhe8i")
-
-[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

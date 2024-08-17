@@ -22,8 +22,17 @@ func _input(event):
 		
 		if event is InputEventMouseButton and event.button_index == 1:
 			if event.is_released():
-				if (_nearestNode.distance_to(end_point) > rootSectionMinSize):
+				var okToGrow = true;
+				if (_nearestNode.distance_to(end_point) < rootSectionMinSize):
+					okToGrow = false;
+				else: 
+					var collidedWith = checkCollision(_nearestNode, end_point);
+					if collidedWith:
+						okToGrow = check_valid_target_node(collidedWith);
+					
+				if okToGrow:
 					_growRoot(end_point);
+					
 				ghostLine.visible = false;
 				_planning_to_draw = false;
 			else:
@@ -82,4 +91,13 @@ func checkCollision(_nearestNode, target):
 	var query = PhysicsRayQueryParameters2D.create(self.global_position + _nearestNode, self.global_position + target);
 	query.collide_with_areas = true
 	query.hit_from_inside = true
-	return space_state.intersect_ray(query);
+	var hit = space_state.intersect_ray(query);
+	if hit:
+		var collider = hit.collider;
+		if collider.has_method("is_blocker"):
+			return collider
+		
+	return null;
+
+func check_valid_target_node(node:UndergroundCollidable):
+	return !node.is_blocker();

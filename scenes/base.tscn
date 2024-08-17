@@ -136,6 +136,3 @@ offset_bottom = 4.0
 
 [node name="Root" parent="." instance=ExtResource("7_cr1yp")]
 position = Vector2(320, 3)
-groundLevel = 0
-rootSectionMaxSize = 100
-rootSectionMinSize = 25
