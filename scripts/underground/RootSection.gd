@@ -4,30 +4,38 @@ class_name RootSection
 @export var source: Vector2
 @export var target: Vector2
 @export var growthRate: float = 100;
+@export var width = 10;
+@export var widthGrowth = 2;
 
 
 @onready var line = $Line2D
 @onready var collisionShape = $Area2D/CollisionShape2D
 @onready var collisionArea = $Area2D;
 
+var parent: RootSection = null;
 var segment = SegmentShape2D.new();
+
 var _done = false;
-var length = 0;
 
 func _ready():
+	if parent:
+		source = parent.get_end_point();
+		
 	line.default_color = Color(0,0,0)
 	line.add_point(source.move_toward(target, -1));
 	line.add_point(source);
 	segment.a = source;
 	segment.b = source;
 	collisionShape.shape = segment;
+	
+	if parent:
+		parent.added_child();
 
 func _physics_process(delta):
 	if (!_done):
 		var start_point = line.get_point_position(1);
 		var point = start_point.move_toward(target, growthRate * delta);
-		
-		
+
 		# Don't need to look for intersections if we don't let the user try and make them
 		#
 		#var space_state = self.get_parent().get_world_2d().direct_space_state
@@ -46,7 +54,6 @@ func _physics_process(delta):
 			point = target;
 			
 		line.set_point_position(1, point);
-		length = source.distance_to(point);
 		segment.b = point;
 		
 		#make room for more growth
@@ -73,3 +80,9 @@ func get_end_point():
 
 func get_collision_RID():
 	return collisionArea.get_rid();
+
+func added_child():
+	width += widthGrowth;
+	line.width = width;
+	if parent:
+		parent.added_child();
