@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://xm0ofe0xm664"]
+[gd_scene load_steps=8 format=3 uid="uid://xm0ofe0xm664"]
 
 [ext_resource type="Script" path="res://scripts/underground/RootSection.gd" id="1_3p7t0"]
 [ext_resource type="Script" path="res://scripts/underground/UndergroundCollidable.gd" id="2_h5hy5"]
@@ -9,8 +9,21 @@
 offsets = PackedFloat32Array(0.448052, 1)
 colors = PackedColorArray(0, 0, 1, 1, 0, 0, 0, 0)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_3blog"]
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_egxcd"]
 gradient = SubResource("Gradient_oumjd")
+width = 10
+height = 10
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 1)
+
+[sub_resource type="Gradient" id="Gradient_ypntw"]
+offsets = PackedFloat32Array(0.571429, 0.577922)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_kl15e"]
+resource_local_to_scene = true
+gradient = SubResource("Gradient_ypntw")
 width = 10
 height = 10
 fill = 1
@@ -35,7 +48,10 @@ shape = SubResource("SegmentShape2D_mhe8i")
 [node name="WaterDrop" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(103.908, 41.78)
-texture = SubResource("GradientTexture2D_3blog")
+texture = SubResource("GradientTexture2D_egxcd")
+
+[node name="EndCap" type="Sprite2D" parent="."]
+texture = SubResource("GradientTexture2D_kl15e")
 
 [node name="Drops" type="Node" parent="."]
 

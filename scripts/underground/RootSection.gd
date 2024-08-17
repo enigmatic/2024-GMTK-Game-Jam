@@ -15,6 +15,7 @@ class_name RootSection
 @onready var consumeTimer = $ConsumeTimer;
 @onready var main_drop = $WaterDrop
 @onready var drops = $Drops
+@onready var endCap:Sprite2D = $EndCap
 
 var parent: RootSection = null;
 var touching: UndergroundCollidable = null;
@@ -46,6 +47,7 @@ func _process(delta):
 			
 		line.set_point_position(1, point);
 		segment.b = point;
+		endCap.position = point;
 		
 		#make room for more growth
 		if _doneGrowing:
@@ -89,6 +91,8 @@ func get_collision_RID():
 func added_child():
 	width += widthGrowth;
 	line.width = width;
+	endCap.texture.height = width + widthGrowth;
+	endCap.texture.width = width + widthGrowth;
 	if parent:
 		parent.added_child();
 
