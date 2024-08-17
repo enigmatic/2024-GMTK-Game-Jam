@@ -6,8 +6,11 @@ extends Node2D
 @onready var tree_node = $Tree
 
 var score = 0;
-var rootCounter = 5;
+var rootCounter = 2;
 var water_counter = 0;
+
+func _ready():
+	_updateScores();
 
 func _on_root_growing_root():
 	rootCounter -= 1;

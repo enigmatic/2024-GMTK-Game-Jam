@@ -182,17 +182,39 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Rocks" type="Node" parent="."]
 
-[node name="Rock" parent="Rocks" instance=ExtResource("8_g5x8e")]
-position = Vector2(234, 74)
-
 [node name="Rock2" parent="Rocks" instance=ExtResource("8_g5x8e")]
 position = Vector2(333, 114)
 randomSeed = 1
+variation = 10
+
+[node name="Rock3" parent="Rocks" instance=ExtResource("8_g5x8e")]
+position = Vector2(133, 127)
+randomSeed = 3
+
+[node name="Rock" parent="Rocks" instance=ExtResource("8_g5x8e")]
+position = Vector2(298, 52)
+scale = Vector2(0.5, 0.5)
+
+[node name="Rock4" parent="Rocks" instance=ExtResource("8_g5x8e")]
+position = Vector2(460, 174)
+randomSeed = 4
+variation = 15
+
+[node name="Rock5" parent="Rocks" instance=ExtResource("8_g5x8e")]
+position = Vector2(560, 25)
+scale = Vector2(1.5, 1.5)
+randomSeed = 5
+
+[node name="Rock6" parent="Rocks" instance=ExtResource("8_g5x8e")]
+position = Vector2(411, 55)
+scale = Vector2(0.25, 0.25)
+randomSeed = 6
 
 [node name="Water" type="Node" parent="."]
 
 [node name="Water2" parent="Water" instance=ExtResource("9_t2bt7")]
 position = Vector2(281, 216)
+max_volume = 10
 randomSeed = 5
 
 [node name="Water3" parent="Water" instance=ExtResource("9_t2bt7")]
