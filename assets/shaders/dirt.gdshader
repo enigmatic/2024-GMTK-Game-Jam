@@ -1,6 +1,6 @@
 shader_type canvas_item;
 
-uniform sampler2D dirt_noise;
+uniform sampler2D dirt_noise: repeat_enable;
 
 void vertex() {
 	// Called for every vertex the material is visible on.
@@ -9,7 +9,7 @@ void vertex() {
 void fragment() {
 	// Called for every pixel the material is visible on.b bnnb 
 	
-	COLOR = texture(dirt_noise,UV) + COLOR *.1;
+	COLOR = texture(dirt_noise,UV);
 	
 }
 

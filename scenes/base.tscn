@@ -49,8 +49,14 @@ offsets = PackedFloat32Array(0, 0.425076, 1)
 colors = PackedColorArray(0.2, 0.117647, 0.129412, 1, 0.1678, 0.092461, 0, 1, 0.0764295, 0.0323702, 9.02452e-09, 1)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_s1028"]
+frequency = 0.001
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_kvo2f"]
+width = 1440
+height = 1440
+generate_mipmaps = false
+seamless = true
+seamless_blend_skirt = 0.294
 color_ramp = SubResource("Gradient_c3m7p")
 noise = SubResource("FastNoiseLite_s1028")
 
@@ -71,34 +77,32 @@ fill_to = Vector2(0.581197, 0.0854701)
 
 [node name="Base" type="Node2D"]
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_offset = Vector2(1440, 1440)
-
-[node name="Sky" type="TextureRect" parent="ParallaxBackground/ParallaxLayer"]
-offset_top = -651.0
-offset_right = 665.0
+[node name="Sky" type="TextureRect" parent="."]
+offset_left = -960.0
+offset_top = -2560.0
+offset_right = 1600.0
 texture = SubResource("GradientTexture2D_ch5im")
 
-[node name="Clouds" type="TextureRect" parent="ParallaxBackground/ParallaxLayer"]
+[node name="Clouds" type="TextureRect" parent="."]
 material = SubResource("ShaderMaterial_ldn54")
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -420.0
-offset_top = -1440.0
-offset_right = 1020.0
+offset_left = -960.0
+offset_top = -2560.0
+offset_right = 1600.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("NoiseTexture2D_h8h1i")
 
-[node name="Dirt" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+[node name="Dirt" type="TextureRect" parent="."]
 material = SubResource("ShaderMaterial_ldifg")
+offset_left = -960.0
+offset_right = 1600.0
+offset_bottom = 2560.0
 texture = SubResource("GradientTexture2D_a3qdr")
-centered = false
 
 [node name="StartMenu" type="Panel" parent="."]
 process_mode = 3
@@ -139,13 +143,21 @@ offset_left = 0.0
 offset_top = 0.0
 offset_right = 4.0
 offset_bottom = 4.0
+metadata/_edit_use_anchors_ = true
 
 [node name="Root" parent="." instance=ExtResource("7_cr1yp")]
 position = Vector2(320, 3)
 
 [node name="Camera" type="Camera2D" parent="."]
-position = Vector2(337, -179)
+position = Vector2(321, 180)
+limit_left = -960
+limit_top = -2560
+limit_right = 1600
+limit_bottom = 2560
 script = ExtResource("6_tqy8j")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera"]
+layer = -100
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 
@@ -155,3 +167,4 @@ offset_top = 5.0
 offset_right = 67.0
 offset_bottom = 28.0
 text = "Score: 0"
+metadata/_edit_use_anchors_ = true
