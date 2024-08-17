@@ -3,7 +3,6 @@ shader_type canvas_item;
 
 uniform float pixelization = 32;
 uniform float width=32;
-uniform float height = 5;
 uniform float bottom_radius = 5;
 uniform sampler2D base_noise;
 uniform float color_steps = 4;
@@ -30,7 +29,7 @@ void fragment() {
 	vec4 final_color = vec4(0.0);
 	vec2 UVPix = pixelizeCoordinates(UV);
 	float w = (width+pixelization)/pixelization*.5;
-	if(UVPix.x > (.99-w)- .1*UV.y && UVPix.x < w + .1* UV.y){
+	if(UVPix.x > (.99-w)- .1*UV.y*w && UVPix.x < w + .1* UV.y*w){
 		final_color.rgb += step_color_channels(texture(base_noise,UVPix).rgb);
 		final_color.a = 1.0;
 	}
