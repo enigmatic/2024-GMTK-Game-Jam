@@ -1,6 +1,7 @@
 extends Node2D
 
 signal growing_root;
+signal water_gathered(amount:int);
 
 @export var groundLevel: int = 0;
 @export var rootSectionMaxSize = 100;
@@ -118,3 +119,7 @@ func checkCollision(source, target):
 
 func check_valid_target_node(node:UndergroundCollidable):
 	return !node.is_blocker();
+
+
+func _on_root_section_water_gathered(amount):
+	water_gathered.emit(amount);

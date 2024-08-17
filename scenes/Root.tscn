@@ -20,3 +20,5 @@ offset = Vector2(16, 0)
 visible = false
 points = PackedVector2Array(0, 0, 0, 100)
 width = 3.0
+
+[connection signal="water_gathered" from="RootList/RootSection" to="." method="_on_root_section_water_gathered"]
