@@ -142,11 +142,9 @@ position = Vector2(320, 3)
 position = Vector2(337, -179)
 script = ExtResource("6_tqy8j")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="ScoreLabel" type="Label" parent="CanvasLayer"]
-offset_left = 6.0
-offset_top = 5.0
-offset_right = 67.0
-offset_bottom = 28.0
+[node name="Label" type="Label" parent="Camera"]
+offset_left = -313.0
+offset_top = -174.0
+offset_right = -273.0
+offset_bottom = -151.0
 text = "Score: 0"
