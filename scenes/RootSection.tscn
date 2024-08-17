@@ -5,8 +5,12 @@
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_mhe8i"]
 
+[sub_resource type="Gradient" id="Gradient_oumjd"]
+offsets = PackedFloat32Array(0.448052, 1)
+colors = PackedColorArray(0, 0, 1, 1, 0, 0, 0, 0)
+
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_3blog"]
-gradient = SubResource("Gradient_0vu7f")
+gradient = SubResource("Gradient_oumjd")
 width = 10
 height = 10
 fill = 1
@@ -29,7 +33,6 @@ shape = SubResource("SegmentShape2D_mhe8i")
 [node name="ConsumeTimer" type="Timer" parent="."]
 
 [node name="WaterDrop" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(103.908, 41.78)
 texture = SubResource("GradientTexture2D_3blog")
 
