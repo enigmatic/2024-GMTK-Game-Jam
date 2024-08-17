@@ -4,7 +4,6 @@ class_name Water
 @export var max_volume = 20;
 
 var volume = max_volume;
-var _flow_to: Vector2;
 var _original_points: SS2D_Point_Array;
 
 func _ready():
@@ -40,11 +39,11 @@ func _consumeVolume(flow_to:Vector2):
 		points.set_point_position(points.get_point_key_at_index(i), point_position);
 	
 
-func consume(units:int, position:Vector2) -> bool:
+func consume(units:int, consuming_location:Vector2) -> bool:
 		
 	volume -= units;
 	if volume != 0:
-		_consumeVolume(to_local(position));
+		_consumeVolume(to_local(consuming_location));
 		return true;
 	else:
 		queue_free();

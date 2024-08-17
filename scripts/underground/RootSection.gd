@@ -98,7 +98,7 @@ func added_child():
 
 
 func _on_consume_timer_timeout():
-	if touching:
+	if touching && is_instance_valid(touching):
 		if touching.type() == 'water':
 			if (touching.consume(1, to_global(target))):
 				consumeTimer.start();
