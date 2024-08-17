@@ -1,5 +1,5 @@
 extends UndergroundCollidable
-class_name Rock
+class_name UndergroundVolume
 
 @export var randomSeed = 0;
 @export var variation = 20;
@@ -7,7 +7,8 @@ class_name Rock
 @onready var shape = $SS2D_Shape
 
 func _ready():
-	self.randomize();
+	if (randomSeed != 0):
+		self.randomize();
 
 func randomize():
 	seed(randomSeed);
@@ -18,5 +19,3 @@ func randomize():
 		var point_position = point.position.move_toward(Vector2(0,0),randf_range(-variation,variation));
 		points.set_point_position(points.get_point_key_at_index(i), point_position);
 	shape.set_point_array(points);
-	
-	
