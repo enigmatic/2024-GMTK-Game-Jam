@@ -11,8 +11,6 @@ groundLevel = 100
 [node name="RootList" type="Node2D" parent="."]
 
 [node name="RootSection" parent="RootList" instance=ExtResource("2_i6o6a")]
-source = Vector2(182, 10)
-target = Vector2(182, 12)
 
 [node name="Target" type="Sprite2D" parent="."]
 scale = Vector2(0.242188, 0.210938)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://ddpfqi0kg1m3w"]
+[gd_scene load_steps=29 format=3 uid="uid://ddpfqi0kg1m3w"]
 
 [ext_resource type="Theme" uid="uid://cce1uxp863s3k" path="res://assets/default_theme.tres" id="1_jnofk"]
 [ext_resource type="Shader" path="res://assets/shaders/dirt.gdshader" id="1_vgn1v"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cn8i14q6eeyvc" path="res://assets/icon.svg" id="3_qpd31"]
 [ext_resource type="Shader" path="res://assets/shaders/tree.gdshader" id="4_klir3"]
 [ext_resource type="Shader" path="res://assets/shaders/clouds.gdshader" id="5_7neub"]
+[ext_resource type="PackedScene" uid="uid://d3ro0rdbnkf6" path="res://scenes/Root.tscn" id="7_cr1yp"]
 
 [sub_resource type="Gradient" id="Gradient_c3m7p"]
 offsets = PackedFloat32Array(0, 0.425076, 1)
@@ -183,3 +184,6 @@ material = SubResource("ShaderMaterial_ltlpd")
 position = Vector2(286, -130)
 scale = Vector2(0.855469, 0.90625)
 texture = ExtResource("3_qpd31")
+
+[node name="Root" parent="." instance=ExtResource("7_cr1yp")]
+position = Vector2(292, 3)

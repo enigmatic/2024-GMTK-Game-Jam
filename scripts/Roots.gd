@@ -13,7 +13,7 @@ var _planning_to_draw = false;
 func _input(event):
 	
 	if event is InputEventMouse:
-		var targetClamp = event.position;
+		var targetClamp = get_local_mouse_position();
 		targetClamp.y = max(groundLevel, targetClamp.y);
 		
 		var end_point = _nearestNode.move_toward(targetClamp, rootSectionMaxSize);
