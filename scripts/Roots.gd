@@ -13,14 +13,14 @@ signal water_gathered(amount:int);
 @onready var ghostLine = $GhostLine;
 @onready var _nearestNode: RootSection = $RootList/RootSection;
 
-var canGrow = true;
+var _can_grow = true;
 
 var _planning_to_draw = false;
 
 func _input(event):
 	
 	if event is InputEventMouse:
-		if canGrow:
+		if _can_grow:
 			var targetClamp = get_local_mouse_position();
 			targetClamp.y = max(groundLevel, targetClamp.y);
 			var start_point = _nearestNode.get_end_point();
@@ -124,3 +124,9 @@ func check_valid_target_node(node:UndergroundCollidable):
 
 func _on_root_section_water_gathered(amount):
 	water_gathered.emit(amount);
+
+func stop_growing():
+	_can_grow = false;
+	
+func start_growing():
+	_can_grow = true;

@@ -12,13 +12,18 @@ var water_counter = 0;
 func _on_root_growing_root():
 	rootCounter -= 1;
 	if rootCounter == 0:
-		root.canGrow = false;
-	root_label.text = 'Roots: ' + str(rootCounter)
+		root.stop_growing();
+	_updateScores();
 
 func _on_root_water_gathered(amount):
 	score += amount;
-	score_label.text = "Score: " + str(score);
+	rootCounter += amount;
+	root.start_growing();
 	water_counter += amount
 	tree_node.increase_tree_size()
 	
+	_updateScores();
 	
+func _updateScores():
+	score_label.text = "Score: " + str(score);
+	root_label.text = 'Roots: ' + str(rootCounter);

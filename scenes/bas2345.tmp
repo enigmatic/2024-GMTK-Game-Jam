@@ -149,6 +149,9 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Root" parent="." instance=ExtResource("7_cr1yp")]
 position = Vector2(320, 3)
+groundLevel = 0
+rootSectionMaxSize = 100
+rootSectionMinSize = 25
 
 [node name="Camera" type="Camera2D" parent="."]
 position = Vector2(321, 180)

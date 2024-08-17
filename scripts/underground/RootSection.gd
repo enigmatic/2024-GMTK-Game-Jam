@@ -8,7 +8,7 @@ signal water_gathered(amount:int);
 @export var growthRate: float = 100;
 @export var width = 10;
 @export var widthGrowth = 2;
-@export var dropSpeed:float = 10;
+@export var dropSpeed:float = 50;
 
 
 @onready var line = $Line2D
