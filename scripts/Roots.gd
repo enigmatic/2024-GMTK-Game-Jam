@@ -23,15 +23,18 @@ func _input(event):
 		if event is InputEventMouseButton and event.button_index == 1:
 			if event.is_released():
 				var okToGrow = true;
+				var collideWith = null;
 				if (start_point.distance_to(end_point) < rootSectionMinSize):
 					okToGrow = false;
 				else: 
-					var collidedWith = checkCollision(start_point, end_point);
-					if collidedWith:
-						okToGrow = check_valid_target_node(collidedWith);
+					var hitInfo = checkCollision(start_point, end_point);
+					if hitInfo:
+						collideWith = hitInfo.collider;
+						okToGrow = check_valid_target_node(collideWith);
+						end_point = to_local(hitInfo.position);
 					
 				if okToGrow:
-					_growRoot(end_point);
+					_growRoot(end_point, collideWith);
 					
 				ghostLine.visible = false;
 				_planning_to_draw = false;
@@ -40,11 +43,13 @@ func _input(event):
 				_planning_to_draw = true;
 				_draw_ghost_line(start_point, end_point);
 
-func _growRoot(target: Vector2):
+func _growRoot(target: Vector2, collidedWith: UndergroundCollidable = null):
+	
 	var scene = load("res://scenes/RootSection.tscn");
 	var section = scene.instantiate();
-	section.parent = _nearestNode;	
+	section.parent = _nearestNode;
 	section.target = target;
+	section.touching = collidedWith;
 	rootList.add_child(section);
 	
 func _findNearestRootNode(pos: Vector2):
@@ -66,10 +71,15 @@ func _draw_ghost_line(start: Vector2, target: Vector2):
 	ghostLine.set_point_position(1, target);
 	
 	# will it run into anything?
-	var collidedWith = checkCollision(start, target);
+	var hitInfo = checkCollision(start, target);
 	
-	if collidedWith:
-		ghostLine.default_color = Color(1,0,0);
+	if hitInfo:
+		var collidedWith = hitInfo.collider;
+		if (collidedWith.type() == 'water'):
+			ghostLine.default_color = Color(0,0,1);
+			ghostLine.set_point_position(1, to_local(hitInfo.position));
+		else:
+			ghostLine.default_color = Color(1,0,0);
 	elif (start.distance_to(target) < rootSectionMinSize):
 		ghostLine.default_color = Color(1,1,1);
 	else:
@@ -95,10 +105,8 @@ func checkCollision(source, target):
 	query.hit_from_inside = true
 	var hit = space_state.intersect_ray(query);
 	if hit:
-		var collider = hit.collider;
-		if collider.has_method("is_blocker"):
-			return collider
-		
+		if hit.collider.has_method("is_blocker"):
+			return hit
 	return null;
 
 func check_valid_target_node(node:UndergroundCollidable):

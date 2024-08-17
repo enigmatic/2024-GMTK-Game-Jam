@@ -11,10 +11,11 @@ class_name RootSection
 @onready var line = $Line2D
 @onready var collisionShape = $Area2D/CollisionShape2D
 @onready var collisionArea = $Area2D;
+@onready var consumeTimer = $ConsumeTimer;
 
 var parent: RootSection = null;
+var touching: UndergroundCollidable = null;
 var segment = SegmentShape2D.new();
-
 var _done = false;
 
 func _ready():
@@ -64,6 +65,9 @@ func _physics_process(delta):
 			room_to_grow = target.move_toward(source, 1);
 			segment.b = room_to_grow;
 			
+			if touching: 
+				consumeTimer.start();
+			
 
 func nearest_point_to(x:Vector2):
 	var p2 = target;
@@ -73,7 +77,7 @@ func nearest_point_to(x:Vector2):
 	return Geometry2D.get_closest_point_to_segment(x, source, p2);
 	
 func get_end_point():
-	if (_done):
+	if (_done and !touching):
 		return line.get_point_position(1);
 	else:
 		return line.get_point_position(0);
@@ -86,3 +90,12 @@ func added_child():
 	line.width = width;
 	if parent:
 		parent.added_child();
+
+
+func _on_consume_timer_timeout():
+	if touching:
+		if touching.type() == 'water':
+			if (touching.consume(1)):
+				consumeTimer.start();
+			else:
+				touching = null;

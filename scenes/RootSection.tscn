@@ -17,3 +17,8 @@ script = ExtResource("2_h5hy5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("SegmentShape2D_mhe8i")
+
+[node name="ConsumeTimer" type="Timer" parent="."]
+wait_time = 0.28
+
+[connection signal="timeout" from="ConsumeTimer" to="." method="_on_consume_timer_timeout"]
