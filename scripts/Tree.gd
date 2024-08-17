@@ -47,7 +47,7 @@ func add_foliage(foliage_position:Vector2 = Vector2(-1,-1), radius: int = -1):
 	if foliage_position == Vector2(-1,-1):
 		foliage_position = Vector2(randi_range(310,330)-radius*.5, randi_range(size.y*.1,size.y*.2))
 		foliage_position.y = position.y
-		print(str(foliage_position) + "  "+  str(position.x) + "  "+  str(size.x))
+		#print(str(foliage_position) + "  "+  str(position.x) + "  "+  str(size.x))
 
 	var new_foliage = foliage_preload.instantiate()
 	new_foliage.size.x = radius*2
@@ -62,6 +62,3 @@ func add_foliage(foliage_position:Vector2 = Vector2(-1,-1), radius: int = -1):
 		new_foliage.grow_direction = -4.5
 	else:
 		new_foliage.grow_direction = -1
-
-func _on_timer_timeout():
-	increase_tree_size()

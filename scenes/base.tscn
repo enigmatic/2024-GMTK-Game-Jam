@@ -144,9 +144,6 @@ keep_pressed_outside = true
 text = "Play"
 
 [node name="Tree" parent="." instance=ExtResource("4_78xgr")]
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 4.0
 offset_bottom = 4.0
 metadata/_edit_use_anchors_ = true
 
