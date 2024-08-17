@@ -1,11 +1,45 @@
-[gd_scene load_steps=21 format=3 uid="uid://ddpfqi0kg1m3w"]
+[gd_scene load_steps=24 format=3 uid="uid://ddpfqi0kg1m3w"]
 
+[ext_resource type="Script" path="res://scripts/Base.gd" id="1_20ccf"]
 [ext_resource type="Theme" uid="uid://cce1uxp863s3k" path="res://assets/default_theme.tres" id="1_jnofk"]
 [ext_resource type="Shader" path="res://assets/shaders/dirt.gdshader" id="1_vgn1v"]
 [ext_resource type="PackedScene" uid="uid://b15l1t355unu0" path="res://scenes/Tree.tscn" id="4_78xgr"]
 [ext_resource type="Shader" path="res://assets/shaders/clouds.gdshader" id="5_7neub"]
 [ext_resource type="Script" path="res://scripts/Camera.gd" id="6_tqy8j"]
 [ext_resource type="PackedScene" uid="uid://d3ro0rdbnkf6" path="res://scenes/Root.tscn" id="7_cr1yp"]
+[ext_resource type="PackedScene" uid="uid://bxfxlvuahy6vv" path="res://scenes/Rock.tscn" id="8_g5x8e"]
+[ext_resource type="PackedScene" uid="uid://cmvwbb83jppve" path="res://scenes/Water.tscn" id="9_t2bt7"]
+
+[sub_resource type="Gradient" id="Gradient_c3m7p"]
+offsets = PackedFloat32Array(0, 0.425076, 1)
+colors = PackedColorArray(0.2, 0.117647, 0.129412, 1, 0.1678, 0.092461, 0, 1, 0.0764295, 0.0323702, 9.02452e-09, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_s1028"]
+frequency = 0.001
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_kvo2f"]
+width = 1440
+height = 1440
+generate_mipmaps = false
+seamless = true
+seamless_blend_skirt = 0.294
+color_ramp = SubResource("Gradient_c3m7p")
+noise = SubResource("FastNoiseLite_s1028")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ldifg"]
+shader = ExtResource("1_vgn1v")
+shader_parameter/dirt_noise = SubResource("NoiseTexture2D_kvo2f")
+
+[sub_resource type="Gradient" id="Gradient_wdt31"]
+offsets = PackedFloat32Array(0.130919, 1)
+colors = PackedColorArray(0.0773214, 0.0807686, 0.0897352, 1, 0.321569, 0.2, 0.0431373, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_a3qdr"]
+gradient = SubResource("Gradient_wdt31")
+width = 1440
+height = 1440
+fill_from = Vector2(0.290598, 1)
+fill_to = Vector2(0.581197, 0.0854701)
 
 [sub_resource type="Gradient" id="Gradient_tyulx"]
 offsets = PackedFloat32Array(0, 0.125348, 1)
@@ -44,38 +78,16 @@ shader_parameter/clouds2 = SubResource("NoiseTexture2D_0p12a")
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_h8h1i"]
 
-[sub_resource type="Gradient" id="Gradient_c3m7p"]
-offsets = PackedFloat32Array(0, 0.425076, 1)
-colors = PackedColorArray(0.2, 0.117647, 0.129412, 1, 0.1678, 0.092461, 0, 1, 0.0764295, 0.0323702, 9.02452e-09, 1)
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_s1028"]
-frequency = 0.001
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_kvo2f"]
-width = 1440
-height = 1440
-generate_mipmaps = false
-seamless = true
-seamless_blend_skirt = 0.294
-color_ramp = SubResource("Gradient_c3m7p")
-noise = SubResource("FastNoiseLite_s1028")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ldifg"]
-shader = ExtResource("1_vgn1v")
-shader_parameter/dirt_noise = SubResource("NoiseTexture2D_kvo2f")
-
-[sub_resource type="Gradient" id="Gradient_wdt31"]
-offsets = PackedFloat32Array(0.130919, 1)
-colors = PackedColorArray(0.0773214, 0.0807686, 0.0897352, 1, 0.321569, 0.2, 0.0431373, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_a3qdr"]
-gradient = SubResource("Gradient_wdt31")
-width = 1440
-height = 1440
-fill_from = Vector2(0.290598, 1)
-fill_to = Vector2(0.581197, 0.0854701)
-
 [node name="Base" type="Node2D"]
+script = ExtResource("1_20ccf")
+
+[node name="Dirt" type="TextureRect" parent="."]
+z_as_relative = false
+material = SubResource("ShaderMaterial_ldifg")
+offset_left = -959.0
+offset_right = 1601.0
+offset_bottom = 2560.0
+texture = SubResource("GradientTexture2D_a3qdr")
 
 [node name="Sky" type="TextureRect" parent="."]
 offset_left = -960.0
@@ -96,13 +108,6 @@ offset_right = 1600.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("NoiseTexture2D_h8h1i")
-
-[node name="Dirt" type="TextureRect" parent="."]
-material = SubResource("ShaderMaterial_ldifg")
-offset_left = -960.0
-offset_right = 1600.0
-offset_bottom = 2560.0
-texture = SubResource("GradientTexture2D_a3qdr")
 
 [node name="StartMenu" type="Panel" parent="."]
 process_mode = 3
@@ -168,3 +173,33 @@ offset_right = 67.0
 offset_bottom = 28.0
 text = "Score: 0"
 metadata/_edit_use_anchors_ = true
+
+[node name="RootLabel" type="Label" parent="CanvasLayer2"]
+offset_left = 7.0
+offset_top = 28.0
+offset_right = 78.0
+offset_bottom = 51.0
+text = "Roots: 5"
+metadata/_edit_use_anchors_ = true
+
+[node name="Rocks" type="Node" parent="."]
+
+[node name="Rock" parent="Rocks" instance=ExtResource("8_g5x8e")]
+position = Vector2(234, 74)
+
+[node name="Rock2" parent="Rocks" instance=ExtResource("8_g5x8e")]
+position = Vector2(483, 251)
+randomSeed = 1
+
+[node name="Water" type="Node" parent="."]
+
+[node name="Water2" parent="Water" instance=ExtResource("9_t2bt7")]
+position = Vector2(281, 216)
+randomSeed = 5
+
+[node name="Water3" parent="Water" instance=ExtResource("9_t2bt7")]
+position = Vector2(426, 161)
+randomSeed = 2
+
+[connection signal="growing_root" from="Root" to="." method="_on_root_growing_root"]
+[connection signal="water_gathered" from="Root" to="." method="_on_root_water_gathered"]

@@ -7,6 +7,8 @@ var volume = max_volume;
 var _original_points: SS2D_Point_Array;
 
 func _ready():
+	variation = max(variation, max_volume/2);
+	super._ready();
 	_updateVolume();
 	
 func is_blocker():

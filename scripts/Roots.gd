@@ -1,4 +1,5 @@
 extends Node2D
+class_name Root
 
 signal growing_root;
 signal water_gathered(amount:int);

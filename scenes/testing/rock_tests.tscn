@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bvw1q8knnnaxc"]
 
-[ext_resource type="PackedScene" path="res://scenes/Root.tscn" id="1_yp1ii"]
-[ext_resource type="PackedScene" uid="uid://bxfxlvuahy6vv" path="res://scenes/rock.tscn" id="2_7xmsd"]
+[ext_resource type="PackedScene" uid="uid://d3ro0rdbnkf6" path="res://scenes/Root.tscn" id="1_yp1ii"]
+[ext_resource type="PackedScene" uid="uid://bxfxlvuahy6vv" path="res://scenes/Rock.tscn" id="2_7xmsd"]
 
 [node name="RockTests" type="Node2D"]
 
