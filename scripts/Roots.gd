@@ -1,6 +1,7 @@
 extends Node2D
 
 @export var groundLevel: int = 0;
+@export var rootSectionMaxSize = 100;
 
 @onready var rootList = $RootList;
 @onready var targetNode = $Target;
@@ -11,19 +12,22 @@ var _planning_to_draw = false;
 func _input(event):
 	
 	if event is InputEventMouse:
-		var targetPos = event.position;
-		targetPos.y = max(groundLevel, targetPos.y);
-		_updateBasedOnTarget(targetPos);
+		var targetClamp = event.position;
+		targetClamp.y = max(groundLevel, targetClamp.y);
+		
+		var end_point = _nearestNode.move_toward(targetClamp, rootSectionMaxSize);
+		
+		_updateBasedOnTarget(end_point);
 		
 		if event is InputEventMouseButton and event.button_index == 1:
 			if event.is_released():
-				_growRoot(targetPos);
+				_growRoot(end_point);
 				ghostLine.visible = false;
 				_planning_to_draw = false;
 			else:
 				ghostLine.visible = true;
 				_planning_to_draw = true;
-				_draw_ghost_line(targetPos);
+				_draw_ghost_line(end_point);
 
 func _growRoot(target: Vector2):
 	var scene = load("res://scenes/RootSection.tscn");
@@ -51,7 +55,6 @@ func _draw_ghost_line(target: Vector2):
 
 func _updateBasedOnTarget(target: Vector2):
 	var targetPos = target
-	targetPos.y = max(groundLevel,targetPos.y);
 	_findNearestRootNode(targetPos)
 	
 	targetNode.position = _nearestNode
