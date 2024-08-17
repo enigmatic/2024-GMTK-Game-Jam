@@ -1,10 +1,9 @@
-[gd_scene load_steps=21 format=3 uid="uid://ddpfqi0kg1m3w"]
+[gd_scene load_steps=20 format=3 uid="uid://ddpfqi0kg1m3w"]
 
 [ext_resource type="Theme" uid="uid://cce1uxp863s3k" path="res://assets/default_theme.tres" id="1_jnofk"]
 [ext_resource type="Shader" path="res://assets/shaders/dirt.gdshader" id="1_vgn1v"]
 [ext_resource type="PackedScene" uid="uid://b15l1t355unu0" path="res://scenes/Tree.tscn" id="4_78xgr"]
 [ext_resource type="Shader" path="res://assets/shaders/clouds.gdshader" id="5_7neub"]
-[ext_resource type="Script" path="res://scripts/Tree.gd" id="5_r60ep"]
 [ext_resource type="PackedScene" path="res://scenes/Root.tscn" id="7_cr1yp"]
 
 [sub_resource type="Gradient" id="Gradient_c3m7p"]
@@ -70,6 +69,7 @@ shader_parameter/clouds2 = SubResource("NoiseTexture2D_0p12a")
 [node name="Base" type="Node2D"]
 
 [node name="Dirt" type="TextureRect" parent="."]
+visible = false
 material = SubResource("ShaderMaterial_ldifg")
 offset_right = 665.0
 offset_bottom = 651.0
@@ -129,7 +129,10 @@ keep_pressed_outside = true
 text = "Play"
 
 [node name="Tree" parent="." instance=ExtResource("4_78xgr")]
-script = ExtResource("5_r60ep")
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 4.0
+offset_bottom = 4.0
 
 [node name="Root" parent="." instance=ExtResource("7_cr1yp")]
-position = Vector2(292, 3)
+position = Vector2(320, 3)

@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://c8s2uxk11a0ip"]
+
+[ext_resource type="Shader" path="res://assets/shaders/foliage.gdshader" id="1_pmfrt"]
+[ext_resource type="Texture2D" uid="uid://cb08ebi6fysv8" path="res://assets/tree/4x4.png" id="2_y3lvk"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_4t0rs"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_jc20h"]
+noise = SubResource("FastNoiseLite_4t0rs")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mu3lg"]
+shader = ExtResource("1_pmfrt")
+shader_parameter/skew_x = 0.0
+shader_parameter/skew_y = 0.0
+shader_parameter/pixelization = 7.0
+shader_parameter/radius = 3.0
+shader_parameter/base_color_amount = 0.25
+shader_parameter/outline_color = Color(0, 0.25, 0, 1)
+shader_parameter/green_noise = SubResource("NoiseTexture2D_jc20h")
+
+[node name="Foliage" type="TextureRect"]
+texture_filter = 2
+texture_repeat = 2
+material = SubResource("ShaderMaterial_mu3lg")
+offset_right = 4.0
+offset_bottom = 4.0
+texture = ExtResource("2_y3lvk")
