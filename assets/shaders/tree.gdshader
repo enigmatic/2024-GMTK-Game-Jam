@@ -7,6 +7,7 @@ uniform float bottom_radius = 5;
 uniform sampler2D base_noise;
 uniform float color_steps = 4;
 
+
 void vertex() {
 	// Called for every vertex the material is visible on.
 }

@@ -7,7 +7,7 @@ uniform float pixelization = 32;
 uniform float radius = 32;
 uniform float base_color_amount = .25;
 uniform vec4 outline_color: source_color = vec4(0.0,.25,0.0,1.0);
-
+uniform sampler2D shape_noise;
 void vertex() {
 	// Called for every vertex the material is visible on.
 }
@@ -23,13 +23,24 @@ void fragment() {
 	vec4 final_color = vec4(0.0);
 	vec2 UVPix = pixelizeCoordinates(UV);
 	final_color.g = texture(green_noise,UVPix).r + base_color_amount;
-	float r = (radius)/pixelization*.5;
-	if(distance(vec2(.5,.5),UVPix) < r){
-		final_color.a = 1.0;
+	float r = (radius)/pixelization*.1;
+	r += texture(shape_noise,UVPix).r* .6;
+	float r_hard = (radius)/pixelization*.5;
+	float d = distance(vec2(.5,.5),UVPix);
+	
+	if(d < r && d <r_hard ){
+		final_color.a = texture(green_noise,UVPix).r;
 	}
-	 if(distance(vec2(.5,.5),UVPix) > r && distance(vec2(.5,.5),UVPix) < r*1.1){
-		final_color = outline_color;
-	}
+	//vec4 transparent_white = vec4(vec3(1.0),0.0)*.3;
+	////add lighting on the leaves...bool
+	//final_color += transparent_white*UV.x + transparent_white*(1.0-UV.y);
+	//final_color -= transparent_white*UV.y + transparent_white*(1.0-UV.x);
+	
+
+
+	 //if(distance(vec2(.5,.5),UVPix) > r && distance(vec2(.5,.5),UVPix) < r*1.1){
+		//final_color = outline_color;
+	//}
 	COLOR = final_color;
 	
 }
