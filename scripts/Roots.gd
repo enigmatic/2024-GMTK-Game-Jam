@@ -6,7 +6,7 @@ extends Node2D
 
 @onready var rootList = $RootList;
 @onready var targetNode = $Target;
-@onready var ghostLine = $GhostLine
+@onready var ghostLine = $GhostLine;
 @onready var _nearestNode: RootSection = $RootList/RootSection;
 var _planning_to_draw = false;
 
