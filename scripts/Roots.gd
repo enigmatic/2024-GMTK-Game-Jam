@@ -81,7 +81,7 @@ func _updateBasedOnTarget(target: Vector2):
 	
 	var startPos = _nearestNode.get_end_point();
 	targetNode.position = startPos;
-	targetNode.look_at(targetPos);
+	targetNode.look_at(to_global(targetPos));
 	
 	if _planning_to_draw:
 		_draw_ghost_line(startPos, targetPos);
