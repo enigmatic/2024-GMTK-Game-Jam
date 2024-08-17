@@ -16,7 +16,7 @@ var length = 0;
 
 func _ready():
 	line.default_color = Color(0,0,0)
-	line.add_point(source);
+	line.add_point(source.move_toward(target, -1));
 	line.add_point(source);
 	segment.a = source;
 	segment.b = source;
@@ -30,9 +30,11 @@ func _physics_process(delta):
 		var space_state = get_world_2d().direct_space_state
 		# use global coordinates, not local to node
 		
-		var query = PhysicsRayQueryParameters2D.create(start_point, point, 1, [get_collision_RID()] );
+		var query = PhysicsRayQueryParameters2D.create(line.global_position + start_point, line.global_position + point, 4294967295, [get_collision_RID()] );
 		query.collide_with_areas = true
+		query.hit_from_inside = true
 		var result = space_state.intersect_ray(query)
+		
 		if result:
 			target = point;
 			
