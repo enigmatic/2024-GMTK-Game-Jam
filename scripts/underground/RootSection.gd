@@ -62,7 +62,7 @@ func _process(delta):
 			segment.b = room_to_grow;
 			
 			if touching: 
-				consumeTimer.start();
+				consume();
 	for drop in drops.get_children():
 		var source_global = to_global(source);
 		drop.position = drop.position.move_toward(source_global, dropSpeed * delta);
@@ -97,7 +97,7 @@ func added_child():
 	if parent:
 		parent.added_child();
 
-func _on_consume_timer_timeout():
+func  consume():
 	if touching && is_instance_valid(touching):
 		if touching.type() == 'water':
 			if (touching.consume(1, to_global(target)) > 0):
@@ -105,6 +105,9 @@ func _on_consume_timer_timeout():
 				start_drop();
 			else:
 				touching = null;
+
+func _on_consume_timer_timeout():
+	consume()
 
 func start_drop():
 	var newDrop:Sprite2D = main_drop.duplicate();
