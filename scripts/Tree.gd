@@ -1,5 +1,7 @@
 extends TextureRect
 
+signal tree_growing(int);
+
 @onready var top_foliage = $TopFoliage
 @onready var foliages_node = $Foliages
 var foliage_preload = preload("res://scenes/foliage.tscn")
@@ -26,6 +28,7 @@ func increase_tree_size(height: int = 32):
 
 
 func set_tree_size(height: int= 16):
+	tree_growing.emit(height);
 	var half_h = (height*.5)
 	var quarter_h = height*.25
 	size.y = height

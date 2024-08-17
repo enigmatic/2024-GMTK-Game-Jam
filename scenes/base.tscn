@@ -7,7 +7,7 @@
 [ext_resource type="Shader" path="res://assets/shaders/clouds.gdshader" id="5_7neub"]
 [ext_resource type="Script" path="res://scripts/Camera.gd" id="6_tqy8j"]
 [ext_resource type="PackedScene" uid="uid://d3ro0rdbnkf6" path="res://scenes/Root.tscn" id="7_cr1yp"]
-[ext_resource type="PackedScene" uid="uid://bxfxlvuahy6vv" path="res://scenes/Rock.tscn" id="8_g5x8e"]
+[ext_resource type="PackedScene" uid="uid://bxfxlvuahy6vv" path="res://scenes/rock.tscn" id="8_g5x8e"]
 [ext_resource type="PackedScene" uid="uid://cmvwbb83jppve" path="res://scenes/Water.tscn" id="9_t2bt7"]
 
 [sub_resource type="Gradient" id="Gradient_c3m7p"]
@@ -151,7 +151,8 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(320, 3)
 
 [node name="Camera" type="Camera2D" parent="."]
-position = Vector2(321, 180)
+position = Vector2(320, 1)
+zoom = Vector2(4, 4)
 limit_left = -960
 limit_top = -2560
 limit_right = 1600
@@ -185,7 +186,7 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(234, 74)
 
 [node name="Rock2" parent="Rocks" instance=ExtResource("8_g5x8e")]
-position = Vector2(483, 251)
+position = Vector2(333, 114)
 randomSeed = 1
 
 [node name="Water" type="Node" parent="."]
@@ -195,8 +196,14 @@ position = Vector2(281, 216)
 randomSeed = 5
 
 [node name="Water3" parent="Water" instance=ExtResource("9_t2bt7")]
-position = Vector2(426, 161)
+position = Vector2(361, 27)
+max_volume = 2
 randomSeed = 2
 
+[node name="Water4" parent="Water" instance=ExtResource("9_t2bt7")]
+position = Vector2(449, 93)
+max_volume = 5
+
+[connection signal="tree_growing" from="Tree" to="Camera" method="_on_tree_tree_growing"]
 [connection signal="growing_root" from="Root" to="." method="_on_root_growing_root"]
 [connection signal="water_gathered" from="Root" to="." method="_on_root_water_gathered"]
