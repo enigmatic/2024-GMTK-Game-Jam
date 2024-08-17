@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7qwcccb4jt0f"
-path="res://.godot/imported/Arrow.png-ecbf03ed1ef06a0646e91f5f515bdd3d.ctex"
+uid="uid://naakpqegx4es"
+path="res://.godot/imported/water.png-393b32796451e6b5b5bb5d3cf1b925fa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Arrow.png"
-dest_files=["res://.godot/imported/Arrow.png-ecbf03ed1ef06a0646e91f5f515bdd3d.ctex"]
+source_file="res://assets/images/water.png"
+dest_files=["res://.godot/imported/water.png-393b32796451e6b5b5bb5d3cf1b925fa.ctex"]
 
 [params]
 

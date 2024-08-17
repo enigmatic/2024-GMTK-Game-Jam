@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bwgssh3uugb2l"
-path="res://.godot/imported/rock_weathered_17.png-3ab251af7a4c74510199b7e76e8ce6b0.ctex"
+uid="uid://cv0kbeleq3ud5"
+path="res://.godot/imported/rock_weathered_02.png-4f51f75e64df89c21e969c3da4e4196e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/rocks/rock_weathered_17.png"
-dest_files=["res://.godot/imported/rock_weathered_17.png-3ab251af7a4c74510199b7e76e8ce6b0.ctex"]
+source_file="res://assets/images/rocks/rock_weathered_02.png"
+dest_files=["res://.godot/imported/rock_weathered_02.png-4f51f75e64df89c21e969c3da4e4196e.ctex"]
 
 [params]
 

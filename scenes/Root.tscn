@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/Roots.gd" id="1_rtp6k"]
 [ext_resource type="PackedScene" uid="uid://xm0ofe0xm664" path="res://scenes/RootSection.tscn" id="2_i6o6a"]
-[ext_resource type="Texture2D" uid="uid://b7qwcccb4jt0f" path="res://assets/Arrow.png" id="3_v3vgi"]
+[ext_resource type="Texture2D" uid="uid://b7qwcccb4jt0f" path="res://assets/images/Arrow.png" id="3_v3vgi"]
 
 [node name="Root" type="Node2D"]
 script = ExtResource("1_rtp6k")

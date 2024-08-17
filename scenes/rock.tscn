@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://addons/rmsmartshape/vertex_properties.gd" id="3_b7xst"]
 [ext_resource type="Script" path="res://addons/rmsmartshape/shapes/point.gd" id="4_jfksb"]
 [ext_resource type="Script" path="res://addons/rmsmartshape/shapes/point_array.gd" id="5_mmaan"]
-[ext_resource type="Texture2D" uid="uid://cv0kbeleq3ud5" path="res://assets/rocks/rock_weathered_02.png" id="6_plkg4"]
+[ext_resource type="Texture2D" uid="uid://cv0kbeleq3ud5" path="res://assets/images/rocks/rock_weathered_02.png" id="6_8daer"]
 [ext_resource type="Script" path="res://addons/rmsmartshape/materials/shape_material.gd" id="7_18lu4"]
 
 [sub_resource type="Resource" id="Resource_2w8xr"]
@@ -177,7 +177,7 @@ _material_overrides = {}
 [sub_resource type="Resource" id="Resource_c3cqm"]
 script = ExtResource("7_18lu4")
 _edge_meta_materials = Array[Resource("res://addons/rmsmartshape/materials/edge_material_metadata.gd")]([])
-fill_textures = Array[Texture2D]([ExtResource("6_plkg4")])
+fill_textures = Array[Texture2D]([ExtResource("6_8daer")])
 fill_texture_z_index = -10
 fill_texture_show_behind_parent = false
 fill_texture_scale = 0.15
