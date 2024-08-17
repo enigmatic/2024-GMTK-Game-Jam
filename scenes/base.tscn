@@ -84,8 +84,6 @@ noise = SubResource("FastNoiseLite_v2nlr")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_udsy5"]
 shader = ExtResource("4_klir3")
-shader_parameter/skew_x = 0.0
-shader_parameter/skew_y = 0.0
 shader_parameter/pixelization = 32.0
 shader_parameter/width = 16.0
 shader_parameter/height = 5.0
@@ -173,16 +171,16 @@ text = "Play"
 texture_filter = 2
 texture_repeat = 2
 material = SubResource("ShaderMaterial_udsy5")
-position = Vector2(288, -44)
-scale = Vector2(0.748779, 0.675293)
+position = Vector2(301, -133)
+scale = Vector2(0.748779, 2.08765)
 texture = ExtResource("3_qpd31")
 
 [node name="Foliage" type="Sprite2D" parent="."]
 texture_filter = 2
 texture_repeat = 2
 material = SubResource("ShaderMaterial_ltlpd")
-position = Vector2(286, -130)
-scale = Vector2(0.855469, 0.90625)
+position = Vector2(300, -330)
+scale = Vector2(1.5918, 1.46094)
 texture = ExtResource("3_qpd31")
 
 [node name="Root" parent="." instance=ExtResource("7_cr1yp")]

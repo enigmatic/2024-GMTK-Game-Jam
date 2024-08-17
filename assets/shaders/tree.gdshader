@@ -1,7 +1,6 @@
 shader_type canvas_item;
 
-uniform float skew_x: hint_range(0.0, 1.0, 0.1) = 0.0;
-uniform float skew_y: hint_range(0.0, 1.0, 0.1) = 0.0;
+
 uniform float pixelization = 32;
 uniform float width=32;
 uniform float height = 5;
@@ -31,7 +30,7 @@ void fragment() {
 	vec4 final_color = vec4(0.0);
 	vec2 UVPix = pixelizeCoordinates(UV);
 	float w = (width+pixelization)/pixelization*.5;
-	if(UVPix.x > .99-w && UVPix.x < w){
+	if(UVPix.x > (.99-w)- .1*UV.y && UVPix.x < w + .1* UV.y){
 		final_color.rgb += step_color_channels(texture(base_noise,UVPix).rgb);
 		final_color.a = 1.0;
 	}

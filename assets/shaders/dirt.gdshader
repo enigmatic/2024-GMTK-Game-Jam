@@ -7,9 +7,9 @@ void vertex() {
 }
 
 void fragment() {
-	// Called for every pixel the material is visible on.
+	// Called for every pixel the material is visible on.b bnnb 
 	
-	COLOR = texture(dirt_noise,UV) + COLOR *.3;
+	COLOR = texture(dirt_noise,UV) + COLOR *.1;
 	
 }
 
