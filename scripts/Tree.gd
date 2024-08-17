@@ -42,13 +42,13 @@ func set_tree_size(height: int= 16):
 	top_foliage.material.set_shader_parameter("radius", size.x*.5*.7)
 
 func add_foliage(foliage_position:Vector2 = Vector2(-1,-1), radius: int = -1):
-	if foliage_position == Vector2(-1,-1):
-		foliage_position = Vector2(randi_range(0,clamp(size.x*.2,4,40)), randi_range(size.y*.1,size.y*.2))
-		foliage_position += position
-		foliage_position.x += size.x* -.1
-		print(str(foliage_position) + "  "+  str(position.x) + "  "+  str(size.x))
 	if radius == -1:
 		radius = randi_range(4,clamp(size.y*.2,5,16))
+	if foliage_position == Vector2(-1,-1):
+		foliage_position = Vector2(randi_range(310,330)-radius*.5, randi_range(size.y*.1,size.y*.2))
+		foliage_position.y = position.y
+		print(str(foliage_position) + "  "+  str(position.x) + "  "+  str(size.x))
+
 	var new_foliage = foliage_preload.instantiate()
 	new_foliage.size.x = radius*2
 	new_foliage.size.y = radius*2
@@ -58,10 +58,10 @@ func add_foliage(foliage_position:Vector2 = Vector2(-1,-1), radius: int = -1):
 	new_foliage.material.set_shader_parameter("radius", radius)
 	new_foliage.material.get_shader_parameter("green_noise").noise.seed = randi()
 	new_foliage.material.get_shader_parameter("shape_noise").noise.seed = randi()
-	if foliage_position.x < position.x:
+	if foliage_position.x +radius*.5< 320:
 		new_foliage.grow_direction = -4.5
 	else:
-		new_foliage.grow_direction = .8
+		new_foliage.grow_direction = -1
 
 func _on_timer_timeout():
 	increase_tree_size()
