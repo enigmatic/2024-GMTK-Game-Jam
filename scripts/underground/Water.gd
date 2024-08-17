@@ -3,11 +3,12 @@ class_name Water
 
 @export var max_volume = 20;
 
-var volume = max_volume;
+var _volume;
 var _original_points: SS2D_Point_Array;
 
 func _ready():
 	variation = max(variation, max_volume/2);
+	_volume = max_volume;
 	super._ready();
 	_updateVolume();
 	
@@ -22,7 +23,7 @@ func _updateVolume():
 	for i in range(0, points.get_point_count()-1):
 		var point = points.get_point_at_index(i);
 		
-		var point_position = Vector2(0,0).direction_to(point.position) * volume;
+		var point_position = Vector2(0,0).direction_to(point.position) * _volume;
 		points.set_point_position(points.get_point_key_at_index(i), point_position);
 	
 	_original_points = null;
@@ -35,18 +36,19 @@ func _consumeVolume(flow_to:Vector2):
 	for i in range(0, points.get_point_count()-1):
 		var source_point = _original_points.get_point_at_index(i);
 		var length = source_point.position.distance_to(flow_to);
-		var ratio = ((max_volume-volume) / float(max_volume));
+		var ratio = ((max_volume-_volume) / float(max_volume));
 		var point_position = source_point.position.move_toward(flow_to, length * ratio);
 		
 		points.set_point_position(points.get_point_key_at_index(i), point_position);
 	
 
-func consume(units:int, consuming_location:Vector2) -> bool:
-		
-	volume -= units;
-	if volume != 0:
+func consume(units:int, consuming_location:Vector2) -> int:
+	var consumed = min(_volume, units)
+	_volume -= units;
+	if _volume > 0:
 		_consumeVolume(to_local(consuming_location));
-		return true;
-	else:
+
+	if _volume <= 0:
 		queue_free();
-		return false;
+		
+	return consumed;

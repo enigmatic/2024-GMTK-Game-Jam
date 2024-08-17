@@ -6,7 +6,7 @@ signal water_gathered(amount:int);
 @export var source: Vector2
 @export var target: Vector2
 @export var growthRate: float = 100;
-@export var width = 10;
+@export var width = 2;
 @export var widthGrowth = 2;
 @export var dropSpeed:float = 50;
 
@@ -72,8 +72,6 @@ func _process(delta):
 			else:
 				water_gathered.emit(1);
 			drop.queue_free();
-			
-			
 
 func nearest_point_to(x:Vector2):
 	var p2 = target;
@@ -99,11 +97,10 @@ func added_child():
 	if parent:
 		parent.added_child();
 
-
 func _on_consume_timer_timeout():
 	if touching && is_instance_valid(touching):
 		if touching.type() == 'water':
-			if (touching.consume(1, to_global(target))):
+			if (touching.consume(1, to_global(target)) > 0):
 				consumeTimer.start();
 				start_drop();
 			else:
@@ -111,6 +108,8 @@ func _on_consume_timer_timeout():
 
 func start_drop():
 	var newDrop:Sprite2D = main_drop.duplicate();
+	newDrop.texture.height = max(3, width);
+	newDrop.texture.width = max(3, width);
 	newDrop.position = to_global(target);
 	newDrop.visible = true;
 	drops.add_child(newDrop, true);
