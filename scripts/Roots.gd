@@ -87,10 +87,10 @@ func _updateBasedOnTarget(target: Vector2):
 		_draw_ghost_line(startPos, targetPos);
 		
 
-func checkCollision(_nearestNode, target):
+func checkCollision(source, target):
 	var space_state = get_world_2d().direct_space_state
 		
-	var query = PhysicsRayQueryParameters2D.create(self.global_position + _nearestNode, self.global_position + target);
+	var query = PhysicsRayQueryParameters2D.create(self.global_position + source, self.global_position + target);
 	query.collide_with_areas = true
 	query.hit_from_inside = true
 	var hit = space_state.intersect_ray(query);
