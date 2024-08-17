@@ -1,6 +1,8 @@
 extends Node2D
 class_name RootSection
 
+signal water_gathered(amount:int);
+
 @export var source: Vector2
 @export var target: Vector2
 @export var growthRate: float = 100;
@@ -16,6 +18,8 @@ class_name RootSection
 @onready var main_drop = $WaterDrop
 @onready var drops = $Drops
 @onready var endCap:Sprite2D = $EndCap
+
+
 
 var parent: RootSection = null;
 var touching: UndergroundCollidable = null;
@@ -63,11 +67,10 @@ func _process(delta):
 		var source_global = to_global(source);
 		drop.position = drop.position.move_toward(source_global, dropSpeed * delta);
 		if (is_equal_approx(drop.position.x, source_global.x) && is_equal_approx(drop.position.y, source_global.y)):
-			#TODO: move into parent
 			if parent:
 				parent.start_drop();
 			else:
-				pass # TODO: tree get's water?
+				water_gathered.emit(1);
 			drop.queue_free();
 			
 			

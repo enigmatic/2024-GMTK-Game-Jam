@@ -1,5 +1,7 @@
 extends Node2D
 
+signal growing_root;
+
 @export var groundLevel: int = 0;
 @export var rootSectionMaxSize = 100;
 @export var rootSectionMinSize = 25;
@@ -8,40 +10,44 @@ extends Node2D
 @onready var targetNode = $Target;
 @onready var ghostLine = $GhostLine;
 @onready var _nearestNode: RootSection = $RootList/RootSection;
+
+var canGrow = true;
+
 var _planning_to_draw = false;
 
 func _input(event):
 	
 	if event is InputEventMouse:
-		var targetClamp = get_local_mouse_position();
-		targetClamp.y = max(groundLevel, targetClamp.y);
-		var start_point = _nearestNode.get_end_point();
-		var end_point = start_point.move_toward(targetClamp, rootSectionMaxSize);
-		
-		_updateBasedOnTarget(end_point);
-		
-		if event is InputEventMouseButton and event.button_index == 1:
-			if event.is_released():
-				var okToGrow = true;
-				var collideWith = null;
-				if (start_point.distance_to(end_point) < rootSectionMinSize):
-					okToGrow = false;
-				else: 
-					var hitInfo = checkCollision(start_point, end_point);
-					if hitInfo:
-						collideWith = hitInfo.collider;
-						okToGrow = check_valid_target_node(collideWith);
-						end_point = to_local(hitInfo.position);
-					
-				if okToGrow:
-					_growRoot(end_point, collideWith);
-					
-				ghostLine.visible = false;
-				_planning_to_draw = false;
-			else:
-				ghostLine.visible = true;
-				_planning_to_draw = true;
-				_draw_ghost_line(start_point, end_point);
+		if canGrow:
+			var targetClamp = get_local_mouse_position();
+			targetClamp.y = max(groundLevel, targetClamp.y);
+			var start_point = _nearestNode.get_end_point();
+			var end_point = start_point.move_toward(targetClamp, rootSectionMaxSize);
+			
+			_updateBasedOnTarget(end_point);
+			
+			if event is InputEventMouseButton and event.button_index == 1:
+				if event.is_released():
+					var okToGrow = true;
+					var collideWith = null;
+					if (start_point.distance_to(end_point) < rootSectionMinSize):
+						okToGrow = false;
+					else: 
+						var hitInfo = checkCollision(start_point, end_point);
+						if hitInfo:
+							collideWith = hitInfo.collider;
+							okToGrow = check_valid_target_node(collideWith);
+							end_point = to_local(hitInfo.position);
+						
+					if okToGrow:
+						_growRoot(end_point, collideWith);
+						
+					ghostLine.visible = false;
+					_planning_to_draw = false;
+				else:
+					ghostLine.visible = true;
+					_planning_to_draw = true;
+					_draw_ghost_line(start_point, end_point);
 
 func _growRoot(target: Vector2, collidedWith: UndergroundCollidable = null):
 	
@@ -51,6 +57,7 @@ func _growRoot(target: Vector2, collidedWith: UndergroundCollidable = null):
 	section.target = target;
 	section.touching = collidedWith;
 	rootList.add_child(section);
+	growing_root.emit();
 	
 func _findNearestRootNode(pos: Vector2):
 	var roots = rootList.get_children();
