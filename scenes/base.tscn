@@ -7,29 +7,6 @@
 [ext_resource type="Script" path="res://scripts/Camera.gd" id="6_tqy8j"]
 [ext_resource type="PackedScene" path="res://scenes/Root.tscn" id="7_cr1yp"]
 
-[sub_resource type="Gradient" id="Gradient_c3m7p"]
-offsets = PackedFloat32Array(0, 0.425076, 1)
-colors = PackedColorArray(0.2, 0.117647, 0.129412, 1, 0.1678, 0.092461, 0, 1, 0.0764295, 0.0323702, 9.02452e-09, 1)
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_s1028"]
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_kvo2f"]
-color_ramp = SubResource("Gradient_c3m7p")
-noise = SubResource("FastNoiseLite_s1028")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ldifg"]
-shader = ExtResource("1_vgn1v")
-shader_parameter/dirt_noise = SubResource("NoiseTexture2D_kvo2f")
-
-[sub_resource type="Gradient" id="Gradient_wdt31"]
-offsets = PackedFloat32Array(0.130919, 1)
-colors = PackedColorArray(0.0773214, 0.0807686, 0.0897352, 1, 0.321569, 0.2, 0.0431373, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_a3qdr"]
-gradient = SubResource("Gradient_wdt31")
-fill_from = Vector2(0.290598, 1)
-fill_to = Vector2(0.581197, 0.0854701)
-
 [sub_resource type="Gradient" id="Gradient_tyulx"]
 offsets = PackedFloat32Array(0, 0.125348, 1)
 colors = PackedColorArray(0.00170681, 0.167748, 0.681828, 1, 0.110186, 0.269372, 0.711637, 1, 0.531486, 0.706558, 1, 1)
@@ -67,21 +44,44 @@ shader_parameter/clouds2 = SubResource("NoiseTexture2D_0p12a")
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_h8h1i"]
 
+[sub_resource type="Gradient" id="Gradient_c3m7p"]
+offsets = PackedFloat32Array(0, 0.425076, 1)
+colors = PackedColorArray(0.2, 0.117647, 0.129412, 1, 0.1678, 0.092461, 0, 1, 0.0764295, 0.0323702, 9.02452e-09, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_s1028"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_kvo2f"]
+color_ramp = SubResource("Gradient_c3m7p")
+noise = SubResource("FastNoiseLite_s1028")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ldifg"]
+shader = ExtResource("1_vgn1v")
+shader_parameter/dirt_noise = SubResource("NoiseTexture2D_kvo2f")
+
+[sub_resource type="Gradient" id="Gradient_wdt31"]
+offsets = PackedFloat32Array(0.130919, 1)
+colors = PackedColorArray(0.0773214, 0.0807686, 0.0897352, 1, 0.321569, 0.2, 0.0431373, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_a3qdr"]
+gradient = SubResource("Gradient_wdt31")
+width = 1440
+height = 1440
+fill_from = Vector2(0.290598, 1)
+fill_to = Vector2(0.581197, 0.0854701)
+
 [node name="Base" type="Node2D"]
 
-[node name="Dirt" type="TextureRect" parent="."]
-visible = false
-material = SubResource("ShaderMaterial_ldifg")
-offset_right = 665.0
-offset_bottom = 651.0
-texture = SubResource("GradientTexture2D_a3qdr")
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
-[node name="Sky" type="TextureRect" parent="."]
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_offset = Vector2(1440, 1440)
+
+[node name="Sky" type="TextureRect" parent="ParallaxBackground/ParallaxLayer"]
 offset_top = -651.0
 offset_right = 665.0
 texture = SubResource("GradientTexture2D_ch5im")
 
-[node name="Clouds" type="TextureRect" parent="."]
+[node name="Clouds" type="TextureRect" parent="ParallaxBackground/ParallaxLayer"]
 material = SubResource("ShaderMaterial_ldn54")
 anchors_preset = 8
 anchor_left = 0.5
@@ -94,6 +94,11 @@ offset_right = 1020.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("NoiseTexture2D_h8h1i")
+
+[node name="Dirt" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+material = SubResource("ShaderMaterial_ldifg")
+texture = SubResource("GradientTexture2D_a3qdr")
+centered = false
 
 [node name="StartMenu" type="Panel" parent="."]
 process_mode = 3
@@ -142,9 +147,9 @@ position = Vector2(320, 3)
 position = Vector2(337, -179)
 script = ExtResource("6_tqy8j")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
 
-[node name="ScoreLabel" type="Label" parent="CanvasLayer"]
+[node name="ScoreLabel" type="Label" parent="CanvasLayer2"]
 offset_left = 6.0
 offset_top = 5.0
 offset_right = 67.0

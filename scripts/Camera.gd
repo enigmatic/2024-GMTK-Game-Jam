@@ -17,7 +17,7 @@ func _input(event):
 		if event.is_pressed():
 			is_dragging = true
 	if event is InputEventMouseMotion and is_dragging:
-		position -=event.relative
+		position -=event.relative /zoom.x
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_WHEEL_UP:
 		zoom *= 1.1
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
