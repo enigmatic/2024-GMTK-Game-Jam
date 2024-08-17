@@ -52,9 +52,16 @@ func _findNearestRootNode(pos: Vector2):
 	_nearestNode = nearest;
 	
 func _draw_ghost_line(target: Vector2):
+	# line location
 	ghostLine.set_point_position(0, _nearestNode);
 	ghostLine.set_point_position(1, target);
-	if (_nearestNode.distance_to(target) < rootSectionMinSize):
+	
+	# will it run into anything?
+	var collidedWith = checkCollision(_nearestNode, target);
+	
+	if collidedWith:
+		ghostLine.default_color = Color(1,0,0);
+	elif (_nearestNode.distance_to(target) < rootSectionMinSize):
 		ghostLine.default_color = Color(1,1,1);
 	else:
 		ghostLine.default_color = Color(0,1,0);
@@ -68,3 +75,11 @@ func _updateBasedOnTarget(target: Vector2):
 	
 	if _planning_to_draw:
 		_draw_ghost_line(targetPos);
+
+func checkCollision(_nearestNode, target):
+	var space_state = get_world_2d().direct_space_state
+		
+	var query = PhysicsRayQueryParameters2D.create(self.global_position + _nearestNode, self.global_position + target);
+	query.collide_with_areas = true
+	query.hit_from_inside = true
+	return space_state.intersect_ray(query);

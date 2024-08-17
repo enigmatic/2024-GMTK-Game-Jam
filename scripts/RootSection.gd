@@ -28,8 +28,8 @@ func _physics_process(delta):
 		var point = start_point.move_toward(target, growthRate * delta);
 		
 		var space_state = get_world_2d().direct_space_state
-		# use global coordinates, not local to node
 		
+		# use global coordinates, not local to node		
 		var query = PhysicsRayQueryParameters2D.create(line.global_position + start_point, line.global_position + point, 4294967295, [get_collision_RID()] );
 		query.collide_with_areas = true
 		query.hit_from_inside = true

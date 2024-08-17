@@ -2,9 +2,9 @@
 
 [ext_resource type="Theme" uid="uid://cce1uxp863s3k" path="res://assets/default_theme.tres" id="1_jnofk"]
 [ext_resource type="Shader" path="res://assets/shaders/dirt.gdshader" id="1_vgn1v"]
-[ext_resource type="PackedScene" uid="uid://b15l1t355unu0" path="res://scenes/Tree.tscn" id="4_78xgr"]
+[ext_resource type="PackedScene" path="res://scenes/Tree.tscn" id="4_78xgr"]
 [ext_resource type="Shader" path="res://assets/shaders/clouds.gdshader" id="5_7neub"]
-[ext_resource type="PackedScene" path="res://scenes/Root.tscn" id="7_cr1yp"]
+[ext_resource type="PackedScene" uid="uid://d3ro0rdbnkf6" path="res://scenes/Root.tscn" id="7_cr1yp"]
 
 [sub_resource type="Gradient" id="Gradient_c3m7p"]
 offsets = PackedFloat32Array(0, 0.425076, 1)
@@ -136,3 +136,6 @@ offset_bottom = 4.0
 
 [node name="Root" parent="." instance=ExtResource("7_cr1yp")]
 position = Vector2(320, 3)
+groundLevel = 0
+rootSectionMaxSize = 100
+rootSectionMinSize = 25
