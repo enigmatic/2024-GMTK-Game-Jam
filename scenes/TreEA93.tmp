@@ -1,0 +1,87 @@
+[gd_scene load_steps=12 format=3 uid="uid://b15l1t355unu0"]
+
+[ext_resource type="Shader" path="res://assets/shaders/tree.gdshader" id="1_bomo3"]
+[ext_resource type="Texture2D" uid="uid://cb08ebi6fysv8" path="res://assets/tree/4x4.png" id="2_y3cnv"]
+[ext_resource type="Script" path="res://scripts/Tree.gd" id="3_l2jbl"]
+[ext_resource type="Shader" path="res://assets/shaders/foliage.gdshader" id="3_xwv44"]
+
+[sub_resource type="Gradient" id="Gradient_32sng"]
+offsets = PackedFloat32Array(0.0275229, 0.198777, 1)
+colors = PackedColorArray(0.499213, 0.321774, 0.139303, 1, 0.567527, 0.327045, 4.81307e-07, 1, 0.246045, 0.174396, 7.21961e-08, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_v2nlr"]
+seed = 5
+frequency = 0.007
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_wvxoe"]
+seamless = true
+seamless_blend_skirt = 0.148
+color_ramp = SubResource("Gradient_32sng")
+noise = SubResource("FastNoiseLite_v2nlr")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_udsy5"]
+shader = ExtResource("1_bomo3")
+shader_parameter/pixelization = 24.0
+shader_parameter/width = 4.0
+shader_parameter/bottom_radius = 5.0
+shader_parameter/color_steps = 4.0
+shader_parameter/base_noise = SubResource("NoiseTexture2D_wvxoe")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ql6w2"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_x2vik"]
+noise = SubResource("FastNoiseLite_ql6w2")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ltlpd"]
+shader = ExtResource("3_xwv44")
+shader_parameter/skew_x = 0.0
+shader_parameter/skew_y = 0.0
+shader_parameter/pixelization = 7.0
+shader_parameter/radius = 3.0
+shader_parameter/base_color_amount = 0.25
+shader_parameter/outline_color = Color(0, 0.25, 0, 1)
+shader_parameter/green_noise = SubResource("NoiseTexture2D_x2vik")
+
+[node name="Tree" type="TextureRect"]
+texture_filter = 2
+texture_repeat = 2
+material = SubResource("ShaderMaterial_udsy5")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = -180.0
+offset_right = -316.0
+offset_bottom = -132.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 8
+texture = ExtResource("2_y3cnv")
+script = ExtResource("3_l2jbl")
+
+[node name="TopFoliage" type="TextureRect" parent="."]
+texture_filter = 2
+texture_repeat = 2
+material = SubResource("ShaderMaterial_ltlpd")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -2.0
+offset_top = -2.0
+offset_right = 2.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_y3cnv")
+
+[node name="Foliages" type="Node" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
