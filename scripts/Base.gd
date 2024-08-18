@@ -11,6 +11,10 @@ var water_counter = 0;
 
 func _ready():
 	_updateScores();
+	
+func _process(_delta):
+	if !$SoundTrackPlayer.playing:
+		$SoundTrackPlayer.play()
 
 func _on_root_growing_root():
 	rootCounter -= 1;

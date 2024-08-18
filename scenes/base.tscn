@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://ddpfqi0kg1m3w"]
+[gd_scene load_steps=33 format=3 uid="uid://ddpfqi0kg1m3w"]
 
 [ext_resource type="Script" path="res://scripts/Base.gd" id="1_20ccf"]
 [ext_resource type="Theme" uid="uid://cce1uxp863s3k" path="res://assets/default_theme.tres" id="1_jnofk"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://d3ro0rdbnkf6" path="res://scenes/Root.tscn" id="7_cr1yp"]
 [ext_resource type="PackedScene" uid="uid://bxfxlvuahy6vv" path="res://scenes/rock.tscn" id="8_g5x8e"]
 [ext_resource type="PackedScene" uid="uid://cmvwbb83jppve" path="res://scenes/Water.tscn" id="9_t2bt7"]
+[ext_resource type="AudioStream" uid="uid://dbog6g0m7s4m7" path="res://assets/audio/generative_beeps.mp3" id="12_c5q84"]
 
 [sub_resource type="Gradient" id="Gradient_c3m7p"]
 offsets = PackedFloat32Array(0, 0.425076, 1)
@@ -290,6 +291,11 @@ randomSeed = 2
 position = Vector2(449, 93)
 max_volume = 5
 randomSeed = 1
+
+[node name="SoundTrackPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_c5q84")
+autoplay = true
+bus = &"Soundtrack"
 
 [connection signal="tree_growing" from="Tree" to="Camera" method="_on_tree_tree_growing"]
 [connection signal="growing_root" from="Root" to="." method="_on_root_growing_root"]
