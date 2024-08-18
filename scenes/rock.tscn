@@ -222,7 +222,6 @@ collision_mask = 2
 script = ExtResource("1_ymnlr")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-z_index = 1
 position = Vector2(33, 42)
 polygon = PackedVector2Array(-52.8173, -79.9155, 3.19625, -83.9151, 35.8613, -54.0414, 37.1209, -4.62879, 10.4782, 24.1285, -33.4923, 29.6917, -64.6367, 21.293, -87.0535, -5.89742, -89.6788, -17.5182, -84.0033, -41.6679, -77.7911, -53.9108, -70.7601, -68.7686)
 
