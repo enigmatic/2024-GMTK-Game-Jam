@@ -5,6 +5,7 @@ var _can_move = true;
 var _positionQueue = [];
 
 func _ready():
+	
 	_positionQueue.push_front(position);
 	super._ready();
 

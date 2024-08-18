@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cmvwbb83jppve" path="res://scenes/Water.tscn" id="9_t2bt7"]
 [ext_resource type="PackedScene" uid="uid://khlcgqbq2uxn" path="res://scenes/rocks/RightRocks.tscn" id="12_mp5yp"]
 [ext_resource type="AudioStream" uid="uid://blj0f6ajfudnd" path="res://assets/audio/generative_beeps_organic.mp3" id="12_s8a8x"]
-[ext_resource type="PackedScene" uid="uid://d13frajmeon01" path="res://scenes/rocks/CenterRocks.tscn" id="13_1aj4j"]
+[ext_resource type="PackedScene" uid="uid://dti7psphqxfj7" path="res://scenes/puzzles/pushablePuzzle.tscn" id="13_4w4xn"]
 [ext_resource type="PackedScene" uid="uid://0g6xranwwo4b" path="res://scenes/rocks/LeftRocks.tscn" id="13_q72gn"]
 
 [node name="Base" type="Node2D"]
@@ -24,28 +24,6 @@ position = Vector2(-19, 8)
 process_mode = 3
 offset_bottom = 4.0
 metadata/_edit_use_anchors_ = true
-
-[node name="Root" parent="." instance=ExtResource("7_cr1yp")]
-position = Vector2(320, 3)
-
-[node name="Camera" type="Camera2D" parent="."]
-position = Vector2(320, 1)
-zoom = Vector2(4, 4)
-limit_left = -960
-limit_top = -4700
-limit_right = 1600
-limit_bottom = 2560
-script = ExtResource("6_tqy8j")
-
-[node name="HUD" parent="." instance=ExtResource("7_j0avw")]
-process_mode = 3
-
-[node name="StartMenu" parent="HUD" instance=ExtResource("3_n42ql")]
-visible = false
-offset_left = -320.0
-offset_top = -180.0
-offset_right = 320.0
-offset_bottom = 180.0
 
 [node name="Rocks" type="Node" parent="."]
 
@@ -79,13 +57,10 @@ position = Vector2(411, 55)
 scale = Vector2(0.25, 0.25)
 randomSeed = 6
 
-[node name="LeftRocks" parent="Rocks" instance=ExtResource("13_q72gn")]
-position = Vector2(-402, 427)
-
 [node name="RightRocks" parent="Rocks" instance=ExtResource("12_mp5yp")]
 position = Vector2(-33, 25)
 
-[node name="CenterRocks" parent="Rocks" instance=ExtResource("13_1aj4j")]
+[node name="LeftRocks" parent="Rocks" instance=ExtResource("13_q72gn")]
 
 [node name="Water" type="Node" parent="."]
 
@@ -106,7 +81,7 @@ randomSeed = 1
 variation = 1
 
 [node name="Water5" parent="Water" instance=ExtResource("9_t2bt7")]
-position = Vector2(-58, 337)
+position = Vector2(82, 288)
 randomSeed = 16
 
 [node name="Water6" parent="Water" instance=ExtResource("9_t2bt7")]
@@ -115,17 +90,44 @@ max_volume = 10
 randomSeed = -1
 variation = 1
 
+[node name="Water7" parent="Water" instance=ExtResource("9_t2bt7")]
+position = Vector2(53, 143)
+max_volume = 5
+randomSeed = 2
+variation = 2
+
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2(320, 1)
+zoom = Vector2(4, 4)
+limit_left = -960
+limit_top = -4700
+limit_right = 1600
+limit_bottom = 2560
+script = ExtResource("6_tqy8j")
+
+[node name="HUD" parent="." instance=ExtResource("7_j0avw")]
+process_mode = 3
+
+[node name="StartMenu" parent="HUD" instance=ExtResource("3_n42ql")]
+visible = false
+offset_left = -320.0
+offset_top = -180.0
+offset_right = 320.0
+offset_bottom = 180.0
+
 [node name="SoundTrackPlayer" type="AudioStreamPlayer" parent="."]
 process_mode = 3
 stream = ExtResource("12_s8a8x")
 autoplay = true
 bus = &"Soundtrack"
 
-[node name="Water2" parent="." instance=ExtResource("9_t2bt7")]
-position = Vector2(53, 143)
-max_volume = 5
-randomSeed = 2
-variation = 2
+[node name="Puzzles" type="Node" parent="."]
+
+[node name="PushablePuzzle" parent="Puzzles" instance=ExtResource("13_4w4xn")]
+position = Vector2(-54, 219)
+
+[node name="Root" parent="." instance=ExtResource("7_cr1yp")]
+position = Vector2(320, 3)
 
 [connection signal="tree_growing" from="Tree" to="Camera" method="_on_tree_tree_growing"]
 [connection signal="growing_root" from="Root" to="." method="_on_root_growing_root"]
