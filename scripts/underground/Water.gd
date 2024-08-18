@@ -52,3 +52,6 @@ func consume(units:int, consuming_location:Vector2) -> int:
 		queue_free();
 		
 	return consumed;
+	
+func randomize():
+	pass;

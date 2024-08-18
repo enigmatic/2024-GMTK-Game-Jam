@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://ddpfqi0kg1m3w"]
+[gd_scene load_steps=36 format=3 uid="uid://ddpfqi0kg1m3w"]
 
 [ext_resource type="Script" path="res://scripts/Base.gd" id="1_20ccf"]
 [ext_resource type="Theme" uid="uid://cce1uxp863s3k" path="res://assets/default_theme.tres" id="1_jnofk"]
@@ -11,7 +11,9 @@
 [ext_resource type="PackedScene" uid="uid://d3ro0rdbnkf6" path="res://scenes/Root.tscn" id="7_cr1yp"]
 [ext_resource type="PackedScene" uid="uid://bxfxlvuahy6vv" path="res://scenes/rock.tscn" id="8_g5x8e"]
 [ext_resource type="PackedScene" uid="uid://cmvwbb83jppve" path="res://scenes/Water.tscn" id="9_t2bt7"]
+[ext_resource type="PackedScene" uid="uid://khlcgqbq2uxn" path="res://scenes/rocks/RightRocks.tscn" id="12_mp5yp"]
 [ext_resource type="AudioStream" uid="uid://blj0f6ajfudnd" path="res://assets/audio/generative_beeps_organic.mp3" id="12_s8a8x"]
+[ext_resource type="PackedScene" uid="uid://d13frajmeon01" path="res://scenes/rocks/CenterRocks.tscn" id="13_1aj4j"]
 [ext_resource type="PackedScene" uid="uid://0g6xranwwo4b" path="res://scenes/rocks/LeftRocks.tscn" id="13_q72gn"]
 
 [sub_resource type="Gradient" id="Gradient_c3m7p"]
@@ -276,6 +278,13 @@ position = Vector2(411, 55)
 scale = Vector2(0.25, 0.25)
 randomSeed = 6
 
+[node name="LeftRocks" parent="Rocks" instance=ExtResource("13_q72gn")]
+position = Vector2(-402, 427)
+
+[node name="RightRocks" parent="Rocks" instance=ExtResource("12_mp5yp")]
+
+[node name="CenterRocks" parent="Rocks" instance=ExtResource("13_1aj4j")]
+
 [node name="Water" type="Node" parent="."]
 
 [node name="Water2" parent="Water" instance=ExtResource("9_t2bt7")]
@@ -297,8 +306,10 @@ randomSeed = 1
 stream = ExtResource("12_s8a8x")
 autoplay = true
 
-[node name="LeftRocks" parent="." instance=ExtResource("13_q72gn")]
-position = Vector2(-402, 427)
+[node name="Water2" parent="." instance=ExtResource("9_t2bt7")]
+position = Vector2(-58, 337)
+max_volume = 25
+variation = 2
 
 [connection signal="tree_growing" from="Tree" to="Camera" method="_on_tree_tree_growing"]
 [connection signal="growing_root" from="Root" to="." method="_on_root_growing_root"]
