@@ -90,7 +90,6 @@ width = 2560
 height = 2560
 fill_from = Vector2(0.559633, 0)
 fill_to = Vector2(0.56087, 1)
-repeat = 1
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_w8xoj"]
 shader = ExtResource("4_rcr6k")
