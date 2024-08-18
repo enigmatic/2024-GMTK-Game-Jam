@@ -2,6 +2,7 @@ extends Node2D
 class_name RootSection
 
 signal water_gathered(amount:int);
+signal done_growing();
 
 @export var source: Vector2
 @export var target: Vector2
@@ -63,6 +64,8 @@ func _process(delta):
 			
 			if touching: 
 				consume();
+			done_growing.emit();
+				
 	for drop in drops.get_children():
 		var source_global = to_global(source);
 		drop.position = drop.position.move_toward(source_global, dropSpeed * delta);

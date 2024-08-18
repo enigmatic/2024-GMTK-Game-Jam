@@ -31,9 +31,9 @@ func _input(event):
 func _on_tree_tree_growing(height):
 	var maxedZoom = is_equal_approx(zoom.x,_zoom_max);
 	var zoom_scale = 180.0/(height+20);
-	_zoom_max = min(_zoom_min, zoom_scale);
+	_zoom_max = max(0.25, min(_zoom_min, zoom_scale));
 	
-	print('Tree Height:', height, ' current_zoom:', zoom.x ,' _zoom_max:', _zoom_max,' zoom scale: ', zoom_scale);
+	#print('Tree Height:', height, ' current_zoom:', zoom.x ,' _zoom_max:', _zoom_max,' zoom scale: ', zoom_scale);
 
 	if (maxedZoom || (_zoomTween && _zoomTween.is_running())):
 		if _zoomTween: _zoomTween.stop();

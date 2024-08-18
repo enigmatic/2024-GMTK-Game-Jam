@@ -258,6 +258,7 @@ randomSeed = 3
 [node name="Rock" parent="Rocks" instance=ExtResource("8_g5x8e")]
 position = Vector2(298, 52)
 scale = Vector2(0.5, 0.5)
+randomSeed = 2
 
 [node name="Rock4" parent="Rocks" instance=ExtResource("8_g5x8e")]
 position = Vector2(460, 174)
@@ -289,6 +290,7 @@ randomSeed = 2
 [node name="Water4" parent="Water" instance=ExtResource("9_t2bt7")]
 position = Vector2(449, 93)
 max_volume = 5
+randomSeed = 1
 
 [connection signal="tree_growing" from="Tree" to="Camera" method="_on_tree_tree_growing"]
 [connection signal="growing_root" from="Root" to="." method="_on_root_growing_root"]

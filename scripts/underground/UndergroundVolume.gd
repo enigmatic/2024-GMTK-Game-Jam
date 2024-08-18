@@ -9,11 +9,11 @@ class_name UndergroundVolume
 func _ready():
 	var points = shape.get_point_array().clone(true);
 	shape.set_point_array(points);
-	if (randomSeed != 0):
-		self.randomize();
+	self.randomize();
 
 func randomize():
-	seed(randomSeed);
+	if (randomSeed != 0):
+		seed(randomSeed);
 	
 	var points = shape.get_point_array();
 	for i in range(0, points.get_point_count()-1):

@@ -32,14 +32,14 @@ func _input(event):
 				if event.is_released():
 					var okToGrow = true;
 					var collideWith = null;
-					if (start_point.distance_to(end_point) < rootSectionMinSize):
+					var hitInfo = checkCollision(start_point, end_point);
+					if hitInfo:
+						collideWith = hitInfo.collider;
+						okToGrow = check_valid_target_node(collideWith);
+						end_point = to_local(hitInfo.position);
+					elif (start_point.distance_to(end_point) < rootSectionMinSize):
 						okToGrow = false;
-					else: 
-						var hitInfo = checkCollision(start_point, end_point);
-						if hitInfo:
-							collideWith = hitInfo.collider;
-							okToGrow = check_valid_target_node(collideWith);
-							end_point = to_local(hitInfo.position);
+					
 						
 					if okToGrow:
 						_growRoot(end_point, collideWith);
@@ -54,12 +54,21 @@ func _input(event):
 func _growRoot(target: Vector2, collidedWith: UndergroundCollidable = null):
 	
 	var scene = load("res://scenes/RootSection.tscn");
-	var section = scene.instantiate();
+	var section:RootSection = scene.instantiate();
 	section.parent = _nearestNode;
 	section.target = target;
 	section.touching = collidedWith;
+	section.done_growing.connect(_calculate_best_path)
 	rootList.add_child(section);
 	growing_root.emit();
+
+func _calculate_best_path():
+	var targetClamp = get_local_mouse_position();
+	targetClamp.y = max(groundLevel, targetClamp.y);
+	var start_point = _nearestNode.get_end_point();
+	var end_point = start_point.move_toward(targetClamp, rootSectionMaxSize);
+	
+	_updateBasedOnTarget(end_point);
 	
 func _findNearestRootNode(pos: Vector2):
 	var roots = rootList.get_children();
