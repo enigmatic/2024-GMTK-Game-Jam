@@ -116,6 +116,7 @@ randomSeed = -2
 process_mode = 3
 stream = ExtResource("12_s8a8x")
 autoplay = true
+bus = &"Soundtrack"
 
 [node name="Water2" parent="." instance=ExtResource("9_t2bt7")]
 position = Vector2(53, 143)
