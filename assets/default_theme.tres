@@ -34,7 +34,6 @@ modulate_color = Color(0.678944, 0.678944, 0.678944, 1)
 
 [resource]
 default_font = ExtResource("1_hipsq")
-default_font_size = 32
 Button/colors/font_color = Color(0.851769, 0.851769, 0.851769, 1)
 Button/colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
 Button/colors/font_focus_color = Color(0.94902, 0.94902, 0.94902, 1)
@@ -51,7 +50,7 @@ Button/colors/icon_pressed_color = Color(1, 1, 1, 1)
 Button/constants/h_separation = 0
 Button/constants/icon_max_width = 0
 Button/constants/outline_size = 0
-Button/font_sizes/font_size = 32
+Button/font_sizes/font_size = 16
 Button/fonts/font = ExtResource("1_hipsq")
 Button/styles/disabled = null
 Button/styles/focus = SubResource("StyleBoxLine_8feib")

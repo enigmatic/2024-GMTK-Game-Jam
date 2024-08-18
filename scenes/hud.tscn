@@ -1,22 +1,25 @@
-[gd_scene load_steps=2 format=3 uid="uid://yk8neoeakd87"]
+[gd_scene load_steps=3 format=3 uid="uid://yk8neoeakd87"]
 
 [ext_resource type="Script" path="res://scripts/hud.gd" id="1_vypuj"]
+[ext_resource type="Theme" uid="uid://cce1uxp863s3k" path="res://assets/default_theme.tres" id="2_rsobw"]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_vypuj")
 
 [node name="ScoreLabel" type="Label" parent="."]
-offset_left = 6.0
-offset_top = 5.0
-offset_right = 67.0
-offset_bottom = 28.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 88.0
+offset_bottom = 27.0
+theme = ExtResource("2_rsobw")
 text = "Score: 0"
 metadata/_edit_use_anchors_ = true
 
 [node name="RootLabel" type="Label" parent="."]
-offset_left = 7.0
-offset_top = 28.0
-offset_right = 78.0
-offset_bottom = 51.0
+offset_left = 5.0
+offset_top = 25.0
+offset_right = 171.0
+offset_bottom = 66.0
+theme = ExtResource("2_rsobw")
 text = "Roots: 5"
 metadata/_edit_use_anchors_ = true

@@ -19,8 +19,6 @@ script = ExtResource("1_20ccf")
 
 [node name="Background" parent="." instance=ExtResource("2_a54lw")]
 
-[node name="StartMenu" parent="." instance=ExtResource("3_n42ql")]
-
 [node name="Tree" parent="." instance=ExtResource("4_78xgr")]
 offset_bottom = 4.0
 metadata/_edit_use_anchors_ = true
@@ -38,6 +36,14 @@ limit_bottom = 2560
 script = ExtResource("6_tqy8j")
 
 [node name="HUD" parent="." instance=ExtResource("7_j0avw")]
+process_mode = 3
+
+[node name="StartMenu" parent="HUD" instance=ExtResource("3_n42ql")]
+visible = false
+offset_left = -320.0
+offset_top = -180.0
+offset_right = 320.0
+offset_bottom = 180.0
 
 [node name="Rocks" type="Node" parent="."]
 
@@ -107,6 +113,7 @@ max_volume = 4
 randomSeed = -2
 
 [node name="SoundTrackPlayer" type="AudioStreamPlayer" parent="."]
+process_mode = 3
 stream = ExtResource("12_s8a8x")
 autoplay = true
 
