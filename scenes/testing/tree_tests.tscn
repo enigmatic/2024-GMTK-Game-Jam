@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://olwpgtdb6eua"]
+
+[ext_resource type="PackedScene" uid="uid://b15l1t355unu0" path="res://scenes/Tree.tscn" id="1_gcf6j"]
+[ext_resource type="Script" path="res://scripts/testing/tree_tests.gd" id="1_ormy1"]
+
+[node name="TreeTests" type="Node2D"]
+script = ExtResource("1_ormy1")
+
+[node name="Tree" parent="." instance=ExtResource("1_gcf6j")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(319, -178)
+zoom = Vector2(0.01, 0.01)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.25
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

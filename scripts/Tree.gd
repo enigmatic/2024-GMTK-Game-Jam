@@ -9,7 +9,7 @@ var last_foliage_side = -1
 # Called when the node enters the scene tree for the first time.
 
 func _ready():
-	set_tree_size(16)
+	set_tree_size(128)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 
 func _process(delta):
@@ -59,10 +59,10 @@ func add_foliage(foliage_position:Vector2 = Vector2(-1,-1), radius: int = -1):
 		foliage_position = Vector2(0, randi_range(size.y*.1,size.y*.2))
 		foliage_position.y = position.y
 		if last_foliage_side < 0:
-			foliage_position.x = randi_range(320-size.x,320+size.x*.5)
+			foliage_position.x = randi_range(310,320)
 			new_foliage.grow_direction = -4.5
 		else:
-			foliage_position.x = randi_range(320-size.x*.25,320)-radius
+			foliage_position.x = randi_range(320,330)-radius
 			new_foliage.grow_direction = -1
 		
 		last_foliage_side *= -1
