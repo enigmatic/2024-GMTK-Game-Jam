@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://bvw1q8knnnaxc"]
+[gd_scene load_steps=5 format=3 uid="uid://bvw1q8knnnaxc"]
 
 [ext_resource type="PackedScene" uid="uid://d3ro0rdbnkf6" path="res://scenes/Root.tscn" id="1_yp1ii"]
 [ext_resource type="PackedScene" uid="uid://bxfxlvuahy6vv" path="res://scenes/rock.tscn" id="2_7xmsd"]
+[ext_resource type="PackedScene" uid="uid://ct8c2udaf2iy6" path="res://scenes/PushableRock.tscn" id="3_me5r6"]
+[ext_resource type="PackedScene" uid="uid://cmvwbb83jppve" path="res://scenes/Water.tscn" id="4_gydts"]
 
 [node name="RockTests" type="Node2D"]
 
@@ -15,6 +17,15 @@ collision_mask = 0
 randomSeed = 6
 
 [node name="Rock" parent="." instance=ExtResource("2_7xmsd")]
-position = Vector2(406, 148)
+position = Vector2(366, 114)
 randomSeed = 9
 variation = 19
+
+[node name="PushableRock" parent="." instance=ExtResource("3_me5r6")]
+position = Vector2(304, 54)
+scale = Vector2(0.5, 0.5)
+randomSeed = 0
+variation = 20
+
+[node name="Water" parent="." instance=ExtResource("4_gydts")]
+position = Vector2(188, 25)

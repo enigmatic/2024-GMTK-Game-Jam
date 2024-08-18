@@ -24,6 +24,8 @@ signal done_growing();
 
 
 var parent: RootSection = null;
+var collision = null;
+var _pushing = false;
 var touching: UndergroundCollidable = null;
 var segment = SegmentShape2D.new();
 var _doneGrowing = false;
@@ -45,16 +47,33 @@ func _ready():
 func remove():
 	if parent:
 		parent.removed_child();
+	if touching:
+		touching.reset();
 	queue_free();
 
 func _process(delta):
 	if (!_doneGrowing):
 		var start_point = line.get_point_position(1);
-		
 		var point = target;
+			
 		if parent:
 			point = start_point.move_toward(target, growthRate * delta);
+			if _pushing:
+				if !touching.push(start_point, point):
+					_doneGrowing = true;
+					target = start_point;
+					point = target;
 			
+		if collision && !_pushing:
+			var local_collision_position = to_local(collision.position);
+			
+			point = start_point.move_toward(to_local(collision.position), growthRate * delta);
+			
+			if (is_equal_approx(point.x, local_collision_position.x) && is_equal_approx(point.y, local_collision_position.y)):
+				growthRate /= 2;
+				_pushing = true;
+				touching.start_push();
+		
 		if (is_equal_approx(point.x, target.x) && is_equal_approx(point.y, target.y)):
 			_doneGrowing = true;
 			point = target;
@@ -117,7 +136,7 @@ func removed_child():
 	if parent:
 		parent.removed_child();
 
-func  consume():
+func consume():
 	if touching && is_instance_valid(touching):
 		if touching.type() == 'water':
 			if (touching.consume(1, to_global(target)) > 0):

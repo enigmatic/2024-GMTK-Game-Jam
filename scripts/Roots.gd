@@ -38,12 +38,13 @@ func _input(event):
 						if hitInfo:
 							collideWith = hitInfo.collider;
 							okToGrow = check_valid_target_node(collideWith);
-							_grow_to_position = to_local(hitInfo.position);
+							if (collideWith.type() == 'water'):
+								_grow_to_position = to_local(hitInfo.position);
 						elif (start_point.distance_to(_grow_to_position) < rootSectionMinSize):
 							okToGrow = false;
 
 						if okToGrow:
-							_growRoot(_grow_to_position, collideWith);
+							_growRoot(_grow_to_position, hitInfo);
 						_planning_to_draw = false;
 					else:
 						_cancelClick = false;
@@ -55,12 +56,14 @@ func _input(event):
 			_removable_roots.pop_front().remove();
 			removed_root.emit();
 		
-func _growRoot(target: Vector2, collidedWith: UndergroundCollidable = null):
+func _growRoot(target: Vector2, collideInfo):
 	var scene = load("res://scenes/RootSection.tscn");
 	var section:RootSection = scene.instantiate();
 	section.parent = _nearestNode;
 	section.target = target;
-	section.touching = collidedWith;
+	section.collision = collideInfo;
+	if collideInfo:
+		section.touching = collideInfo.collider;
 	section.done_growing.connect(_calculate_path)
 	section.water_flowing.connect(_on_root_section_water_flowing);
 	rootList.add_child(section);
@@ -124,9 +127,13 @@ func _draw_ghost_line(start: Vector2, target: Vector2):
 	
 	if hitInfo:
 		var collidedWith = hitInfo.collider;
-		if (collidedWith.type() == 'water'):
+		var collideType = collidedWith.type();
+		if collidedWith.is_blocker():
+			ghostLine.default_color = Color(1,0,0);
+		elif (['water', 'pushable'].has(collideType)):
 			ghostLine.default_color = Color(0,0,1);
-			ghostLine.set_point_position(1, to_local(hitInfo.position));
+			if (collideType == 'water'):
+				ghostLine.set_point_position(1, to_local(hitInfo.position));
 		else:
 			ghostLine.default_color = Color(1,0,0);
 	elif (start.distance_to(target) < rootSectionMinSize):
