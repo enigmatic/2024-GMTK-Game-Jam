@@ -41,6 +41,11 @@ func _ready():
 	
 	if parent:
 		parent.added_child();
+		
+func remove():
+	if parent:
+		parent.removed_child();
+	queue_free();
 
 func _process(delta):
 	if (!_doneGrowing):
@@ -103,6 +108,14 @@ func added_child():
 	endCap.texture.width = width + widthGrowth;
 	if parent:
 		parent.added_child();
+		
+func removed_child():
+	width -= widthGrowth;
+	line.width = width;
+	endCap.texture.height = width + widthGrowth;
+	endCap.texture.width = width + widthGrowth;
+	if parent:
+		parent.removed_child();
 
 func  consume():
 	if touching && is_instance_valid(touching):

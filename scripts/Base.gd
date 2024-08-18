@@ -20,6 +20,12 @@ func _on_root_growing_root():
 	if rootCounter == 0:
 		root.stop_growing();
 	_updateScores();
+	
+func _on_root_removed_root():
+	if rootCounter == 0:
+		root.start_growing();
+	rootCounter += 1;
+	_updateScores();
 
 func _on_root_water_gathered(amount):
 	score += amount;

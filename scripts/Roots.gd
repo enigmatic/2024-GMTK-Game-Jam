@@ -2,6 +2,7 @@ extends Node2D
 class_name Root
 
 signal growing_root;
+signal removed_root;
 signal water_gathered(amount:int);
 
 @export var groundLevel: int = 0;
@@ -51,7 +52,8 @@ func _input(event):
 					cancel_growing();
 	elif event.is_action_released('undo'):
 		if (_removable_roots.size() > 0):
-			_removable_roots.pop_front().queue_free();
+			_removable_roots.pop_front().remove();
+			removed_root.emit();
 		
 func _growRoot(target: Vector2, collidedWith: UndergroundCollidable = null):
 	var scene = load("res://scenes/RootSection.tscn");
@@ -159,11 +161,12 @@ func _on_root_section_water_flowing(section:RootSection):
 	if section.water_flowing.is_connected(_on_root_section_water_flowing):
 		section.water_flowing.disconnect(_on_root_section_water_flowing);
 	_removable_roots.erase(section);
-	print(_removable_roots)
 	
 
 func stop_growing():
 	_can_grow = false;
+	_planning_to_draw = false;
+	ghostLine.visible = false;
 	
 func start_growing():
 	
@@ -176,7 +179,6 @@ func cancel_growing():
 	_cancelClick = true;
 	ghostLine.visible = false;
 	_planning_to_draw = false;
-
 
 func _on_root_section_done_growing():
 	start_growing();

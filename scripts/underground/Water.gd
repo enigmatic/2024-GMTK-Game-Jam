@@ -6,6 +6,7 @@ class_name Water
 	set(new_max):
 		_volume = new_max;
 		max_volume = new_max
+		@warning_ignore("integer_division")
 		variation = max(variation, max_volume/2);
 		_randomizeStructure();
 	
@@ -13,6 +14,7 @@ var _volume = max_volume;
 var _original_water_points: SS2D_Point_Array;
 
 func _ready():
+	@warning_ignore("integer_division")
 	variation = max(variation, max_volume/2);
 	_volume = max_volume;
 	super._ready();
