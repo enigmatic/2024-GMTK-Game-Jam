@@ -35,7 +35,6 @@ shader_parameter/shape_noise = SubResource("NoiseTexture2D_id5k8")
 texture_filter = 2
 texture_repeat = 2
 material = SubResource("ShaderMaterial_bf180")
-anchors_preset = -1
 offset_left = -35.0
 offset_top = -28.0
 offset_right = 29.0

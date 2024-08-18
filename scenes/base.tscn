@@ -1,9 +1,10 @@
-[gd_scene load_steps=24 format=3 uid="uid://ddpfqi0kg1m3w"]
+[gd_scene load_steps=28 format=3 uid="uid://ddpfqi0kg1m3w"]
 
 [ext_resource type="Script" path="res://scripts/Base.gd" id="1_20ccf"]
 [ext_resource type="Theme" uid="uid://cce1uxp863s3k" path="res://assets/default_theme.tres" id="1_jnofk"]
 [ext_resource type="Shader" path="res://assets/shaders/dirt.gdshader" id="1_vgn1v"]
 [ext_resource type="PackedScene" uid="uid://b15l1t355unu0" path="res://scenes/Tree.tscn" id="4_78xgr"]
+[ext_resource type="Shader" path="res://assets/shaders/grass.gdshader" id="4_m4wlp"]
 [ext_resource type="Shader" path="res://assets/shaders/clouds.gdshader" id="5_7neub"]
 [ext_resource type="Script" path="res://scripts/Camera.gd" id="6_tqy8j"]
 [ext_resource type="PackedScene" uid="uid://d3ro0rdbnkf6" path="res://scenes/Root.tscn" id="7_cr1yp"]
@@ -78,6 +79,19 @@ shader_parameter/clouds2 = SubResource("NoiseTexture2D_0p12a")
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_h8h1i"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sy4wt"]
+shader = ExtResource("4_m4wlp")
+shader_parameter/speed = 0.1
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_osx2q"]
+frequency = 1.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_hp518"]
+width = 2560
+height = 4
+seamless = true
+noise = SubResource("FastNoiseLite_osx2q")
+
 [node name="Base" type="Node2D"]
 script = ExtResource("1_20ccf")
 
@@ -108,6 +122,14 @@ offset_right = 1600.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("NoiseTexture2D_h8h1i")
+
+[node name="Grass" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_sy4wt")
+offset_left = -960.0
+offset_top = -2.0
+offset_right = 1600.0
+offset_bottom = 2.0
+texture = SubResource("NoiseTexture2D_hp518")
 
 [node name="StartMenu" type="Panel" parent="."]
 process_mode = 3

@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://b6gtrxeojq34a"]
+
+[ext_resource type="Shader" path="res://assets/shaders/grass.gdshader" id="1_qvioh"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_btpfa"]
+shader = ExtResource("1_qvioh")
+shader_parameter/speed = 0.1
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_53ddv"]
+frequency = 1.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_wtq8s"]
+width = 2560
+height = 4
+seamless = true
+noise = SubResource("FastNoiseLite_53ddv")
+
+[node name="BackupNode" type="Node2D"]
+
+[node name="Grass" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_btpfa")
+offset_left = -960.0
+offset_right = 1600.0
+offset_bottom = 2.0
+texture = SubResource("NoiseTexture2D_wtq8s")
