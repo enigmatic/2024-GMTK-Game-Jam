@@ -4,6 +4,7 @@ extends Node2D
 @onready var score_label = $CanvasLayer2/ScoreLabel
 @onready var root_label = $CanvasLayer2/RootLabel
 @onready var tree_node = $Tree
+@onready var hud = $HUD
 
 var score = 0;
 var rootCounter = 2;
@@ -33,5 +34,5 @@ func _on_root_water_gathered(amount):
 	_updateScores();
 	
 func _updateScores():
-	score_label.text = "Score: " + str(score);
-	root_label.text = 'Roots: ' + str(rootCounter);
+	hud.set_score(score);
+	hud.set_root(rootCounter);
