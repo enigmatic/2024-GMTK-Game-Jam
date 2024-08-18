@@ -23,9 +23,10 @@ func reset():
 		f.falling = true
 	set_tree_size(startingTreeSize)
 
-func increase_tree_size(height: int = 32):
-	set_tree_size(height+size.y)
+func increase_tree_size(height: int = 32, tween:bool = false):
+	set_tree_size(height+size.y, tween)
 	var height_h = height * .4
+	var tweener = get_tree().create_tween()
 	for foliage in foliages_node.get_children():
 		foliage.size.x += height_h*.6
 		foliage.size.y += height_h*.6
@@ -37,25 +38,38 @@ func increase_tree_size(height: int = 32):
 		add_foliage()
 
 
-func set_tree_size(height: int= 16):
+func set_tree_size(height: int= 16, tween:bool = false):
 	tree_growing.emit(height);
 	var half_h = (height*.5)
 	var quarter_h = height*.25
-	size.y = height
-	size.x = sqrt(height) * (log(height)-3)
+	var tween1 = create_tween()
+	var tween2 = create_tween()
+	var tween3 = create_tween()
+	var new_position =  Vector2(320-(size.x*.5),-height)
+	var new_size = Vector2(sqrt(height) * (log(height)-3),height)
+	top_foliage.size = Vector2(size.x,size.x)
+
+	var new_foliage_position = Vector2(top_foliage.size.x*.001,-top_foliage.size.x*.5,)
+	if tween:
+		tween1.tween_property(self,"size",new_size,1.0)
+		tween2.tween_property(self,"position",new_position,1.0)
+		tween3.tween_property(top_foliage,"position",new_foliage_position,1)
+	else:
+		size = new_size
+		position = new_position
+		top_foliage.position = new_foliage_position
+		top_foliage.position.y = -top_foliage.size.x*.5
+		top_foliage.position.x = top_foliage.size.x*.001
+		
 	material.set_shader_parameter("pixelization", half_h)
 	material.set_shader_parameter("width", size.x)
-	position.x = 320-(size.x*.5)
-	#position.y = 15
-	position.y = -size.y
-	top_foliage.size = Vector2(size.x,size.x)
-	top_foliage.position.y = -top_foliage.size.x*.5
-	top_foliage.position.x = top_foliage.size.x*.001
 	top_foliage.material.set_shader_parameter("pixelization", size.x*.5)
 	top_foliage.material.set_shader_parameter("radius", size.x*.5*.7)
 
 func add_foliage(foliage_position:Vector2 = Vector2(-1,-1), radius: int = -1):
 	var new_foliage = foliage_preload.instantiate()
+	foliages_node.add_child(new_foliage)
+	
 	if radius == -1:
 		radius = randi_range(4,clamp(size.y*.2,5,16))
 	if foliage_position == Vector2(-1,-1):
@@ -70,12 +84,17 @@ func add_foliage(foliage_position:Vector2 = Vector2(-1,-1), radius: int = -1):
 		
 		last_foliage_side *= -1
 		#print(str(foliage_position) + "  "+  str(position.x) + "  "+  str(size.x))
-
-
-	new_foliage.size.x = radius*2
-	new_foliage.size.y = radius*2
-	foliages_node.add_child(new_foliage)
+	
+	new_foliage.size = Vector2(0,0)
+	new_foliage.anchors_preset = PRESET_CENTER
+	new_foliage.layout_mode = 1
+	var tween = create_tween()
+	var tween2 = create_tween()
 	new_foliage.position = foliage_position
+	tween.tween_property(new_foliage, "size", Vector2(radius*2,radius*2),1)
+	tween2.tween_property(new_foliage, "position", Vector2(foliage_position.x,foliage_position.y-radius*2),1.0)
+
+	
 	new_foliage.material.set_shader_parameter("pixelization", radius*1.3)
 	new_foliage.material.set_shader_parameter("radius", radius)
 	new_foliage.material.get_shader_parameter("green_noise").noise.seed = randi()

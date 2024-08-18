@@ -1,7 +1,9 @@
-[gd_resource type="Theme" load_steps=7 format=3 uid="uid://cce1uxp863s3k"]
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://cce1uxp863s3k"]
 
 [ext_resource type="FontFile" uid="uid://ws02jxh62lbj" path="res://assets/fonts/Retro Gaming.ttf" id="1_hipsq"]
 [ext_resource type="Texture2D" uid="uid://cuatk13mbou7s" path="res://assets/ui/button.png" id="2_0hiag"]
+[ext_resource type="Texture2D" uid="uid://dqotnbc8aduyu" path="res://assets/ui/Slider.png" id="3_mgg1e"]
+[ext_resource type="Texture2D" uid="uid://2247f3c2xtkw" path="res://assets/ui/Slider_Hover.png" id="4_6ws72"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_8feib"]
 color = Color(0, 0, 0, 0)
@@ -57,3 +59,5 @@ Button/styles/focus = SubResource("StyleBoxLine_8feib")
 Button/styles/hover = SubResource("StyleBoxTexture_eekwj")
 Button/styles/normal = SubResource("StyleBoxTexture_rfapm")
 Button/styles/pressed = SubResource("StyleBoxTexture_0ht4r")
+HSlider/icons/grabber = ExtResource("3_mgg1e")
+HSlider/icons/grabber_highlight = ExtResource("4_6ws72")
