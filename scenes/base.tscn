@@ -1,10 +1,11 @@
-[gd_scene load_steps=28 format=3 uid="uid://ddpfqi0kg1m3w"]
+[gd_scene load_steps=32 format=3 uid="uid://ddpfqi0kg1m3w"]
 
 [ext_resource type="Script" path="res://scripts/Base.gd" id="1_20ccf"]
 [ext_resource type="Theme" uid="uid://cce1uxp863s3k" path="res://assets/default_theme.tres" id="1_jnofk"]
 [ext_resource type="Shader" path="res://assets/shaders/dirt.gdshader" id="1_vgn1v"]
 [ext_resource type="PackedScene" uid="uid://b15l1t355unu0" path="res://scenes/Tree.tscn" id="4_78xgr"]
 [ext_resource type="Shader" path="res://assets/shaders/grass.gdshader" id="4_m4wlp"]
+[ext_resource type="Shader" path="res://assets/shaders/space.gdshader" id="4_rcr6k"]
 [ext_resource type="Shader" path="res://assets/shaders/clouds.gdshader" id="5_7neub"]
 [ext_resource type="Script" path="res://scripts/Camera.gd" id="6_tqy8j"]
 [ext_resource type="PackedScene" uid="uid://d3ro0rdbnkf6" path="res://scenes/Root.tscn" id="7_cr1yp"]
@@ -79,6 +80,20 @@ shader_parameter/clouds2 = SubResource("NoiseTexture2D_0p12a")
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_h8h1i"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w8xoj"]
+shader = ExtResource("4_rcr6k")
+
+[sub_resource type="Gradient" id="Gradient_3673a"]
+offsets = PackedFloat32Array(0.220779, 0.811688, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.0187674, 0, 0.245935, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_clyv2"]
+gradient = SubResource("Gradient_3673a")
+width = 2560
+height = 2560
+fill_from = Vector2(0.56087, 0.395652)
+fill_to = Vector2(0.56087, 1)
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sy4wt"]
 shader = ExtResource("4_m4wlp")
 shader_parameter/speed = 0.1
@@ -122,6 +137,14 @@ offset_right = 1600.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("NoiseTexture2D_h8h1i")
+
+[node name="Space" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_w8xoj")
+offset_left = -960.0
+offset_top = -4791.0
+offset_right = 1600.0
+offset_bottom = -2231.0
+texture = SubResource("GradientTexture2D_clyv2")
 
 [node name="Grass" type="TextureRect" parent="."]
 material = SubResource("ShaderMaterial_sy4wt")
