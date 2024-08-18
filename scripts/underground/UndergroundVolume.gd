@@ -7,7 +7,7 @@ class_name UndergroundVolume
 		randomSeed = new_seed;
 		_randomizeStructure();
 		
-@export var variation = 20:
+@export_range(0,30) var variation = 20:
 	set(new_variation):
 		variation = new_variation;
 		_randomizeStructure();
@@ -24,7 +24,7 @@ func _randomizeStructure():
 	if (randomSeed != 0):
 		seed(randomSeed);
 	else:
-		randomize();
+		return;
 	
 	var points = _orignalPoints.clone(true);
 	for i in range(0, points.get_point_count()-1):

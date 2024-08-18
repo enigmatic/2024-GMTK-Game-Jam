@@ -291,21 +291,23 @@ position = Vector2(-402, 427)
 position = Vector2(281, 216)
 max_volume = 10
 randomSeed = 5
+variation = 5
 
 [node name="Water3" parent="Water" instance=ExtResource("9_t2bt7")]
 position = Vector2(361, 27)
 max_volume = 2
-randomSeed = 2
 
 [node name="Water4" parent="Water" instance=ExtResource("9_t2bt7")]
 position = Vector2(449, 93)
 max_volume = 5
 randomSeed = 1
+variation = 1
 
 [node name="Water5" parent="Water" instance=ExtResource("9_t2bt7")]
 position = Vector2(-58, 337)
-max_volume = 50
-variation = 25
+max_volume = 48
+randomSeed = 16
+variation = 24
 
 [node name="SoundTrackPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_s8a8x")
