@@ -1,8 +1,6 @@
 extends Node2D
 
 @onready var root:Root = $Root;
-@onready var score_label = $CanvasLayer2/ScoreLabel
-@onready var root_label = $CanvasLayer2/RootLabel
 @onready var tree_node = $Tree
 @onready var hud = $HUD
 
