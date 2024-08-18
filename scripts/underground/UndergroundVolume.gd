@@ -17,10 +17,12 @@ class_name UndergroundVolume
 @onready var _orignalPoints: SS2D_Point_Array = shape.get_point_array();
 
 func _ready():
-	_orignalPoints
 	_randomizeStructure();
 
 func _randomizeStructure():
+	if !_orignalPoints:
+		return;
+		
 	if (randomSeed != 0):
 		seed(randomSeed);
 	else:

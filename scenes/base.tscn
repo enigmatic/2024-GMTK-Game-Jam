@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/Base.gd" id="1_20ccf"]
 [ext_resource type="Theme" uid="uid://cce1uxp863s3k" path="res://assets/default_theme.tres" id="1_jnofk"]
-[ext_resource type="PackedScene" uid="uid://bvuvu5rfmhqbr" path="res://scenes/background.tscn" id="2_a54lw"]
+[ext_resource type="PackedScene" path="res://scenes/background.tscn" id="2_a54lw"]
 [ext_resource type="PackedScene" uid="uid://b15l1t355unu0" path="res://scenes/Tree.tscn" id="4_78xgr"]
 [ext_resource type="Script" path="res://scripts/Camera.gd" id="6_tqy8j"]
 [ext_resource type="PackedScene" uid="uid://d3ro0rdbnkf6" path="res://scenes/Root.tscn" id="7_cr1yp"]
@@ -111,7 +111,8 @@ randomSeed = 4
 variation = 15
 
 [node name="Rock5" parent="Rocks" instance=ExtResource("8_g5x8e")]
-position = Vector2(560, 25)
+position = Vector2(534, 60)
+rotation = -1.29503
 scale = Vector2(1.5, 1.5)
 randomSeed = 5
 
@@ -124,6 +125,7 @@ randomSeed = 6
 position = Vector2(-402, 427)
 
 [node name="RightRocks" parent="Rocks" instance=ExtResource("12_mp5yp")]
+position = Vector2(-33, 25)
 
 [node name="CenterRocks" parent="Rocks" instance=ExtResource("13_1aj4j")]
 

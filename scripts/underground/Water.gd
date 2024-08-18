@@ -25,13 +25,14 @@ func type():
 	return 'water';
 
 func _updateVolume():
-	var points = shape.get_point_array();
+	var points = _orignalPoints.clone(true);
 	for i in range(0, points.get_point_count()-1):
 		var point = points.get_point_at_index(i);
 		
 		var point_position = Vector2(0,0).direction_to(point.position) * _volume;
 		points.set_point_position(points.get_point_key_at_index(i), point_position);
 	
+	shape.set_point_array(points);
 	_original_water_points = null;
 	_orignalPoints = points.clone(true);
 
@@ -61,5 +62,8 @@ func consume(units:int, consuming_location:Vector2) -> int:
 	return consumed;
 	
 func _randomizeStructure():
+	if !shape:
+		return;
+		
 	_updateVolume();
 	super._randomizeStructure();
