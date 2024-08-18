@@ -74,13 +74,25 @@ func _findNearestRootNode(pos: Vector2):
 	var roots = rootList.get_children();
 	var nearest: RootSection = roots[0]
 	var nearDist = nearest.get_end_point().distance_to(pos);
+	var clearPath = false;
 	for root in roots:
 		var testPos = root.get_end_point();
 		var dist = testPos.distance_to(pos);
-		if (dist < nearDist):
-			nearest = root;
-			nearDist = dist;
-			
+		if (dist < nearDist) && (dist > rootSectionMinSize):
+			if checkCollision(pos, testPos):
+				if !clearPath:
+					nearest = root;
+					nearDist = dist;
+			else:
+				clearPath = true;
+				nearest = root;
+				nearDist = dist;
+		elif !clearPath:
+			if !checkCollision(pos, testPos):
+				clearPath = true;
+				nearest = root;
+				nearDist = dist;
+
 	_nearestNode = nearest;
 	
 func _draw_ghost_line(start: Vector2, target: Vector2):
