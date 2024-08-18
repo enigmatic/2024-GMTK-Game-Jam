@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://dpkjvw5lg2a0c"]
+[gd_scene load_steps=3 format=3 uid="uid://olwpgtdb6eua"]
 
 [ext_resource type="PackedScene" uid="uid://b15l1t355unu0" path="res://scenes/Tree.tscn" id="1_gcf6j"]
 [ext_resource type="Script" path="res://scripts/testing/tree_tests.gd" id="1_ormy1"]
