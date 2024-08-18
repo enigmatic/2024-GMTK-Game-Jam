@@ -8,11 +8,13 @@
 [node name="Root" parent="." instance=ExtResource("1_yp1ii")]
 position = Vector2(264, 15)
 
-[node name="Rock" parent="." instance=ExtResource("2_7xmsd")]
-position = Vector2(371, 107)
-
 [node name="Rock2" parent="." instance=ExtResource("2_7xmsd")]
 position = Vector2(105, 134)
 collision_layer = 130
 collision_mask = 0
 randomSeed = 6
+
+[node name="Rock" parent="." instance=ExtResource("2_7xmsd")]
+position = Vector2(406, 148)
+randomSeed = 9
+variation = 19

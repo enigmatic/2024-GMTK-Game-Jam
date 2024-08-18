@@ -1,8 +1,13 @@
+@tool
 extends UndergroundVolume
 class_name Water
 
-@export var max_volume = 20;
-
+@export var max_volume = 20:
+	set(new_max):
+		_volume = new_max;
+		max_volume = new_max
+		_updateVolume();
+	
 var _volume;
 var _original_points: SS2D_Point_Array;
 
@@ -53,5 +58,3 @@ func consume(units:int, consuming_location:Vector2) -> int:
 		
 	return consumed;
 	
-func randomize():
-	pass;
