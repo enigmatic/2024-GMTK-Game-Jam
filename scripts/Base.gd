@@ -3,13 +3,17 @@ extends Node2D
 @onready var root:Root = $Root;
 @onready var tree_node = $Tree
 @onready var hud = $HUD
-
+@onready var start_menu = $HUD/StartMenu
 var score = 0;
 var rootCounter = 2;
 var water_counter = 0;
 
 func _ready():
 	_updateScores();
+	start_menu.connect("reset", _reset_game)
+	
+func _reset_game():
+	tree_node.reset()
 	
 func _process(_delta):
 	if !$SoundTrackPlayer.playing:

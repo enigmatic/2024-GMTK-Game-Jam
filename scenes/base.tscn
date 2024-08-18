@@ -1,12 +1,12 @@
 [gd_scene load_steps=14 format=3 uid="uid://ddpfqi0kg1m3w"]
 
 [ext_resource type="Script" path="res://scripts/Base.gd" id="1_20ccf"]
-[ext_resource type="PackedScene" path="res://scenes/background.tscn" id="2_a54lw"]
-[ext_resource type="PackedScene" path="res://scenes/start_menu.tscn" id="3_n42ql"]
+[ext_resource type="PackedScene" uid="uid://bvuvu5rfmhqbr" path="res://scenes/background.tscn" id="2_a54lw"]
+[ext_resource type="PackedScene" uid="uid://c5yf141326e73" path="res://scenes/start_menu.tscn" id="3_n42ql"]
 [ext_resource type="PackedScene" uid="uid://b15l1t355unu0" path="res://scenes/Tree.tscn" id="4_78xgr"]
 [ext_resource type="Script" path="res://scripts/Camera.gd" id="6_tqy8j"]
 [ext_resource type="PackedScene" uid="uid://d3ro0rdbnkf6" path="res://scenes/Root.tscn" id="7_cr1yp"]
-[ext_resource type="PackedScene" path="res://scenes/hud.tscn" id="7_j0avw"]
+[ext_resource type="PackedScene" uid="uid://yk8neoeakd87" path="res://scenes/hud.tscn" id="7_j0avw"]
 [ext_resource type="PackedScene" uid="uid://bxfxlvuahy6vv" path="res://scenes/rock.tscn" id="8_g5x8e"]
 [ext_resource type="PackedScene" uid="uid://cmvwbb83jppve" path="res://scenes/Water.tscn" id="9_t2bt7"]
 [ext_resource type="PackedScene" uid="uid://khlcgqbq2uxn" path="res://scenes/rocks/RightRocks.tscn" id="12_mp5yp"]
@@ -20,6 +20,7 @@ script = ExtResource("1_20ccf")
 [node name="Background" parent="." instance=ExtResource("2_a54lw")]
 
 [node name="Tree" parent="." instance=ExtResource("4_78xgr")]
+process_mode = 3
 offset_bottom = 4.0
 metadata/_edit_use_anchors_ = true
 
@@ -125,5 +126,4 @@ randomSeed = 2
 
 [connection signal="tree_growing" from="Tree" to="Camera" method="_on_tree_tree_growing"]
 [connection signal="growing_root" from="Root" to="." method="_on_root_growing_root"]
-[connection signal="removed_root" from="Root" to="." method="_on_root_removed_root"]
 [connection signal="water_gathered" from="Root" to="." method="_on_root_water_gathered"]
