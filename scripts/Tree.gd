@@ -45,8 +45,8 @@ func set_tree_size(height: int= 16, tween:bool = false):
 	var tween1 = create_tween()
 	var tween2 = create_tween()
 	var tween3 = create_tween()
-	var new_position =  Vector2(320-(size.x*.5),-height)
-	var new_size = Vector2(sqrt(height) * (log(height)-3),height)
+	var new_size = Vector2(sqrt(height) * (log(height)-2),height)
+	var new_position =  Vector2(320-(sqrt(height) * (log(height)-2)*.5),-height)
 	top_foliage.size = Vector2(size.x,size.x)
 
 	var new_foliage_position = Vector2(top_foliage.size.x*.001,-top_foliage.size.x*.5,)
