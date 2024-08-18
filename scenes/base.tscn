@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bxfxlvuahy6vv" path="res://scenes/rock.tscn" id="8_g5x8e"]
 [ext_resource type="PackedScene" uid="uid://cmvwbb83jppve" path="res://scenes/Water.tscn" id="9_t2bt7"]
 [ext_resource type="AudioStream" uid="uid://blj0f6ajfudnd" path="res://assets/audio/generative_beeps_organic.mp3" id="12_s8a8x"]
-[ext_resource type="PackedScene" uid="uid://0g6xranwwo4b" path="res://scenes/LeftRocks.tscn" id="13_q72gn"]
+[ext_resource type="PackedScene" uid="uid://0g6xranwwo4b" path="res://scenes/rocks/LeftRocks.tscn" id="13_q72gn"]
 
 [sub_resource type="Gradient" id="Gradient_c3m7p"]
 offsets = PackedFloat32Array(0, 0.425076, 1)

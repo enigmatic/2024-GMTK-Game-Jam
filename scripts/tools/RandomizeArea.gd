@@ -3,9 +3,9 @@ extends EditorScript
 
 var randomHolderName = 'RandomRocks';
 var sceneToPlace = "res://scenes/rock.tscn";
-var numberToAdd = 100;
-var minPos = Vector2(-1000,0)
-var maxPos = Vector2(0,2500)
+var numberToAdd = 60;
+var minPos = Vector2(0,250)
+var maxPos = Vector2(550,2500)
 
 func placeThing(parent:Node, position:Vector2):
 	var scene = load(sceneToPlace);
