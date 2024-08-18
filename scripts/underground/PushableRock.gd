@@ -1,3 +1,4 @@
+@tool
 extends UndergroundVolume
 class_name PushableRock
 
@@ -26,7 +27,7 @@ func start_push():
 
 func _on_body_entered(body):
 	_can_move = false;
-
+	
 func reset():
 	position = _positionQueue.pop_front();
 	_can_move = true;

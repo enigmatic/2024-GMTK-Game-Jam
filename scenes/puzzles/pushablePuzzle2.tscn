@@ -1,0 +1,69 @@
+[gd_scene load_steps=6 format=3 uid="uid://be02t12fxgu6i"]
+
+[ext_resource type="Script" path="res://scripts/Puzzle.gd" id="1_ujxi8"]
+[ext_resource type="PackedScene" uid="uid://d3ro0rdbnkf6" path="res://scenes/Root.tscn" id="2_b62mm"]
+[ext_resource type="PackedScene" uid="uid://bxfxlvuahy6vv" path="res://scenes/rock.tscn" id="3_iywgk"]
+[ext_resource type="PackedScene" uid="uid://ct8c2udaf2iy6" path="res://scenes/PushableRock.tscn" id="4_ysfmx"]
+[ext_resource type="PackedScene" uid="uid://cmvwbb83jppve" path="res://scenes/Water.tscn" id="5_g5ihl"]
+
+[node name="PushablePuzzle2" type="Node2D"]
+script = ExtResource("1_ujxi8")
+
+[node name="Root" parent="." instance=ExtResource("2_b62mm")]
+position = Vector2(333, 3)
+
+[node name="Rock" parent="." instance=ExtResource("3_iywgk")]
+position = Vector2(241, 67)
+randomSeed = 4
+variation = 10
+
+[node name="Rock2" parent="." instance=ExtResource("3_iywgk")]
+position = Vector2(554, 153)
+rotation = -1.69646
+randomSeed = 2
+
+[node name="PushableRock2" parent="." instance=ExtResource("4_ysfmx")]
+position = Vector2(358, 24)
+scale = Vector2(0.1, 0.1)
+randomSeed = 1
+variation = 2
+
+[node name="PushableRock" parent="." instance=ExtResource("4_ysfmx")]
+position = Vector2(325, 29)
+scale = Vector2(0.1, 0.1)
+randomSeed = 1
+variation = 2
+
+[node name="PushableRock3" parent="." instance=ExtResource("4_ysfmx")]
+position = Vector2(342, 24)
+scale = Vector2(0.2, 0.2)
+randomSeed = 6
+variation = 8
+
+[node name="Water" parent="." instance=ExtResource("5_g5ihl")]
+position = Vector2(134, 254)
+max_volume = 5
+variation = 2
+
+[node name="Rock3" parent="." instance=ExtResource("3_iywgk")]
+position = Vector2(410, 46)
+rotation = -0.158825
+randomSeed = 20
+variation = 21
+
+[node name="PushableRock4" parent="." instance=ExtResource("4_ysfmx")]
+position = Vector2(339, 41)
+scale = Vector2(0.15, 0.15)
+randomSeed = 56
+variation = 11
+
+[node name="Rock4" parent="." instance=ExtResource("3_iywgk")]
+position = Vector2(354, 123)
+scale = Vector2(0.5, 0.5)
+skew = 0.439823
+randomSeed = -10
+variation = 17
+
+[node name="Water2" parent="." instance=ExtResource("5_g5ihl")]
+position = Vector2(308, 126)
+randomSeed = 5

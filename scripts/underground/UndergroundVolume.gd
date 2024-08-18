@@ -23,7 +23,7 @@ func _randomizeStructure():
 	if !_orignalPoints:
 		return;
 		
-	if (randomSeed != 0):
+	if randomSeed && randomSeed != 0:
 		seed(randomSeed);
 	else:
 		return;

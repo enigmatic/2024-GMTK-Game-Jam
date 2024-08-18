@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://ddpfqi0kg1m3w"]
+[gd_scene load_steps=15 format=3 uid="uid://ddpfqi0kg1m3w"]
 
 [ext_resource type="Script" path="res://scripts/Base.gd" id="1_20ccf"]
 [ext_resource type="PackedScene" uid="uid://bvuvu5rfmhqbr" path="res://scenes/background.tscn" id="2_a54lw"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://khlcgqbq2uxn" path="res://scenes/rocks/RightRocks.tscn" id="12_mp5yp"]
 [ext_resource type="AudioStream" uid="uid://blj0f6ajfudnd" path="res://assets/audio/generative_beeps_organic.mp3" id="12_s8a8x"]
 [ext_resource type="PackedScene" uid="uid://dti7psphqxfj7" path="res://scenes/puzzles/pushablePuzzle.tscn" id="13_4w4xn"]
+[ext_resource type="PackedScene" uid="uid://be02t12fxgu6i" path="res://scenes/puzzles/pushablePuzzle2.tscn" id="13_eag6f"]
 [ext_resource type="PackedScene" uid="uid://0g6xranwwo4b" path="res://scenes/rocks/LeftRocks.tscn" id="13_q72gn"]
 
 [node name="Base" type="Node2D"]
@@ -73,6 +74,7 @@ variation = 5
 [node name="Water3" parent="Water" instance=ExtResource("9_t2bt7")]
 position = Vector2(361, 27)
 max_volume = 2
+variation = 1
 
 [node name="Water4" parent="Water" instance=ExtResource("9_t2bt7")]
 position = Vector2(449, 93)
@@ -125,6 +127,9 @@ bus = &"Soundtrack"
 
 [node name="PushablePuzzle" parent="Puzzles" instance=ExtResource("13_4w4xn")]
 position = Vector2(-54, 219)
+
+[node name="PushablePuzzle2" parent="Puzzles" instance=ExtResource("13_eag6f")]
+position = Vector2(-10, 321)
 
 [node name="Root" parent="." instance=ExtResource("7_cr1yp")]
 position = Vector2(320, 3)

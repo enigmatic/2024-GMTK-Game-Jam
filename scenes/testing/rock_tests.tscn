@@ -29,3 +29,7 @@ variation = 20
 
 [node name="Water" parent="." instance=ExtResource("4_gydts")]
 position = Vector2(192, 84)
+
+[node name="PushableRock2" parent="." instance=ExtResource("3_me5r6")]
+position = Vector2(251, 112)
+scale = Vector2(0.25, 0.25)
