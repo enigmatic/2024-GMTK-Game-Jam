@@ -18,6 +18,7 @@
 script = ExtResource("1_20ccf")
 
 [node name="Background" parent="." instance=ExtResource("2_a54lw")]
+position = Vector2(-19, 8)
 
 [node name="Tree" parent="." instance=ExtResource("4_78xgr")]
 process_mode = 3
@@ -102,16 +103,17 @@ max_volume = 2
 position = Vector2(449, 93)
 max_volume = 5
 randomSeed = 1
+variation = 1
 
 [node name="Water5" parent="Water" instance=ExtResource("9_t2bt7")]
 position = Vector2(-58, 337)
 randomSeed = 16
-variation = 10
 
 [node name="Water6" parent="Water" instance=ExtResource("9_t2bt7")]
 position = Vector2(245, 95)
-max_volume = 4
-randomSeed = -2
+max_volume = 10
+randomSeed = -1
+variation = 1
 
 [node name="SoundTrackPlayer" type="AudioStreamPlayer" parent="."]
 process_mode = 3
@@ -123,6 +125,7 @@ bus = &"Soundtrack"
 position = Vector2(53, 143)
 max_volume = 5
 randomSeed = 2
+variation = 2
 
 [connection signal="tree_growing" from="Tree" to="Camera" method="_on_tree_tree_growing"]
 [connection signal="growing_root" from="Root" to="." method="_on_root_growing_root"]
