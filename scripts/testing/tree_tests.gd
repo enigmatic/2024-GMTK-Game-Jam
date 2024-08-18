@@ -13,3 +13,7 @@ func _process(delta):
 
 func _on_timer_timeout():
 	$Tree.increase_tree_size(32)
+
+
+func _on_button_button_down():
+	$Tree.reset()

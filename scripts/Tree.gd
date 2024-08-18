@@ -20,7 +20,7 @@ func _process(delta):
 
 func reset():
 	for f in foliages_node.get_children():
-		f.queue_free()
+		f.falling = true
 	set_tree_size(startingTreeSize)
 
 func increase_tree_size(height: int = 32):
