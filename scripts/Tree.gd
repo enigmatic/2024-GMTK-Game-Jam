@@ -5,13 +5,20 @@ signal tree_growing(int);
 @onready var top_foliage = $TopFoliage
 @onready var foliages_node = $Foliages
 var foliage_preload = preload("res://scenes/foliage.tscn")
+var last_foliage_side = -1
 # Called when the node enters the scene tree for the first time.
 
 func _ready():
 	set_tree_size(16)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
+
 func _process(delta):
 	pass
+
+func reset():
+	for f in foliages_node.get_children():
+		f.queue_free()
+	set_tree_size(16)
 
 func increase_tree_size(height: int = 32):
 	set_tree_size(height+size.y)
@@ -45,14 +52,23 @@ func set_tree_size(height: int= 16):
 	top_foliage.material.set_shader_parameter("radius", size.x*.5*.7)
 
 func add_foliage(foliage_position:Vector2 = Vector2(-1,-1), radius: int = -1):
+	var new_foliage = foliage_preload.instantiate()
 	if radius == -1:
 		radius = randi_range(4,clamp(size.y*.2,5,16))
 	if foliage_position == Vector2(-1,-1):
-		foliage_position = Vector2(randi_range(310,330)-radius*.5, randi_range(size.y*.1,size.y*.2))
+		foliage_position = Vector2(0, randi_range(size.y*.1,size.y*.2))
 		foliage_position.y = position.y
+		if last_foliage_side < 0:
+			foliage_position.x = randi_range(320-size.x,320+size.x*.5)
+			new_foliage.grow_direction = -4.5
+		else:
+			foliage_position.x = randi_range(320-size.x*.25,320)-radius
+			new_foliage.grow_direction = -1
+		
+		last_foliage_side *= -1
 		#print(str(foliage_position) + "  "+  str(position.x) + "  "+  str(size.x))
 
-	var new_foliage = foliage_preload.instantiate()
+
 	new_foliage.size.x = radius*2
 	new_foliage.size.y = radius*2
 	foliages_node.add_child(new_foliage)
@@ -61,7 +77,4 @@ func add_foliage(foliage_position:Vector2 = Vector2(-1,-1), radius: int = -1):
 	new_foliage.material.set_shader_parameter("radius", radius)
 	new_foliage.material.get_shader_parameter("green_noise").noise.seed = randi()
 	new_foliage.material.get_shader_parameter("shape_noise").noise.seed = randi()
-	if foliage_position.x +radius*.5< 320:
-		new_foliage.grow_direction = -4.5
-	else:
-		new_foliage.grow_direction = -1
+
