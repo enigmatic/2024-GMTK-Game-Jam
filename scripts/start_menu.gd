@@ -36,6 +36,7 @@ func _on_play_button_button_up():
 
 func _on_reset_button_button_up():
 	reset.emit()
+	
 
 func load_settings():
 	if ResourceLoader.exists("user://settings.tres"):
