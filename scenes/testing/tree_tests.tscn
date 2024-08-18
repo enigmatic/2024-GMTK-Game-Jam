@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://olwpgtdb6eua"]
+[gd_scene load_steps=3 format=3 uid="uid://dpkjvw5lg2a0c"]
 
 [ext_resource type="PackedScene" uid="uid://b15l1t355unu0" path="res://scenes/Tree.tscn" id="1_gcf6j"]
 [ext_resource type="Script" path="res://scripts/testing/tree_tests.gd" id="1_ormy1"]
@@ -7,6 +7,7 @@
 script = ExtResource("1_ormy1")
 
 [node name="Tree" parent="." instance=ExtResource("1_gcf6j")]
+startingTreeSize = 128
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(319, -178)

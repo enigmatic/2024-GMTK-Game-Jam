@@ -13,64 +13,73 @@ signal water_gathered(amount:int);
 @onready var ghostLine = $GhostLine;
 @onready var _nearestNode: RootSection = $RootList/RootSection;
 
+var _grow_to_position = Vector2(0,0);
+
 var _can_grow = true;
+var _cancelClick = false;
 
 var _planning_to_draw = false;
 
 func _input(event):
-	
 	if event is InputEventMouse:
 		if _can_grow:
-			var targetClamp = get_local_mouse_position();
-			targetClamp.y = max(groundLevel, targetClamp.y);
-			var start_point = _nearestNode.get_end_point();
-			var end_point = start_point.move_toward(targetClamp, rootSectionMaxSize);
+			_calculate_path()
 			
-			_updateBasedOnTarget(end_point);
-			
-			if event is InputEventMouseButton and event.button_index == 1:
-				if event.is_released():
-					var okToGrow = true;
-					var collideWith = null;
-					var hitInfo = checkCollision(start_point, end_point);
-					if hitInfo:
-						collideWith = hitInfo.collider;
-						okToGrow = check_valid_target_node(collideWith);
-						end_point = to_local(hitInfo.position);
-					elif (start_point.distance_to(end_point) < rootSectionMinSize):
-						okToGrow = false;
-					
-						
-					if okToGrow:
-						_growRoot(end_point, collideWith);
-						
-					ghostLine.visible = false;
-					_planning_to_draw = false;
+			if event is InputEventMouseButton:
+				if event.button_index == 1:
+					if event.is_released():
+						if _cancelClick:
+							return;
+						var okToGrow = true;
+						var collideWith = null;
+						var start_point = _nearestNode.get_end_point();
+						var hitInfo = checkCollision(start_point, _grow_to_position);
+						if hitInfo:
+							collideWith = hitInfo.collider;
+							okToGrow = check_valid_target_node(collideWith);
+							_grow_to_position = to_local(hitInfo.position);
+						elif (start_point.distance_to(_grow_to_position) < rootSectionMinSize):
+							okToGrow = false;
+
+						if okToGrow:
+							_growRoot(_grow_to_position, collideWith);
+						_planning_to_draw = false;
+					else:
+						_cancelClick = false;
+						_planning_to_draw = true;
 				else:
-					ghostLine.visible = true;
-					_planning_to_draw = true;
-					_draw_ghost_line(start_point, end_point);
+					cancel_growing();
 
 func _growRoot(target: Vector2, collidedWith: UndergroundCollidable = null):
-	
 	var scene = load("res://scenes/RootSection.tscn");
 	var section:RootSection = scene.instantiate();
 	section.parent = _nearestNode;
 	section.target = target;
 	section.touching = collidedWith;
-	section.done_growing.connect(_calculate_best_path)
+	section.done_growing.connect(_calculate_path)
 	rootList.add_child(section);
 	growing_root.emit();
 
-func _calculate_best_path():
-	var targetClamp = get_local_mouse_position();
-	targetClamp.y = max(groundLevel, targetClamp.y);
-	var start_point = _nearestNode.get_end_point();
-	var end_point = start_point.move_toward(targetClamp, rootSectionMaxSize);
+func _calculate_path():
+	_grow_to_position = null;
+	var target = get_target_position();
+	_nearestNode = _find_best_node(target);
 	
-	_updateBasedOnTarget(end_point);
+	var startPos = _nearestNode.get_end_point();
+	targetNode.position = startPos;
+	targetNode.look_at(to_global(target));
 	
-func _findNearestRootNode(pos: Vector2):
+
+	if _planning_to_draw:
+		_grow_to_position = startPos.move_toward(target, rootSectionMaxSize);
+	
+		ghostLine.visible = true;
+		_draw_ghost_line(_nearestNode.get_end_point(), _grow_to_position);
+	else:
+		ghostLine.visible = false;
+	
+
+func _find_best_node(pos: Vector2) -> RootSection:
 	var roots = rootList.get_children();
 	var nearest: RootSection = roots[0]
 	var nearDist = nearest.get_end_point().distance_to(pos);
@@ -79,7 +88,8 @@ func _findNearestRootNode(pos: Vector2):
 		var testPos = root.get_end_point();
 		var dist = testPos.distance_to(pos);
 		if (dist < nearDist) && (dist > rootSectionMinSize):
-			if checkCollision(pos, testPos):
+			var hit = checkCollision(pos, testPos);
+			if hit && hit.collider.is_blocker():
 				if !clearPath:
 					nearest = root;
 					nearDist = dist;
@@ -93,7 +103,7 @@ func _findNearestRootNode(pos: Vector2):
 				nearest = root;
 				nearDist = dist;
 
-	_nearestNode = nearest;
+	return nearest;
 	
 func _draw_ghost_line(start: Vector2, target: Vector2):
 	# line location
@@ -115,18 +125,6 @@ func _draw_ghost_line(start: Vector2, target: Vector2):
 	else:
 		ghostLine.default_color = Color(0,1,0);
 
-func _updateBasedOnTarget(target: Vector2):
-	var targetPos = target
-	_findNearestRootNode(targetPos)
-	
-	var startPos = _nearestNode.get_end_point();
-	targetNode.position = startPos;
-	targetNode.look_at(to_global(targetPos));
-	
-	if _planning_to_draw:
-		_draw_ghost_line(startPos, targetPos);
-		
-
 func checkCollision(source, target):
 	var space_state = get_world_2d().direct_space_state
 		
@@ -142,6 +140,11 @@ func checkCollision(source, target):
 func check_valid_target_node(node:UndergroundCollidable):
 	return !node.is_blocker();
 
+func get_target_position() -> Vector2:
+	var targetClamp = get_local_mouse_position();
+	targetClamp.y = max(groundLevel, targetClamp.y);
+	return targetClamp;
+
 
 func _on_root_section_water_gathered(amount):
 	water_gathered.emit(amount);
@@ -150,4 +153,13 @@ func stop_growing():
 	_can_grow = false;
 	
 func start_growing():
+	
+	if !_can_grow && Input.is_mouse_button_pressed( 1 ):
+		_planning_to_draw = true;
+		_calculate_path()
 	_can_grow = true;
+
+func cancel_growing():
+	_cancelClick = true;
+	ghostLine.visible = false;
+	_planning_to_draw = false;

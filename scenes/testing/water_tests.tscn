@@ -9,5 +9,5 @@
 position = Vector2(320, 0)
 
 [node name="Water" parent="." instance=ExtResource("2_ngf8t")]
-position = Vector2(230, 140)
+position = Vector2(255, 110)
 variation = 10

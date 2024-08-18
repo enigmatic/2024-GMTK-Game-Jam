@@ -1,98 +1,67 @@
-[gd_scene load_steps=3 format=3 uid="uid://dalfmd6hadgrs"]
+[gd_scene load_steps=2 format=3 uid="uid://dalfmd6hadgrs"]
 
 [ext_resource type="PackedScene" uid="uid://bxfxlvuahy6vv" path="res://scenes/rock.tscn" id="1_5l8ng"]
-[ext_resource type="Script" path="res://scripts/underground/UndergroundVolume.gd" id="2_w57e6"]
 
 [node name="RandomPlacementTests" type="Node2D"]
 
 [node name="RandomRocks" type="Node" parent="."]
 
-[node name="@StaticBody2D@35558" type="StaticBody2D" parent="RandomRocks" instance=ExtResource("1_5l8ng")]
+[node name="@StaticBody2D@35558" parent="RandomRocks" instance=ExtResource("1_5l8ng")]
 position = Vector2(462, 333)
 scale = Vector2(0.989005, 0.989005)
-collision_layer = 2
-collision_mask = 2
-script = ExtResource("2_w57e6")
 randomSeed = 1873520362
 variation = 6
 
-[node name="@StaticBody2D@35559" type="StaticBody2D" parent="RandomRocks" instance=ExtResource("1_5l8ng")]
+[node name="@StaticBody2D@35559" parent="RandomRocks" instance=ExtResource("1_5l8ng")]
 position = Vector2(212, 75)
 scale = Vector2(0.589955, 0.589955)
-collision_layer = 2
-collision_mask = 2
-script = ExtResource("2_w57e6")
 randomSeed = 3708626365
 variation = 11
 
-[node name="@StaticBody2D@35560" type="StaticBody2D" parent="RandomRocks" instance=ExtResource("1_5l8ng")]
+[node name="@StaticBody2D@35560" parent="RandomRocks" instance=ExtResource("1_5l8ng")]
 position = Vector2(193, 323)
 scale = Vector2(1.28966, 1.28966)
-collision_layer = 2
-collision_mask = 2
-script = ExtResource("2_w57e6")
 randomSeed = 499647501
 variation = 14
 
-[node name="@StaticBody2D@35561" type="StaticBody2D" parent="RandomRocks" instance=ExtResource("1_5l8ng")]
+[node name="@StaticBody2D@35561" parent="RandomRocks" instance=ExtResource("1_5l8ng")]
 position = Vector2(68, 21)
 scale = Vector2(1.4752, 1.4752)
-collision_layer = 2
-collision_mask = 2
-script = ExtResource("2_w57e6")
 randomSeed = 3852556807
 variation = 16
 
-[node name="@StaticBody2D@35562" type="StaticBody2D" parent="RandomRocks" instance=ExtResource("1_5l8ng")]
+[node name="@StaticBody2D@35562" parent="RandomRocks" instance=ExtResource("1_5l8ng")]
 position = Vector2(357, 150)
 scale = Vector2(0.97327, 0.97327)
-collision_layer = 2
-collision_mask = 2
-script = ExtResource("2_w57e6")
 randomSeed = 2527967365
 variation = 10
 
-[node name="@StaticBody2D@35563" type="StaticBody2D" parent="RandomRocks" instance=ExtResource("1_5l8ng")]
+[node name="@StaticBody2D@35563" parent="RandomRocks" instance=ExtResource("1_5l8ng")]
 position = Vector2(117, 9)
 scale = Vector2(1.48647, 1.48647)
-collision_layer = 2
-collision_mask = 2
-script = ExtResource("2_w57e6")
 randomSeed = 1047615411
 variation = 15
 
-[node name="@StaticBody2D@35564" type="StaticBody2D" parent="RandomRocks" instance=ExtResource("1_5l8ng")]
+[node name="@StaticBody2D@35564" parent="RandomRocks" instance=ExtResource("1_5l8ng")]
 position = Vector2(421, 135)
 scale = Vector2(1.13624, 1.13624)
-collision_layer = 2
-collision_mask = 2
-script = ExtResource("2_w57e6")
 randomSeed = 1018640993
 variation = 9
 
-[node name="@StaticBody2D@35565" type="StaticBody2D" parent="RandomRocks" instance=ExtResource("1_5l8ng")]
+[node name="@StaticBody2D@35565" parent="RandomRocks" instance=ExtResource("1_5l8ng")]
 position = Vector2(377, 175)
 scale = Vector2(0.385371, 0.385371)
-collision_layer = 2
-collision_mask = 2
-script = ExtResource("2_w57e6")
 randomSeed = 201773410
 variation = 11
 
-[node name="@StaticBody2D@35566" type="StaticBody2D" parent="RandomRocks" instance=ExtResource("1_5l8ng")]
+[node name="@StaticBody2D@35566" parent="RandomRocks" instance=ExtResource("1_5l8ng")]
 position = Vector2(482, 324)
 scale = Vector2(0.362156, 0.362156)
-collision_layer = 2
-collision_mask = 2
-script = ExtResource("2_w57e6")
 randomSeed = 988888659
 variation = 16
 
-[node name="@StaticBody2D@35567" type="StaticBody2D" parent="RandomRocks" instance=ExtResource("1_5l8ng")]
+[node name="@StaticBody2D@35567" parent="RandomRocks" instance=ExtResource("1_5l8ng")]
 position = Vector2(157, 150)
 scale = Vector2(1.32066, 1.32066)
-collision_layer = 2
-collision_mask = 2
-script = ExtResource("2_w57e6")
 randomSeed = 1742729280
 variation = 14

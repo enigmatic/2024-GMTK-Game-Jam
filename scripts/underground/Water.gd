@@ -9,7 +9,7 @@ class_name Water
 		variation = max(variation, max_volume/2);
 		_randomizeStructure();
 	
-var _volume;
+var _volume = max_volume;
 var _original_water_points: SS2D_Point_Array;
 
 func _ready():

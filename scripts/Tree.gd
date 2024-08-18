@@ -2,6 +2,8 @@ extends TextureRect
 
 signal tree_growing(int);
 
+@export_range(16,1024,16) var startingTreeSize = 16
+
 @onready var top_foliage = $TopFoliage
 @onready var foliages_node = $Foliages
 var foliage_preload = preload("res://scenes/foliage.tscn")
@@ -9,7 +11,8 @@ var last_foliage_side = -1
 # Called when the node enters the scene tree for the first time.
 
 func _ready():
-	set_tree_size(128)
+	#set_tree_size(128)
+	reset();
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 
 func _process(delta):
@@ -18,7 +21,7 @@ func _process(delta):
 func reset():
 	for f in foliages_node.get_children():
 		f.queue_free()
-	set_tree_size(16)
+	set_tree_size(startingTreeSize)
 
 func increase_tree_size(height: int = 32):
 	set_tree_size(height+size.y)

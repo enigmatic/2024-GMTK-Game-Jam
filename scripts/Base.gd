@@ -29,7 +29,7 @@ func _on_root_water_gathered(amount):
 	root.start_growing();
 	water_counter += amount
 	if score < 5 or score % 5 == 0:
-		tree_node.increase_tree_size()
+		tree_node.increase_tree_size(32);
 	
 	_updateScores();
 	
