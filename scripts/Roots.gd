@@ -15,10 +15,10 @@ signal water_gathered(amount:int);
 
 var _grow_to_position = Vector2(0,0);
 
-var _can_grow = true;
+var _can_grow = false;
 var _cancelClick = false;
-
 var _planning_to_draw = false;
+var _removable_roots = [];
 
 func _input(event):
 	if event is InputEventMouse:
@@ -49,7 +49,10 @@ func _input(event):
 						_planning_to_draw = true;
 				else:
 					cancel_growing();
-
+	elif event.is_action_released('undo'):
+		if (_removable_roots.size() > 0):
+			_removable_roots.pop_front().queue_free();
+		
 func _growRoot(target: Vector2, collidedWith: UndergroundCollidable = null):
 	var scene = load("res://scenes/RootSection.tscn");
 	var section:RootSection = scene.instantiate();
@@ -57,7 +60,9 @@ func _growRoot(target: Vector2, collidedWith: UndergroundCollidable = null):
 	section.target = target;
 	section.touching = collidedWith;
 	section.done_growing.connect(_calculate_path)
+	section.water_flowing.connect(_on_root_section_water_flowing);
 	rootList.add_child(section);
+	_removable_roots.push_front(section);
 	growing_root.emit();
 
 func _calculate_path():
@@ -86,6 +91,8 @@ func _find_best_node(pos: Vector2) -> RootSection:
 	var clearPath = false;
 	for root in roots:
 		var testPos = root.get_end_point();
+		if testPos == null:
+			continue;
 		var dist = testPos.distance_to(pos);
 		if (dist < nearDist) && (dist > rootSectionMinSize):
 			var hit = checkCollision(pos, testPos);
@@ -145,9 +152,15 @@ func get_target_position() -> Vector2:
 	targetClamp.y = max(groundLevel, targetClamp.y);
 	return targetClamp;
 
-
 func _on_root_section_water_gathered(amount):
 	water_gathered.emit(amount);
+
+func _on_root_section_water_flowing(section:RootSection):
+	if section.water_flowing.is_connected(_on_root_section_water_flowing):
+		section.water_flowing.disconnect(_on_root_section_water_flowing);
+	_removable_roots.erase(section);
+	print(_removable_roots)
+	
 
 func stop_growing():
 	_can_grow = false;
@@ -163,3 +176,7 @@ func cancel_growing():
 	_cancelClick = true;
 	ghostLine.visible = false;
 	_planning_to_draw = false;
+
+
+func _on_root_section_done_growing():
+	start_growing();

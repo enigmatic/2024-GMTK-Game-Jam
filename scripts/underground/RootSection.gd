@@ -1,6 +1,7 @@
 extends Node2D
 class_name RootSection
 
+signal water_flowing(section: RootSection);
 signal water_gathered(amount:int);
 signal done_growing();
 
@@ -44,8 +45,11 @@ func _ready():
 func _process(delta):
 	if (!_doneGrowing):
 		var start_point = line.get_point_position(1);
-		var point = start_point.move_toward(target, growthRate * delta);
-
+		
+		var point = target;
+		if parent:
+			point = start_point.move_toward(target, growthRate * delta);
+			
 		if (is_equal_approx(point.x, target.x) && is_equal_approx(point.y, target.y)):
 			_doneGrowing = true;
 			point = target;
@@ -87,7 +91,7 @@ func get_end_point():
 	if (_doneGrowing and !touching):
 		return line.get_point_position(1);
 	else:
-		return line.get_point_position(0);
+		return null;
 
 func get_collision_RID():
 	return collisionArea.get_rid();
@@ -113,9 +117,15 @@ func _on_consume_timer_timeout():
 	consume()
 
 func start_drop():
+	emit_water_flow();
 	var newDrop:Sprite2D = main_drop.duplicate();
 	newDrop.texture.height = max(3, width);
 	newDrop.texture.width = max(3, width);
 	newDrop.position = to_global(target);
 	newDrop.visible = true;
 	drops.add_child(newDrop, true);
+
+func emit_water_flow():
+	water_flowing.emit(self);
+	if (parent):
+		parent.emit_water_flow();

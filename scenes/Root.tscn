@@ -21,4 +21,5 @@ visible = false
 points = PackedVector2Array(0, 0, 0, 100)
 width = 3.0
 
+[connection signal="done_growing" from="RootList/RootSection" to="." method="_on_root_section_done_growing"]
 [connection signal="water_gathered" from="RootList/RootSection" to="." method="_on_root_section_water_gathered"]
