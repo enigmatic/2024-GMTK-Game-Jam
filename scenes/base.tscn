@@ -80,19 +80,31 @@ shader_parameter/clouds2 = SubResource("NoiseTexture2D_0p12a")
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_h8h1i"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_w8xoj"]
-shader = ExtResource("4_rcr6k")
-
 [sub_resource type="Gradient" id="Gradient_3673a"]
-offsets = PackedFloat32Array(0.220779, 0.811688, 1)
+offsets = PackedFloat32Array(0.220779, 0.876623, 1)
 colors = PackedColorArray(0, 0, 0, 1, 0.0187674, 0, 0.245935, 1, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_clyv2"]
 gradient = SubResource("Gradient_3673a")
 width = 2560
 height = 2560
-fill_from = Vector2(0.56087, 0.395652)
+fill_from = Vector2(0.559633, 0)
 fill_to = Vector2(0.56087, 1)
+repeat = 1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w8xoj"]
+shader = ExtResource("4_rcr6k")
+shader_parameter/dimensions = Vector2(1024, 600)
+shader_parameter/small_stars = 50.0
+shader_parameter/small_stars_far_size = 0.1
+shader_parameter/small_stars_near_size = 1.0
+shader_parameter/large_stars = 0.0
+shader_parameter/large_stars_far_size = 0.1
+shader_parameter/large_stars_near_size = 0.1
+shader_parameter/far_stars_color = Color(0.129516, 4.33177e-06, 0.589458, 1)
+shader_parameter/near_stars_color = Color(1, 1, 1, 1)
+shader_parameter/base_scroll_speed = 0.0
+shader_parameter/additional_scroll_speed = 0.003
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sy4wt"]
 shader = ExtResource("4_m4wlp")
@@ -139,6 +151,13 @@ grow_vertical = 2
 texture = SubResource("NoiseTexture2D_h8h1i")
 
 [node name="Space" type="TextureRect" parent="."]
+offset_left = -960.0
+offset_top = -4791.0
+offset_right = 1600.0
+offset_bottom = -2231.0
+texture = SubResource("GradientTexture2D_clyv2")
+
+[node name="Stars" type="TextureRect" parent="."]
 material = SubResource("ShaderMaterial_w8xoj")
 offset_left = -960.0
 offset_top = -4791.0
@@ -199,7 +218,7 @@ position = Vector2(320, 3)
 position = Vector2(320, 1)
 zoom = Vector2(4, 4)
 limit_left = -960
-limit_top = -2560
+limit_top = -4700
 limit_right = 1600
 limit_bottom = 2560
 script = ExtResource("6_tqy8j")

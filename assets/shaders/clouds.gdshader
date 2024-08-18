@@ -15,6 +15,11 @@ void fragment() {
 	vec4 tex2 = texture(clouds2,UV+TIME*cloud_speed*.25);
 	COLOR = vec4(1.0,1.0,1.0,0.0);
 	COLOR.a = tex.r + tex2.r-0.90;
+	COLOR.a -= (UV.y*UV.y-.2);
+
+	
+	
+	
 
 }
 
