@@ -1,0 +1,67 @@
+[gd_scene load_steps=6 format=3 uid="uid://bce6u6lnqmc2a"]
+
+[ext_resource type="Script" path="res://scripts/Puzzle.gd" id="1_kwiwo"]
+[ext_resource type="PackedScene" uid="uid://d3ro0rdbnkf6" path="res://scenes/Root.tscn" id="2_kqpro"]
+[ext_resource type="PackedScene" uid="uid://bxfxlvuahy6vv" path="res://scenes/rock.tscn" id="3_snuya"]
+[ext_resource type="PackedScene" uid="uid://ct8c2udaf2iy6" path="res://scenes/PushableRock.tscn" id="4_omsum"]
+[ext_resource type="PackedScene" uid="uid://cmvwbb83jppve" path="res://scenes/Water.tscn" id="5_ta87n"]
+
+[node name="PushablePuzzle2" type="Node2D"]
+script = ExtResource("1_kwiwo")
+
+[node name="Root" parent="." instance=ExtResource("2_kqpro")]
+position = Vector2(333, 3)
+
+[node name="Rock" parent="." instance=ExtResource("3_snuya")]
+position = Vector2(243, 55)
+randomSeed = 758
+variation = 30
+
+[node name="Rock2" parent="." instance=ExtResource("3_snuya")]
+position = Vector2(395, 94)
+rotation = -1.69646
+scale = Vector2(0.3, 0.3)
+randomSeed = -27
+
+[node name="PushableRock" parent="." instance=ExtResource("4_omsum")]
+position = Vector2(314, 85)
+scale = Vector2(0.1, 0.1)
+randomSeed = 1
+variation = 2
+
+[node name="PushableRock3" parent="." instance=ExtResource("4_omsum")]
+position = Vector2(326, 73)
+scale = Vector2(0.2, 0.2)
+randomSeed = 6
+variation = 8
+
+[node name="Rock3" parent="." instance=ExtResource("3_snuya")]
+position = Vector2(412, 15)
+rotation = -0.158825
+randomSeed = 36
+variation = 21
+
+[node name="PushableRock4" parent="." instance=ExtResource("4_omsum")]
+position = Vector2(338, 89)
+scale = Vector2(0.15, 0.15)
+randomSeed = 56
+variation = 11
+
+[node name="Rock4" parent="." instance=ExtResource("3_snuya")]
+position = Vector2(357, 108)
+scale = Vector2(0.5, 0.5)
+skew = 0.439823
+randomSeed = -10
+variation = 17
+
+[node name="Water2" parent="." instance=ExtResource("5_ta87n")]
+position = Vector2(309, 144)
+rotation = -0.549779
+skew = -0.0575959
+randomSeed = 9
+
+[node name="Rock5" parent="." instance=ExtResource("3_snuya")]
+position = Vector2(298, 94)
+scale = Vector2(0.25, 0.25)
+randomSeed = 13
+variation = 8

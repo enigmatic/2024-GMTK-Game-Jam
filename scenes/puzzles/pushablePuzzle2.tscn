@@ -17,11 +17,6 @@ position = Vector2(241, 67)
 randomSeed = 4
 variation = 10
 
-[node name="Rock2" parent="." instance=ExtResource("3_iywgk")]
-position = Vector2(554, 153)
-rotation = -1.69646
-randomSeed = 2
-
 [node name="PushableRock2" parent="." instance=ExtResource("4_ysfmx")]
 position = Vector2(358, 24)
 scale = Vector2(0.1, 0.1)
@@ -39,11 +34,6 @@ position = Vector2(342, 24)
 scale = Vector2(0.2, 0.2)
 randomSeed = 6
 variation = 8
-
-[node name="Water" parent="." instance=ExtResource("5_g5ihl")]
-position = Vector2(134, 254)
-max_volume = 5
-variation = 2
 
 [node name="Rock3" parent="." instance=ExtResource("3_iywgk")]
 position = Vector2(410, 46)
