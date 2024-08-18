@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://d3ro0rdbnkf6" path="res://scenes/Root.tscn" id="7_cr1yp"]
 [ext_resource type="PackedScene" uid="uid://bxfxlvuahy6vv" path="res://scenes/rock.tscn" id="8_g5x8e"]
 [ext_resource type="PackedScene" uid="uid://cmvwbb83jppve" path="res://scenes/Water.tscn" id="9_t2bt7"]
-[ext_resource type="AudioStream" uid="uid://dbog6g0m7s4m7" path="res://assets/audio/generative_beeps.mp3" id="12_c5q84"]
+[ext_resource type="AudioStream" uid="uid://blj0f6ajfudnd" path="res://assets/audio/generative_beeps_organic.mp3" id="12_s8a8x"]
 
 [sub_resource type="Gradient" id="Gradient_c3m7p"]
 offsets = PackedFloat32Array(0, 0.425076, 1)
@@ -293,7 +293,7 @@ max_volume = 5
 randomSeed = 1
 
 [node name="SoundTrackPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("12_c5q84")
+stream = ExtResource("12_s8a8x")
 autoplay = true
 bus = &"Soundtrack"
 
