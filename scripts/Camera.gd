@@ -4,6 +4,8 @@ var _zoom_min = 4;
 var _zoom_max = 4;
 var _zoomTween: Tween;
 
+const CAMERA_SPEED:int = 100
+
 var is_dragging = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -11,10 +13,18 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if Input.is_action_pressed("ui_up"):
+		position.y -= delta* CAMERA_SPEED
+	if Input.is_action_pressed("ui_down"):
+		position.y += delta* CAMERA_SPEED
+	if Input.is_action_pressed("ui_right"):
+		position.x += delta* CAMERA_SPEED
+	if Input.is_action_pressed("ui_left"):
+		position.x -= delta* CAMERA_SPEED
 
 func _input(event):
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_MIDDLE:
+	#Mouse Movements
+	if event is InputEventMouseButton and (event.button_index == MOUSE_BUTTON_MIDDLE or event.button_index == MOUSE_BUTTON_RIGHT):
 		if event.is_released():
 			is_dragging = false
 		if event.is_pressed():
@@ -27,6 +37,8 @@ func _input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
 		if zoom.x / 1.1 > _zoom_max:
 			zoom /= 1.1
+	
+
 
 func _on_tree_tree_growing(height):
 	var maxedZoom = is_equal_approx(zoom.x,_zoom_max);

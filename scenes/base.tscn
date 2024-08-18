@@ -301,7 +301,6 @@ max_volume = 2
 position = Vector2(449, 93)
 max_volume = 5
 randomSeed = 1
-variation = 1
 
 [node name="Water5" parent="Water" instance=ExtResource("9_t2bt7")]
 position = Vector2(-58, 337)
