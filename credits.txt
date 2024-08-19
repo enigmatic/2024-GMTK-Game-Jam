@@ -1,0 +1,4 @@
+Format:     "[asset name]" by [author name] licensed [license(s)]: [asset url]
+
+"weathered rock pack" by para licensed Public Domain: https://opengameart.org/content/weathered-rock-pack
+"Tiling Beast Fur Texture" by bart licensed CC-BY-SA 3.0:https://opengameart.org/content/2048x2048-tiling-beast-fur-texture
