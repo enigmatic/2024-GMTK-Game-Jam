@@ -16,13 +16,14 @@
 [ext_resource type="PackedScene" uid="uid://dx2ax4k1aoxyd" path="res://scenes/puzzles/rodentPuzzle1.tscn" id="14_huhqa"]
 [ext_resource type="PackedScene" uid="uid://bce6u6lnqmc2a" path="res://scenes/puzzles/pushablePuzzle3.tscn" id="14_kd780"]
 [ext_resource type="PackedScene" uid="uid://blbynj3na2oc5" path="res://scenes/puzzles/rodentPuzzle2.tscn" id="15_t2myq"]
-[ext_resource type="PackedScene" uid="uid://becy77eneer6y" path="res://scenes/puzzles/rodentPuzzle3.tscn" id="17_f3t5o"]
+[ext_resource type="PackedScene" path="res://scenes/puzzles/rodentPuzzle3.tscn" id="17_f3t5o"]
 
 [node name="Base" type="Node2D"]
 script = ExtResource("1_20ccf")
 
 [node name="Background" parent="." instance=ExtResource("2_a54lw")]
 z_index = -1
+position = Vector2(-16, 6)
 
 [node name="Tree" parent="." instance=ExtResource("4_78xgr")]
 process_mode = 3
@@ -32,13 +33,14 @@ metadata/_edit_use_anchors_ = true
 [node name="Rocks" parent="." instance=ExtResource("4_e7lab")]
 
 [node name="Rock17" parent="Rocks" index="0"]
-position = Vector2(-278, 1505)
+position = Vector2(1327, 1852)
 
 [node name="Rock9" parent="Rocks" index="9"]
 position = Vector2(-372, 521)
 
 [node name="Rock29" parent="Rocks" index="13"]
-position = Vector2(832, 1090)
+position = Vector2(471, 1121)
+rotation = 2.82252
 
 [node name="Rock12" parent="Rocks" index="14"]
 position = Vector2(-779, 607)
@@ -62,10 +64,15 @@ position = Vector2(-281, 1138)
 position = Vector2(45, 1097)
 
 [node name="Rock19" parent="Rocks" index="21"]
-position = Vector2(618, 2059)
+position = Vector2(547, 1960)
+
+[node name="Rock20" parent="Rocks" index="22"]
+position = Vector2(1540, 2549)
 
 [node name="Rock22" parent="Rocks" index="24"]
-position = Vector2(1086, 1961)
+position = Vector2(331, 1612)
+scale = Vector2(1, 1)
+randomSeed = 17
 
 [node name="Rock23" parent="Rocks" index="25"]
 position = Vector2(1198, 2206)
@@ -79,7 +86,41 @@ position = Vector2(-1237, 1362)
 [node name="Rock28" parent="Rocks" index="29"]
 position = Vector2(-447, 817)
 
+[node name="Rock33" parent="Rocks" index="32"]
+position = Vector2(-490, 1703)
+
+[node name="Rock35" parent="Rocks" index="34"]
+position = Vector2(321, 1509)
+
+[node name="Rock37" parent="Rocks" index="36"]
+position = Vector2(245, 661)
+scale = Vector2(1.5, 1.5)
+
+[node name="Rock39" parent="Rocks" index="38"]
+position = Vector2(217, 915)
+
+[node name="Rock40" parent="Rocks" index="39"]
+position = Vector2(-541, 1187)
+
+[node name="Rock41" parent="Rocks" index="40"]
+position = Vector2(365, 1277)
+
+[node name="Rock43" parent="Rocks" index="42"]
+position = Vector2(602, 1236)
+
+[node name="Rock44" parent="Rocks" index="43"]
+position = Vector2(128, 1559)
+
+[node name="Rock45" parent="Rocks" index="44"]
+position = Vector2(132, 1706)
+
 [node name="Water" parent="." instance=ExtResource("5_ydqxa")]
+
+[node name="Water9" parent="Water" index="8"]
+position = Vector2(138, 959)
+
+[node name="Water20" parent="Water" index="19"]
+position = Vector2(380, 1419)
 
 [node name="Camera" type="Camera2D" parent="."]
 position = Vector2(320, 1)
@@ -115,19 +156,19 @@ bus = &"Soundtrack"
 position = Vector2(-54, 219)
 
 [node name="PushablePuzzle2" parent="Puzzles" instance=ExtResource("13_eag6f")]
-position = Vector2(-10, 321)
+position = Vector2(-7, 442)
 
 [node name="PushablePuzzle3" parent="Puzzles" instance=ExtResource("14_kd780")]
-position = Vector2(-22, 456)
+position = Vector2(-7, 733)
 
 [node name="RodentPuzzle1" parent="Puzzles" instance=ExtResource("14_huhqa")]
-position = Vector2(-37, 564)
+position = Vector2(-113, 1274)
 
 [node name="RodentPuzzle2" parent="Puzzles" instance=ExtResource("15_t2myq")]
-position = Vector2(-24, 738)
+position = Vector2(-97, 1747)
 
 [node name="RodentPuzzle3" parent="Puzzles" instance=ExtResource("17_f3t5o")]
-position = Vector2(-9, 941)
+position = Vector2(-150, 2135)
 
 [node name="Root" parent="." instance=ExtResource("7_cr1yp")]
 position = Vector2(320, 3)
@@ -139,3 +180,4 @@ position = Vector2(320, 3)
 [connection signal="water_gathered" from="Root" to="." method="_on_root_water_gathered"]
 
 [editable path="Rocks"]
+[editable path="Water"]

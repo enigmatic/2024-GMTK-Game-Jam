@@ -102,4 +102,28 @@ max_volume = 25
 randomSeed = 76
 variation = 12
 
+[node name="Water18" parent="." instance=ExtResource("1_qmpsn")]
+position = Vector2(-406, 2370)
+max_volume = 25
+randomSeed = 76
+variation = 12
+
+[node name="Water19" parent="." instance=ExtResource("1_qmpsn")]
+position = Vector2(435, 1693)
+max_volume = 15
+randomSeed = 15
+variation = 4
+
+[node name="Water20" parent="." instance=ExtResource("1_qmpsn")]
+position = Vector2(509, 1303)
+max_volume = 15
+randomSeed = 9
+variation = 7
+
+[node name="Water21" parent="." instance=ExtResource("1_qmpsn")]
+position = Vector2(73, 2038)
+max_volume = 30
+randomSeed = 18
+variation = 8
+
 [connection signal="collected_from_goal_water" from="Goal Water" to="." method="_on_goal_water_collected_from_goal_water"]
