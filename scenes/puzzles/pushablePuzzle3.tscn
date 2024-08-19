@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ct8c2udaf2iy6" path="res://scenes/PushableRock.tscn" id="4_omsum"]
 [ext_resource type="PackedScene" uid="uid://cmvwbb83jppve" path="res://scenes/Water.tscn" id="5_ta87n"]
 
-[node name="PushablePuzzle2" type="Node2D"]
+[node name="PushablePuzzle3" type="Node2D"]
 script = ExtResource("1_kwiwo")
 
 [node name="Root" parent="." instance=ExtResource("2_kqpro")]

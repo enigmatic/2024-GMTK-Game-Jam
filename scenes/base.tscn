@@ -141,11 +141,11 @@ position = Vector2(-54, 219)
 [node name="PushablePuzzle2" parent="Puzzles" instance=ExtResource("13_eag6f")]
 position = Vector2(-10, 321)
 
+[node name="PushablePuzzle3" parent="Puzzles" instance=ExtResource("14_kd780")]
+position = Vector2(-22, 456)
+
 [node name="Root" parent="." instance=ExtResource("7_cr1yp")]
 position = Vector2(320, 3)
-
-[node name="PushablePuzzle2" parent="." instance=ExtResource("14_kd780")]
-position = Vector2(-22, 456)
 
 [connection signal="tree_growing" from="Tree" to="Camera" method="_on_tree_tree_growing"]
 [connection signal="growing_root" from="Root" to="." method="_on_root_growing_root"]
