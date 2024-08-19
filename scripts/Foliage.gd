@@ -7,6 +7,7 @@ var gravity:float = 2.0
 var terminal_velocity:int = 50
 var velocity: Vector2 = Vector2(0,0)
 var clean_up_timer:float = 2.0
+@onready var fall_sound = $FallSound
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -21,6 +22,8 @@ func _process(delta):
 				position.y = 0-size.y*.9
 				velocity.y=0
 				done_falling = true
+				fall_sound.pitch_scale = randf_range(1,1.8)
+				fall_sound.play()
 		position += velocity
 	if done_falling:
 		clean_up_timer -=delta

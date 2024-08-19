@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://c8s2uxk11a0ip"]
+[gd_scene load_steps=10 format=3 uid="uid://c8s2uxk11a0ip"]
 
 [ext_resource type="Shader" path="res://assets/shaders/foliage.gdshader" id="1_pmfrt"]
 [ext_resource type="Texture2D" uid="uid://cb08ebi6fysv8" path="res://assets/tree/4x4.png" id="2_y3lvk"]
 [ext_resource type="Script" path="res://scripts/Foliage.gd" id="3_me67i"]
+[ext_resource type="AudioStream" uid="uid://dh2shh4yykrkp" path="res://assets/audio/Foliage_Landing.mp3" id="4_h62qe"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_x2yfu"]
 resource_local_to_scene = true
@@ -50,3 +51,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("2_y3lvk")
 script = ExtResource("3_me67i")
+
+[node name="FallSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_h62qe")
+max_polyphony = 16
