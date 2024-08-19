@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://b15l1t355unu0"]
+[gd_scene load_steps=13 format=3 uid="uid://b15l1t355unu0"]
 
 [ext_resource type="Shader" path="res://assets/shaders/tree.gdshader" id="1_bomo3"]
 [ext_resource type="Texture2D" uid="uid://cb08ebi6fysv8" path="res://assets/tree/4x4.png" id="2_y3cnv"]
 [ext_resource type="Script" path="res://scripts/Tree.gd" id="3_l2jbl"]
 [ext_resource type="Shader" path="res://assets/shaders/foliage.gdshader" id="3_xwv44"]
+[ext_resource type="AudioStream" uid="uid://yiqii1yra7i5" path="res://assets/audio/tree_growth.mp3" id="5_h6y81"]
 
 [sub_resource type="Gradient" id="Gradient_32sng"]
 offsets = PackedFloat32Array(0.0275229, 0.198777, 1)
@@ -71,3 +72,8 @@ grow_vertical = 2
 texture = ExtResource("2_y3cnv")
 
 [node name="Foliages" type="Node" parent="."]
+
+[node name="TreeGrowthSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_h6y81")
+volume_db = 6.0
+bus = &"SFX"

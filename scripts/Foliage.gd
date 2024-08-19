@@ -22,12 +22,12 @@ func _process(delta):
 				position.y = 0-size.y*.9
 				velocity.y=0
 				done_falling = true
-				fall_sound.pitch_scale = randf_range(1,1.8)
+				fall_sound.pitch_scale = randf_range(.4,1)
 				fall_sound.play()
 		position += velocity
 	if done_falling:
 		clean_up_timer -=delta
-		size.y *= .98
+		size.y *= .98 * (1-delta)
 		position.y = 0-size.y
 		if clean_up_timer <0:
 			queue_free()
