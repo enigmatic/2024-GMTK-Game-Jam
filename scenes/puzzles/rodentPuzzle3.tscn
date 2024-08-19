@@ -1,0 +1,58 @@
+[gd_scene load_steps=7 format=3 uid="uid://becy77eneer6y"]
+
+[ext_resource type="Script" path="res://scripts/Puzzle.gd" id="1_4tc62"]
+[ext_resource type="PackedScene" uid="uid://caqcwa0b12ar3" path="res://scenes/placeables/Rodent.tscn" id="2_f3st7"]
+[ext_resource type="PackedScene" uid="uid://d3ro0rdbnkf6" path="res://scenes/placeables/Root.tscn" id="3_wntx1"]
+[ext_resource type="PackedScene" uid="uid://bxfxlvuahy6vv" path="res://scenes/placeables/rock.tscn" id="4_3i04n"]
+[ext_resource type="PackedScene" uid="uid://cmvwbb83jppve" path="res://scenes/placeables/Water.tscn" id="5_vp1hn"]
+[ext_resource type="PackedScene" uid="uid://ct8c2udaf2iy6" path="res://scenes/placeables/PushableRock.tscn" id="6_862ef"]
+
+[node name="RodentPuzzle3" type="Node2D"]
+script = ExtResource("1_4tc62")
+
+[node name="Rodent" parent="." instance=ExtResource("2_f3st7")]
+position = Vector2(304, 137)
+rotation = -0.279253
+
+[node name="Rodent2" parent="." node_paths=PackedStringArray("start_pos", "end_pos") instance=ExtResource("2_f3st7")]
+position = Vector2(304, 90)
+rotation = 0.26529
+start_pos = NodePath("../Rodent/MovePoints/A")
+end_pos = NodePath("../Rodent/MovePoints/B")
+
+[node name="Root" parent="." instance=ExtResource("3_wntx1")]
+position = Vector2(328, 19)
+
+[node name="Rock" parent="." instance=ExtResource("4_3i04n")]
+position = Vector2(422, 52)
+rotation = -0.706858
+randomSeed = 15
+variation = 27
+
+[node name="Rock2" parent="." instance=ExtResource("4_3i04n")]
+position = Vector2(243, 106)
+rotation = -1.95651
+randomSeed = 191
+variation = 30
+
+[node name="Water" parent="." instance=ExtResource("5_vp1hn")]
+position = Vector2(341, 193)
+max_volume = 5
+randomSeed = 10
+variation = 1
+
+[node name="Rock3" parent="." instance=ExtResource("4_3i04n")]
+position = Vector2(263, 154)
+rotation = 0.647517
+skew = -0.668461
+randomSeed = 5660
+
+[node name="Rock4" parent="." instance=ExtResource("4_3i04n")]
+position = Vector2(419, 194)
+rotation = -0.308923
+randomSeed = 29
+variation = 27
+
+[node name="PushableRock" parent="." instance=ExtResource("6_862ef")]
+position = Vector2(337, 73)
+scale = Vector2(0.15, 0.15)

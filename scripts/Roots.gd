@@ -72,10 +72,13 @@ func _growRoot(target: Vector2, collideInfo):
 		section.touching = collideInfo.collider;
 	section.done_growing.connect(_calculate_path)
 	section.water_flowing.connect(_on_root_section_water_flowing);
+	section.removed.connect(_root_removed);
 	rootList.add_child(section);
 	_removable_roots.push_front(section);
 	growing_root.emit();
 
+func _root_removed(rootSection):
+	_removable_roots.erase(rootSection);
 
 func _calculate_path():
 	_grow_to_position = null;
@@ -93,7 +96,6 @@ func _calculate_path():
 		_draw_ghost_line(_nearestNode.get_end_point(), _grow_to_position);
 	else:
 		ghostLine.visible = false;
-	
 
 func _find_best_node(pos: Vector2) -> RootSection:
 	var roots = rootList.get_children();

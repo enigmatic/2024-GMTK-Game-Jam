@@ -4,6 +4,7 @@ class_name RootSection
 signal water_flowing(section: RootSection);
 signal water_gathered(amount:int);
 signal done_growing();
+signal removed();
 
 @export var source: Vector2
 @export var target: Vector2
@@ -50,6 +51,7 @@ func _ready():
 		parent.added_child();
 		
 func remove():
+	removed.emit(self);
 	if is_instance_valid(parent):
 		parent.removed_child(self);
 	for child in children:

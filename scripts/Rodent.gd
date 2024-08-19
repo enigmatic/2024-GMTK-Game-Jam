@@ -4,10 +4,12 @@ extends Node2D
 @export var start_pos:Marker2D:
 	set(new_pos):
 		start_pos = new_pos;
+		_update_burrow();
 		
 @export var end_pos:Marker2D:
 	set(new_pos):
 		end_pos = new_pos;
+		_update_burrow();
 		
 @export var speed = 100:
 	set(new_speed):
@@ -24,9 +26,7 @@ func _ready():
 	mover.position = start_pos.position;
 	_target = end_pos.position;
 	mover.scale.x = 1;
-	burrow.clear_points();
-	burrow.add_point(start_pos.position - Vector2(96/2,0));
-	burrow.add_point(end_pos.position + Vector2(96/2, 0));
+	_update_burrow();
 	pass # Replace with func$Area2D/Rat
 
 
@@ -36,6 +36,13 @@ func _process(delta):
 		mover.position = mover.position.move_toward(_target, delta * speed);
 		if mover.position == _target:
 			turn_around()
+
+func _update_burrow():
+	if (burrow):
+		burrow.clear_points();
+		burrow.add_point(start_pos.position - Vector2(96/2,0));
+		burrow.add_point(end_pos.position + Vector2(96/2, 0));
+		
 
 func turn_around():
 	if _target == end_pos.position:
@@ -50,7 +57,7 @@ func _on_area_2d_area_entered(area:Area2D):
 	if area.get_parent() is RootSection:
 		chewing.emitting = true;	
 		var root = area.get_parent().remove();
-	else:
+	elif area.type != 'rodent':
 		turn_around();
 
 
