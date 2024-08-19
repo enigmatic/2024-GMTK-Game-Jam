@@ -9,5 +9,6 @@ func consume(units:int, consuming_location:Vector2) -> int:
 	if(!_emited_win_condition):
 		collected_from_goal_water.emit();
 		_emited_win_condition = true;
-		
-	return super.consume(units, consuming_location);;
+	
+	super.consume(units, consuming_location);
+	return 5;

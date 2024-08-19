@@ -6,7 +6,8 @@ var settings:Settings
 @onready var music_slider: Slider = $VBoxContainer/AudioSettings/MusicSlider
 @onready var sound_slider: Slider = $VBoxContainer/AudioSettings/SoundSlider
 @onready var victory_label:Label = $VBoxContainer/VictoryLabel
-# Called when the node enters the scene tree for the first time.
+@onready var play_button: Button = $VBoxContainer/PlayButton
+@onready var tutorial_button: Button = $VBoxContainer/TutorialButton
 
 func _ready():
 	load_settings()
@@ -24,6 +25,8 @@ func _input(event):
 func show_victory_screen():
 	show()
 	victory_label.show()
+	play_button.hide();
+	tutorial_button.hide();
 	$VBoxContainer/AudioSettings.hide()
 
 func _on_music_slider_value_changed(value):
@@ -58,6 +61,8 @@ func _on_play_button_button_up():
 func _on_reset_button_button_up():
 	reset.emit()
 	victory_label.hide()
+	play_button.show();
+	tutorial_button.show();
 	$VBoxContainer/AudioSettings.show()
 	
 

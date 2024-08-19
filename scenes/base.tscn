@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dccghyvgs6k1b" path="res://scenes/base/rocks.tscn" id="4_e7lab"]
 [ext_resource type="PackedScene" uid="uid://brx7y5o0wye7q" path="res://scenes/base/BaseWater.tscn" id="5_ydqxa"]
 [ext_resource type="Script" path="res://scripts/Camera.gd" id="6_tqy8j"]
-[ext_resource type="Script" path="res://scenes/placeables/GoalWater.gd" id="6_y7r05"]
+[ext_resource type="Script" path="res://scripts/underground/GoalWater.gd" id="6_y7r05"]
 [ext_resource type="PackedScene" uid="uid://d3ro0rdbnkf6" path="res://scenes/placeables/Root.tscn" id="7_cr1yp"]
 [ext_resource type="PackedScene" uid="uid://yk8neoeakd87" path="res://scenes/base/hud.tscn" id="7_j0avw"]
 [ext_resource type="PackedScene" uid="uid://dq8bi2xm0l5yf" path="res://scenes/base/tutorials.tscn" id="11_8ts14"]
@@ -17,7 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://dx2ax4k1aoxyd" path="res://scenes/puzzles/rodentPuzzle1.tscn" id="14_huhqa"]
 [ext_resource type="PackedScene" uid="uid://bce6u6lnqmc2a" path="res://scenes/puzzles/pushablePuzzle3.tscn" id="14_kd780"]
 [ext_resource type="PackedScene" uid="uid://blbynj3na2oc5" path="res://scenes/puzzles/rodentPuzzle2.tscn" id="15_t2myq"]
-[ext_resource type="PackedScene" path="res://scenes/puzzles/rodentPuzzle3.tscn" id="17_f3t5o"]
+[ext_resource type="PackedScene" uid="uid://becy77eneer6y" path="res://scenes/puzzles/rodentPuzzle3.tscn" id="17_f3t5o"]
 
 [node name="Base" type="Node2D"]
 script = ExtResource("1_20ccf")
@@ -104,7 +104,6 @@ script = ExtResource("6_tqy8j")
 
 [node name="HUD" parent="." instance=ExtResource("7_j0avw")]
 process_mode = 3
-visible = false
 
 [node name="Tutorials" parent="HUD" instance=ExtResource("11_8ts14")]
 process_mode = 3

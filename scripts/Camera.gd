@@ -55,9 +55,13 @@ func _on_tree_tree_growing(height):
 		first_zoom_complete = true
 		tutorial_step.emit(1)
 	
-	#print('Tree Height:', height, ' current_zoom:', zoom.x ,' _zoom_max:', _zoom_max,' zoom scale: ', zoom_scale);
-
 	if (maxedZoom || (_zoomTween && _zoomTween.is_running())):
 		if _zoomTween: _zoomTween.stop();
 		_zoomTween = create_tween();
 		_zoomTween.tween_property(self, "zoom", Vector2(_zoom_max, _zoom_max), 1).set_ease(Tween.EASE_IN_OUT);
+
+func move_camera_to(pos:Vector2, zoom:float):
+	_zoomTween = create_tween();
+	_zoomTween.tween_property(self, "zoom", Vector2(zoom, zoom), 1).set_ease(Tween.EASE_IN_OUT);
+	var move_tween = create_tween();
+	move_tween.tween_property(self, "position", pos, 2).set_ease(Tween.EASE_IN_OUT);

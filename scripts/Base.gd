@@ -78,5 +78,4 @@ func _update_scores():
 
 func _on_goal_water_collected_from_goal_water():
 	start_menu.show_victory_screen();
-	# TODO: make camera go to tree and watch it grow
-	pass # Replace with function body.
+	camera.move_camera_to(Vector2(0,-705), 0.25);
