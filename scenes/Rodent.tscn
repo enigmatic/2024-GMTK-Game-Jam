@@ -47,7 +47,7 @@ default_color = Color(0.243137, 0.133333, 0.0705882, 1)
 position = Vector2(295, 0)
 
 [node name="Area2D" type="Area2D" parent="."]
-position = Vector2(82.9297, 0)
+position = Vector2(18.6492, 0)
 collision_layer = 7
 collision_mask = 7
 script = ExtResource("2_1un10")
