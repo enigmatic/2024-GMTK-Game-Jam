@@ -54,7 +54,7 @@ func remove():
 		parent.removed_child();
 	for child in children:
 		child.remove();
-	if touching:
+	if is_instance_valid(touching):
 		touching.reset(_consumedAmount);
 	queue_free();
 
