@@ -10,10 +10,6 @@ func _ready():
 	load_settings()
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
 func _input(event):
 	if event.is_action_released("ui_cancel"):
 		if visible:
@@ -39,6 +35,7 @@ func _on_play_button_button_up():
 
 func _on_reset_button_button_up():
 	reset.emit()
+	victory_label.hide()
 	
 
 func load_settings():

@@ -15,18 +15,14 @@ func _ready():
 	reset();
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 
-func _process(delta):
-	pass
-
 func reset():
 	for f in foliages_node.get_children():
 		f.falling = true
 	set_tree_size(startingTreeSize)
 
 func increase_tree_size(height: int = 32, tween:bool = false):
-	set_tree_size(height+size.y, tween)
+	set_tree_size(height+int(size.y), tween)
 	var height_h = height * .4
-	var tweener = get_tree().create_tween()
 	for foliage in foliages_node.get_children():
 		foliage.size.x += height_h*.6
 		foliage.size.y += height_h*.6
@@ -41,16 +37,15 @@ func increase_tree_size(height: int = 32, tween:bool = false):
 func set_tree_size(height: int= 16, tween:bool = false):
 	tree_growing.emit(height);
 	var half_h = (height*.5)
-	var quarter_h = height*.25
-	var tween1 = create_tween()
-	var tween2 = create_tween()
-	var tween3 = create_tween()
 	var new_size = Vector2(sqrt(height) * (log(height)-2),height)
 	var new_position =  Vector2(320-(sqrt(height) * (log(height)-2)*.5),-height)
 	top_foliage.size = Vector2(size.x,size.x)
 
 	var new_foliage_position = Vector2(top_foliage.size.x*.001,-top_foliage.size.x*.5,)
 	if tween:
+		var tween1 = create_tween()
+		var tween2 = create_tween()
+		var tween3 = create_tween()
 		tween1.tween_property(self,"size",new_size,1.0)
 		tween2.tween_property(self,"position",new_position,1.0)
 		tween3.tween_property(top_foliage,"position",new_foliage_position,1)
@@ -75,7 +70,7 @@ func add_foliage(foliage_position:Vector2 = Vector2(-1,-1), radius: int = -1):
 	if foliage_position == Vector2(-1,-1):
 		foliage_position = Vector2(0, randi_range(size.y*.1,size.y*.2))
 		foliage_position.y = position.y
-		if last_foliage_side < 0:
+		if last_foliage_side < 0.0:
 			foliage_position.x = randi_range(310,320)
 			new_foliage.grow_direction = -4.5
 		else:

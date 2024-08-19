@@ -18,7 +18,7 @@ func start_push():
 	if (!blocker):
 		_positionQueue.push_front(position);
 
-func _on_body_entered(body):
+func _on_body_entered(_body):
 	blocker = true;
 	
 func reset():

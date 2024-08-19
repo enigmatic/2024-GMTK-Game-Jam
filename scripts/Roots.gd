@@ -21,7 +21,7 @@ var _cancelClick = false;
 var _planning_to_draw = false;
 var _removable_roots = [];
 
-func _process(delta):
+func _process(_delta):
 	if _planning_to_draw:
 		_calculate_path();
 

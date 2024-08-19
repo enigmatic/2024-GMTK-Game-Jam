@@ -35,10 +35,6 @@ func _ready():
 	pass # Replace with function body.
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
 func set_and_show(message_index:int, unlocked_message:int = -1):
 	if unlocked_message > unlocked_messages:
 		unlocked_messages = unlocked_message
