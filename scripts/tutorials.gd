@@ -13,7 +13,7 @@ const PUSH_ROCKS_UNLOCK = 10
 
 const TUTORIAL_MESSAGES:Array[String] = [
 	"Click to grow a root",
-	"Hold to see where the root will grow",
+	"Hold to see where the root will grow, right click to cancel",
 	"Grow roots to water to help your tree grow",
 	"Grow your roots as deep as you can!",
 	"Press T to bring the tutorial and tips back up",
