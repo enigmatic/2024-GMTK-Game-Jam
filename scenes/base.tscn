@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://ddpfqi0kg1m3w"]
+[gd_scene load_steps=18 format=3 uid="uid://ddpfqi0kg1m3w"]
 
 [ext_resource type="Script" path="res://scripts/Base.gd" id="1_20ccf"]
 [ext_resource type="PackedScene" uid="uid://bvuvu5rfmhqbr" path="res://scenes/base/background.tscn" id="2_a54lw"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://dx2ax4k1aoxyd" path="res://scenes/puzzles/rodentPuzzle1.tscn" id="14_huhqa"]
 [ext_resource type="PackedScene" uid="uid://bce6u6lnqmc2a" path="res://scenes/puzzles/pushablePuzzle3.tscn" id="14_kd780"]
 [ext_resource type="PackedScene" uid="uid://blbynj3na2oc5" path="res://scenes/puzzles/rodentPuzzle2.tscn" id="15_t2myq"]
+[ext_resource type="PackedScene" uid="uid://becy77eneer6y" path="res://scenes/puzzles/rodentPuzzle3.tscn" id="17_f3t5o"]
 
 [node name="Base" type="Node2D"]
 script = ExtResource("1_20ccf")
@@ -121,6 +122,9 @@ position = Vector2(-24, 738)
 
 [node name="Root" parent="." instance=ExtResource("7_cr1yp")]
 position = Vector2(320, 3)
+
+[node name="RodentPuzzle3" parent="." instance=ExtResource("17_f3t5o")]
+position = Vector2(-9, 941)
 
 [connection signal="tree_growing" from="Tree" to="Camera" method="_on_tree_tree_growing"]
 [connection signal="growing_root" from="Root" to="." method="_on_root_growing_root"]
