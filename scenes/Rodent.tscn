@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/Rodent.gd" id="1_hpd2c"]
 [ext_resource type="Script" path="res://scripts/underground/UndergroundCollidable.gd" id="2_1un10"]
-[ext_resource type="Texture2D" uid="uid://b2302gu1m05wg" path="res://assets/images/tempArt/000.png" id="2_rim7q"]
+[ext_resource type="Texture2D" uid="uid://hsnmex8jweny" path="res://assets/images/rodent.png" id="3_dqn6r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ylsem"]
 size = Vector2(65, 63)
@@ -47,7 +47,7 @@ default_color = Color(0.243137, 0.133333, 0.0705882, 1)
 position = Vector2(295, 0)
 
 [node name="Area2D" type="Area2D" parent="."]
-position = Vector2(18.6492, 0)
+position = Vector2(1.66667, 0)
 collision_layer = 7
 collision_mask = 7
 script = ExtResource("2_1un10")
@@ -62,7 +62,7 @@ rotation = -3.14159
 scale = Vector2(-1, -1)
 
 [node name="sprite" type="Sprite2D" parent="Area2D/Rat"]
-texture = ExtResource("2_rim7q")
+texture = ExtResource("3_dqn6r")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Area2D/Rat/sprite"]
 position = Vector2(40.3437, 5.69547)
