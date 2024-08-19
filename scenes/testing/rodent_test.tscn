@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://docsbu11dh2gr"]
+
+[ext_resource type="PackedScene" uid="uid://caqcwa0b12ar3" path="res://scenes/Rodent.tscn" id="1_yyg7d"]
+[ext_resource type="PackedScene" uid="uid://d3ro0rdbnkf6" path="res://scenes/Root.tscn" id="2_3ecwm"]
+[ext_resource type="PackedScene" uid="uid://ct8c2udaf2iy6" path="res://scenes/PushableRock.tscn" id="3_nixnj"]
+[ext_resource type="PackedScene" uid="uid://bxfxlvuahy6vv" path="res://scenes/rock.tscn" id="4_p40ad"]
+
+[node name="RodentTest" type="Node2D"]
+
+[node name="Rodent" parent="." instance=ExtResource("1_yyg7d")]
+position = Vector2(234.164, 152.305)
+
+[node name="Root" parent="." instance=ExtResource("2_3ecwm")]
+position = Vector2(212, 1)
+
+[node name="PushableRock" parent="." instance=ExtResource("3_nixnj")]
+position = Vector2(211, 66)
+scale = Vector2(0.5, 0.5)
+randomSeed = 1
+variation = 20
+
+[node name="Rock" parent="." instance=ExtResource("4_p40ad")]
+position = Vector2(540, 134)

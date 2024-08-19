@@ -41,6 +41,7 @@ default_color = Color(0, 0, 0, 1)
 [node name="Area2D" type="Area2D" parent="."]
 collision_mask = 0
 script = ExtResource("2_h5hy5")
+type = "root"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("SegmentShape2D_mhe8i")

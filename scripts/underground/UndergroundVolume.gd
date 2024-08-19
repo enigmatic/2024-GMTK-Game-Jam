@@ -2,12 +2,12 @@
 extends UndergroundCollidable
 class_name UndergroundVolume
 
-@export var randomSeed = 0:
+@export var randomSeed:int = 0:
 	set(new_seed):
 		randomSeed = new_seed;
 		_randomizeStructure();
 		
-@export_range(0,30) var variation = 20:
+@export_range(0,30) var variation:int = 20:
 	set(new_variation):
 		variation = new_variation;
 		_randomizeStructure();

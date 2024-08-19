@@ -1,8 +1,28 @@
-[gd_scene load_steps=5 format=3 uid="uid://caqcwa0b12ar3"]
+[gd_scene load_steps=8 format=3 uid="uid://caqcwa0b12ar3"]
 
 [ext_resource type="Script" path="res://scripts/Rodent.gd" id="1_hpd2c"]
 [ext_resource type="Script" path="res://scripts/underground/UndergroundCollidable.gd" id="2_1un10"]
 [ext_resource type="Texture2D" uid="uid://b2302gu1m05wg" path="res://assets/images/tempArt/000.png" id="2_rim7q"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_c4m1u"]
+particle_flag_disable_z = true
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = 10.0
+initial_velocity_max = 20.0
+gravity = Vector3(0, 0, 0)
+
+[sub_resource type="Gradient" id="Gradient_0oeai"]
+offsets = PackedFloat32Array(0.283582, 0.900497)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_dfjs4"]
+gradient = SubResource("Gradient_0oeai")
+width = 6
+height = 6
+fill = 1
+fill_from = Vector2(0.534188, 0.508547)
+fill_to = Vector2(1, 0.491453)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ylsem"]
 size = Vector2(92, 63)
@@ -14,7 +34,7 @@ start_pos = NodePath("MovePoints/A")
 end_pos = NodePath("MovePoints/B")
 
 [node name="Burrow" type="Line2D" parent="."]
-points = PackedVector2Array(0, 0, 295, 0)
+points = PackedVector2Array(-48, 0, 343, 0)
 width = 75.0
 default_color = Color(0.243137, 0.133333, 0.0705882, 1)
 
@@ -25,13 +45,30 @@ default_color = Color(0.243137, 0.133333, 0.0705882, 1)
 [node name="B" type="Marker2D" parent="MovePoints"]
 position = Vector2(295, 0)
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-collision_layer = 5
-collision_mask = 5
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(230.958, 0)
+collision_layer = 7
+collision_mask = 7
 script = ExtResource("2_1un10")
+type = "rodent"
 
-[node name="Rat" type="Sprite2D" parent="CharacterBody2D"]
+[node name="Rat" type="Node2D" parent="Area2D"]
+
+[node name="sprite" type="Sprite2D" parent="Area2D/Rat"]
 texture = ExtResource("2_rim7q")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Area2D/Rat/sprite"]
+position = Vector2(40.3437, 5.69547)
+emitting = false
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_c4m1u")
+texture = SubResource("GradientTexture2D_dfjs4")
+one_shot = true
+explosiveness = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_ylsem")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="finished" from="Area2D/Rat/sprite/GPUParticles2D" to="." method="_on_gpu_particles_2d_finished"]
