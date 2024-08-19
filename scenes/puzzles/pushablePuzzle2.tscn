@@ -13,20 +13,18 @@ script = ExtResource("1_ujxi8")
 position = Vector2(333, 3)
 
 [node name="Rock" parent="." instance=ExtResource("3_iywgk")]
-position = Vector2(241, 67)
+position = Vector2(250, 53)
 randomSeed = 4
 variation = 10
 
 [node name="PushableRock2" parent="." instance=ExtResource("4_ysfmx")]
 position = Vector2(358, 24)
 scale = Vector2(0.1, 0.1)
-randomSeed = 1
 variation = 2
 
 [node name="PushableRock" parent="." instance=ExtResource("4_ysfmx")]
 position = Vector2(325, 29)
 scale = Vector2(0.1, 0.1)
-randomSeed = 1
 variation = 2
 
 [node name="PushableRock3" parent="." instance=ExtResource("4_ysfmx")]
@@ -36,7 +34,7 @@ randomSeed = 6
 variation = 8
 
 [node name="Rock3" parent="." instance=ExtResource("3_iywgk")]
-position = Vector2(410, 46)
+position = Vector2(402, 38)
 rotation = -0.158825
 randomSeed = 20
 variation = 21

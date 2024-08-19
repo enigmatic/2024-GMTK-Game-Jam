@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://becy77eneer6y"]
+[gd_scene load_steps=8 format=3 uid="uid://4gf22rocsed2"]
 
 [ext_resource type="Script" path="res://scripts/Puzzle.gd" id="1_4tc62"]
 [ext_resource type="PackedScene" uid="uid://caqcwa0b12ar3" path="res://scenes/placeables/Rodent.tscn" id="2_f3st7"]
