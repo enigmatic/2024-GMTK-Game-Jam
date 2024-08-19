@@ -21,6 +21,7 @@ var _can_grow = false;
 var _cancelClick = false;
 var _planning_to_draw = false;
 var _removable_roots = [];
+var _total_water_gathered = 0;
 
 func _process(_delta):
 	if _planning_to_draw:
@@ -65,6 +66,7 @@ func _growRoot(target: Vector2, collideInfo):
 	var scene = load("res://scenes/placeables/helper/RootSection.tscn");
 	var section:RootSection = scene.instantiate();
 	section.parent = _nearestNode;
+	section.max_per_consume = max(1, _total_water_gathered / 10);
 	_nearestNode.children.push_back(section);
 	section.target = target;
 	section.collision = collideInfo;
@@ -170,6 +172,7 @@ func get_target_position() -> Vector2:
 	return targetClamp;
 
 func _on_root_section_water_gathered(amount):
+	_total_water_gathered += amount;
 	water_gathered.emit(amount);
 
 func _on_root_section_water_flowing(section:RootSection):
@@ -198,6 +201,7 @@ func _on_root_section_done_growing():
 	start_growing();
 
 func reset():
+	_total_water_gathered = 0;
 	var mainRoot:RootSection = rootList.get_child(0);
 	while mainRoot.children.size() > 0:
 		var root = mainRoot.children[0];

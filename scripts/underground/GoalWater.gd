@@ -1,3 +1,4 @@
+@tool
 extends Water
 class_name GoalWater
 
@@ -10,5 +11,5 @@ func consume(units:int, consuming_location:Vector2) -> int:
 		collected_from_goal_water.emit();
 		_emited_win_condition = true;
 	
-	super.consume(units, consuming_location);
-	return 5;
+	
+	return super.consume(units, consuming_location);

@@ -13,7 +13,6 @@ signal removed();
 @export var widthGrowth = 2;
 @export var dropSpeed:float = 50;
 
-
 @onready var line = $Line2D
 @onready var collisionShape = $Area2D/CollisionShape2D
 @onready var collisionArea = $Area2D;
@@ -27,10 +26,12 @@ signal removed();
 var parent: RootSection = null;
 var children = [];
 var collision = null;
-var _pushing = false;
 var touching: UndergroundCollidable = null;
 var segment = SegmentShape2D.new();
+var max_per_consume = 1;
+
 var _doneGrowing = false;
+var _pushing = false;
 var _consumedAmount = 0;
 
 func _ready():
@@ -106,14 +107,14 @@ func _process(delta):
 				consume();
 			done_growing.emit();
 				
-	for drop in drops.get_children():
+	for drop:WaterDrop in drops.get_children():
 		var source_global = to_global(source);
 		drop.position = drop.position.move_toward(source_global, dropSpeed * delta);
 		if (is_equal_approx(drop.position.x, source_global.x) && is_equal_approx(drop.position.y, source_global.y)):
 			if parent:
-				parent.start_drop();
+				parent.start_drop(drop.amount_carried);
 			else:
-				water_gathered.emit(1);
+				water_gathered.emit(drop.amount_carried);
 			drop.queue_free();
 
 func nearest_point_to(x:Vector2):
@@ -147,33 +148,34 @@ func removed_child(child):
 	endCap.texture.width = width + widthGrowth;
 	children.erase(child)
 	if parent:
-		parent.removed_child(self);
+		parent.removed_child(null);
 
 func consume():
 	if touching && is_instance_valid(touching):
 		if touching.type == 'water':
-			if (touching.consume(1, to_global(target)) > 0):
-				_consumedAmount += 1;
+			var successfully_consumed = touching.consume(max_per_consume, to_global(target));
+			if (successfully_consumed > 0):
+				_consumedAmount += successfully_consumed;
 				consumeTimer.start();
-				start_drop();
+				start_drop(successfully_consumed);
 			else:
 				touching = null;
 
 func _on_consume_timer_timeout():
 	consume()
 
-
 @onready var water_shader = preload("res://assets/shaders/Water.gdshader")
-func start_drop():
+func start_drop(drop_size:int = 1):
 	emit_water_flow();
-	var newDrop:Sprite2D = main_drop.duplicate();
+	var newDrop:WaterDrop = main_drop.duplicate();
 	newDrop.texture.height = max(3, width);
 	newDrop.texture.width = max(3, width);
 	newDrop.position = to_global(target);
 	newDrop.visible = true;
+	newDrop.amount_carried = drop_size;
 	drops.add_child(newDrop, true);
 
 func emit_water_flow():
 	water_flowing.emit(self);
-	if (parent):
+	if (is_instance_valid(parent)):
 		parent.emit_water_flow();

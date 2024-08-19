@@ -9,7 +9,6 @@ extends Node2D
 @onready var camera:Camera2D = $Camera
 var score = 0;
 var root_counter = 2;
-var water_counter = 0;
 
 func _ready():
 	_update_scores();
@@ -37,7 +36,6 @@ func _reset_node(old_node:Node)->Node:
 func _reset_game():
 	tree_node.reset()
 	root_counter = 2
-	water_counter = 0
 	score = 0
 	water_node = _reset_node(water_node);
 	root.reset();
@@ -63,12 +61,13 @@ func _on_root_removed_root():
 	_update_scores();
 
 func _on_root_water_gathered(amount):
-	score += amount;
 	root_counter += amount;
 	root.start_growing();
-	water_counter += amount
-	if score < 5 or score % 5 == 0:
-		tree_node.increase_tree_size(32,true);
+	while amount > 0:
+		score += 1
+		amount -= 1
+		if score < 5 or score % 5 == 0:
+			tree_node.increase_tree_size(32,true);
 	
 	_update_scores();
 	

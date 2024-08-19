@@ -1,8 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://brx7y5o0wye7q"]
+[gd_scene load_steps=4 format=3 uid="uid://brx7y5o0wye7q"]
 
+[ext_resource type="Script" path="res://scripts/underground/helper/WaterHolder.gd" id="1_mq6ij"]
 [ext_resource type="PackedScene" uid="uid://cmvwbb83jppve" path="res://scenes/placeables/Water.tscn" id="1_qmpsn"]
+[ext_resource type="Script" path="res://scripts/underground/GoalWater.gd" id="2_gxgbj"]
 
 [node name="Water" type="Node2D"]
+script = ExtResource("1_mq6ij")
 
 [node name="Water2" parent="." instance=ExtResource("1_qmpsn")]
 position = Vector2(281, 216)
@@ -38,8 +41,10 @@ randomSeed = 2
 variation = 2
 
 [node name="Goal Water" parent="." instance=ExtResource("1_qmpsn")]
-position = Vector2(964, 8134)
-max_volume = 5000
+position = Vector2(221, 2980)
+scale = Vector2(1, 0.25)
+script = ExtResource("2_gxgbj")
+max_volume = 2000
 randomSeed = 3
 
 [node name="Water8" parent="." instance=ExtResource("1_qmpsn")]
@@ -96,3 +101,5 @@ position = Vector2(-209, 310)
 max_volume = 25
 randomSeed = 76
 variation = 12
+
+[connection signal="collected_from_goal_water" from="Goal Water" to="." method="_on_goal_water_collected_from_goal_water"]

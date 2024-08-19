@@ -9,6 +9,7 @@ signal tree_growing(int);
 @onready var tree_growth_sound:AudioStreamPlayer2D = $TreeGrowthSound
 var foliage_preload = preload("res://scenes/base/foliage.tscn")
 var last_foliage_side = -1
+var _tree_height = 16;
 # Called when the node enters the scene tree for the first time.
 
 func _ready():
@@ -22,7 +23,7 @@ func reset():
 	set_tree_size(startingTreeSize)
 
 func increase_tree_size(height: int = 32, tween:bool = false):
-	set_tree_size(height+int(size.y), tween)
+	set_tree_size(height+_tree_height, tween)
 	var height_h = height * .4
 	for foliage in foliages_node.get_children():
 		foliage.size.x += height_h*.6
@@ -40,6 +41,7 @@ func increase_tree_size(height: int = 32, tween:bool = false):
 
 
 func set_tree_size(height: int= 16, tween:bool = false):
+	_tree_height = height;
 	tree_growing.emit(height);
 	var half_h = (height*.5)
 	var new_size = Vector2(sqrt(height) * (log(height)-2),height)

@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://xm0ofe0xm664"]
+[gd_scene load_steps=15 format=3 uid="uid://xm0ofe0xm664"]
 
 [ext_resource type="Script" path="res://scripts/underground/RootSection.gd" id="1_3p7t0"]
 [ext_resource type="Script" path="res://scripts/underground/UndergroundCollidable.gd" id="2_h5hy5"]
 [ext_resource type="AudioStream" uid="uid://disqj38qrgxqa" path="res://assets/audio/root_growing.mp3" id="3_3r5ph"]
 [ext_resource type="Shader" path="res://assets/shaders/water_drop.gdshader" id="3_dw37v"]
+[ext_resource type="Script" path="res://scripts/underground/WaterDrop.gd" id="4_pkolb"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_mhe8i"]
 
@@ -72,6 +73,7 @@ texture_repeat = 2
 material = SubResource("ShaderMaterial_vwadl")
 position = Vector2(103.908, 41.78)
 texture = SubResource("GradientTexture2D_egxcd")
+script = ExtResource("4_pkolb")
 
 [node name="EndCap" type="Sprite2D" parent="."]
 texture = SubResource("GradientTexture2D_kl15e")
