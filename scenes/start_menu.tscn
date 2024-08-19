@@ -55,6 +55,16 @@ text = "Reset"
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 
+[node name="TutorialButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_frng1")
+keep_pressed_outside = true
+text = "Tutorial"
+
+[node name="HSeparator3" type="HSeparator" parent="VBoxContainer"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
 [node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("1_frng1")
@@ -69,4 +79,5 @@ value = 100.0
 
 [connection signal="button_up" from="VBoxContainer/PlayButton" to="." method="_on_play_button_button_up"]
 [connection signal="button_up" from="VBoxContainer/ResetButton" to="." method="_on_reset_button_button_up"]
+[connection signal="button_up" from="VBoxContainer/TutorialButton" to="." method="_on_tutorial_button_button_up"]
 [connection signal="value_changed" from="VBoxContainer/MusicSlider" to="." method="_on_music_slider_value_changed"]

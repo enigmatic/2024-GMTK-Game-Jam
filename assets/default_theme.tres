@@ -1,38 +1,45 @@
-[gd_resource type="Theme" load_steps=9 format=3 uid="uid://cce1uxp863s3k"]
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://cce1uxp863s3k"]
 
 [ext_resource type="FontFile" uid="uid://ws02jxh62lbj" path="res://assets/fonts/Retro Gaming.ttf" id="1_hipsq"]
-[ext_resource type="Texture2D" uid="uid://cuatk13mbou7s" path="res://assets/ui/button.png" id="2_0hiag"]
-[ext_resource type="Texture2D" uid="uid://dqotnbc8aduyu" path="res://assets/ui/Slider.png" id="3_mgg1e"]
-[ext_resource type="Texture2D" uid="uid://2247f3c2xtkw" path="res://assets/ui/Slider_Hover.png" id="4_6ws72"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_8feib"]
 color = Color(0, 0, 0, 0)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_eekwj"]
-content_margin_left = 8.0
-content_margin_top = 8.0
-content_margin_right = 8.0
-content_margin_bottom = 8.0
-texture = ExtResource("2_0hiag")
-region_rect = Rect2(0, 0, 94, 36)
-modulate_color = Color(0.868985, 0.868985, 0.868985, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xbos1"]
+bg_color = Color(0.462291, 0.462291, 0.46229, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+shadow_size = 3
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rfapm"]
-content_margin_left = 8.0
-content_margin_top = 8.0
-content_margin_right = 8.0
-content_margin_bottom = 8.0
-texture = ExtResource("2_0hiag")
-region_rect = Rect2(0, 0, 94, 36)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gca4r"]
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.9997, 0.979703, 1, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0ht4r"]
-content_margin_left = 8.0
-content_margin_top = 8.0
-content_margin_right = 8.0
-content_margin_bottom = 8.0
-texture = ExtResource("2_0hiag")
-region_rect = Rect2(0, 0, 94, 36)
-modulate_color = Color(0.678944, 0.678944, 0.678944, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ytdc"]
+bg_color = Color(0.336608, 0.336608, 0.336607, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [resource]
 default_font = ExtResource("1_hipsq")
@@ -56,8 +63,7 @@ Button/font_sizes/font_size = 16
 Button/fonts/font = ExtResource("1_hipsq")
 Button/styles/disabled = null
 Button/styles/focus = SubResource("StyleBoxLine_8feib")
-Button/styles/hover = SubResource("StyleBoxTexture_eekwj")
-Button/styles/normal = SubResource("StyleBoxTexture_rfapm")
-Button/styles/pressed = SubResource("StyleBoxTexture_0ht4r")
-HSlider/icons/grabber = ExtResource("3_mgg1e")
-HSlider/icons/grabber_highlight = ExtResource("4_6ws72")
+Button/styles/hover = SubResource("StyleBoxFlat_xbos1")
+Button/styles/normal = SubResource("StyleBoxFlat_gca4r")
+Button/styles/pressed = SubResource("StyleBoxFlat_8ytdc")
+HSlider/icons/grabber = null

@@ -48,3 +48,7 @@ func load_settings():
 		settings = Settings.new()
 			
 
+
+
+func _on_tutorial_button_button_up():
+	get_parent().find_child("Tutorials").show()

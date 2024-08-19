@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=3 uid="uid://dq8bi2xm0l5yf"]
+
+[ext_resource type="Script" path="res://scripts/tutorials.gd" id="1_8lfom"]
+[ext_resource type="Theme" uid="uid://cce1uxp863s3k" path="res://assets/default_theme.tres" id="2_5i8td"]
+
+[node name="Tutorials" type="Node2D"]
+script = ExtResource("1_8lfom")
+
+[node name="NextButton" type="Button" parent="."]
+offset_left = 532.0
+offset_top = 316.0
+offset_right = 629.0
+offset_bottom = 353.0
+theme = ExtResource("2_5i8td")
+text = "Next"
+
+[node name="BackButton" type="Button" parent="."]
+visible = false
+offset_left = 391.0
+offset_top = 315.0
+offset_right = 498.0
+offset_bottom = 352.0
+theme = ExtResource("2_5i8td")
+text = "Previous"
+
+[node name="Panel" type="PanelContainer" parent="."]
+offset_left = 390.0
+offset_top = 210.0
+offset_right = 630.0
+offset_bottom = 311.0
+theme = ExtResource("2_5i8td")
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 2
+size_flags_vertical = 1
+theme = ExtResource("2_5i8td")
+text = "Click to grow a root"
+autowrap_mode = 2
+
+[connection signal="button_up" from="NextButton" to="." method="_on_next_button_button_up"]
+[connection signal="button_up" from="BackButton" to="." method="_on_back_button_button_up"]

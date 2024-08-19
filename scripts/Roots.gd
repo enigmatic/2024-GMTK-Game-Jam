@@ -25,7 +25,7 @@ func _process(delta):
 	if _planning_to_draw:
 		_calculate_path();
 
-func _input(event):
+func _unhandled_input(event):
 	if event is InputEventMouse:
 		if _can_grow:
 			_calculate_path();

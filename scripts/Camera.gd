@@ -6,7 +6,11 @@ var _zoomTween: Tween;
 
 const CAMERA_SPEED:int = 300
 
-var is_dragging = false
+var is_dragging:bool = false
+var first_zoom_complete:bool = false
+var moveable_rocks_complete:bool = false
+signal tutorial_step
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
@@ -37,13 +41,19 @@ func _input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
 		if zoom.x / 1.1 > _zoom_max:
 			zoom /= 1.1
-	
+	if !moveable_rocks_complete and position.y >= 200:
+		tutorial_step.emit(2)
+		moveable_rocks_complete = true
 
 
 func _on_tree_tree_growing(height):
 	var maxedZoom = is_equal_approx(zoom.x,_zoom_max);
 	var zoom_scale = 180.0/(height+20);
 	_zoom_max = max(0.25, min(_zoom_min, zoom_scale));
+	
+	if !first_zoom_complete and zoom.x < 4:
+		first_zoom_complete = true
+		tutorial_step.emit(1)
 	
 	#print('Tree Height:', height, ' current_zoom:', zoom.x ,' _zoom_max:', _zoom_max,' zoom scale: ', zoom_scale);
 

@@ -4,6 +4,8 @@ extends Node2D
 @onready var tree_node = $Tree
 @onready var hud = $HUD
 @onready var start_menu = $HUD/StartMenu
+@onready var tutorial:Tutorial = $HUD/Tutorials
+@onready var camera:Camera2D = $Camera
 var score = 0;
 var root_counter = 2;
 var water_counter = 0;
@@ -11,6 +13,14 @@ var water_counter = 0;
 func _ready():
 	_update_scores();
 	start_menu.connect("reset", _reset_game)
+	camera.connect("tutorial_step",_on_tutorial_step)
+	
+	
+func _on_tutorial_step(step:int = 0):
+	if step ==1:
+		tutorial.set_and_show(tutorial.FIRST_CAMERA_MOVEMENT_TUTORIAL_MESSAGE, tutorial.CAMERA_MOVEMENT_UNLOCK)
+	if step==2:
+		tutorial.set_and_show(tutorial.FIRST_PUSH_ROCKS_TUTORIAL_MESSAGE,tutorial.PUSH_ROCKS_UNLOCK)
 	
 func _reset_game():
 	tree_node.reset()
