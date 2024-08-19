@@ -1,9 +1,10 @@
 extends Panel
-
+class_name StartMenu
 
 signal reset
 var settings:Settings
 @onready var music_slider: Slider = $VBoxContainer/MusicSlider
+@onready var victory_label:Label = $VBoxContainer/VictoryLabel
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	load_settings()
@@ -22,7 +23,9 @@ func _input(event):
 			show()
 			get_tree().paused = true
 
-
+func show_victory_screen():
+	show()
+	victory_label.show()
 
 func _on_music_slider_value_changed(value):
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Soundtrack"),linear_to_db(value/100.0))
@@ -46,7 +49,6 @@ func load_settings():
 			AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Soundtrack"),linear_to_db(settings.music_level/100.0))
 	else:
 		settings = Settings.new()
-			
 
 
 

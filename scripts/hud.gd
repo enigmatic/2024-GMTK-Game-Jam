@@ -1,4 +1,5 @@
 extends CanvasLayer
+class_name HUD
 @onready var score_label: Label = $ScoreLabel
 @onready var root_label: Label = $RootLabel
 # Called when the node enters the scene tree for the first time.

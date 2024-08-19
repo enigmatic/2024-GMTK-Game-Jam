@@ -2,8 +2,8 @@ extends Node2D
 
 @onready var root:Root = $Root;
 @onready var tree_node = $Tree
-@onready var hud = $HUD
-@onready var start_menu = $HUD/StartMenu
+@onready var hud:HUD = $HUD
+@onready var start_menu:StartMenu = $HUD/StartMenu
 @onready var tutorial:Tutorial = $HUD/Tutorials
 @onready var camera:Camera2D = $Camera
 var score = 0;

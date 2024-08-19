@@ -31,6 +31,17 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
+[node name="VictoryLabel" type="Label" parent="VBoxContainer"]
+visible = false
+layout_mode = 2
+theme = ExtResource("1_frng1")
+text = "** You've beat the game! **
+
+Enjoy watching  your tree
+continue to grow or reset
+ and play again!"
+horizontal_alignment = 1
+
 [node name="SizingLabel" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 text = "                                                                                "
@@ -68,7 +79,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("1_frng1")
-text = "Music Volume"
+text = "Volume"
 horizontal_alignment = 1
 
 [node name="MusicSlider" type="HSlider" parent="VBoxContainer"]
