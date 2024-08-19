@@ -13,6 +13,8 @@ signal water_gathered(amount:int);
 @onready var targetNode = $Target;
 @onready var ghostLine = $GhostLine;
 @onready var _nearestNode: RootSection = $RootList/RootSection;
+@onready var root_sfx: AudioStreamPlayer2D = $RootSFX
+@onready var water_gether_sfx: AudioStreamPlayer2D = $WaterGatherSVX
 
 var _grow_to_position = Vector2(0,0);
 
@@ -74,6 +76,8 @@ func _growRoot(target: Vector2, collideInfo):
 	rootList.add_child(section);
 	_removable_roots.push_front(section);
 	growing_root.emit();
+	root_sfx.pitch_scale = randf_range(.9,1.1)
+	root_sfx.play(0.0)
 
 func _calculate_path():
 	_grow_to_position = null;
@@ -180,7 +184,6 @@ func stop_growing():
 	ghostLine.visible = false;
 	
 func start_growing():
-	
 	if !_can_grow && Input.is_mouse_button_pressed( 1 ):
 		_planning_to_draw = true;
 		_calculate_path()
@@ -192,4 +195,5 @@ func cancel_growing():
 	_planning_to_draw = false;
 
 func _on_root_section_done_growing():
+	root_sfx.stop()
 	start_growing();
