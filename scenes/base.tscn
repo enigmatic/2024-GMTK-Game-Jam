@@ -76,6 +76,13 @@ variation = 22
 
 [node name="Water" parent="." instance=ExtResource("5_ydqxa")]
 
+[node name="Goal Water" parent="Water" index="6"]
+position = Vector2(259, 2792)
+scale = Vector2(1, 0.25)
+max_volume = 2000
+randomSeed = 30
+variation = 30
+
 [node name="Camera" type="Camera2D" parent="."]
 position = Vector2(320, 1)
 zoom = Vector2(4, 4)
@@ -131,3 +138,5 @@ position = Vector2(-9, 941)
 [connection signal="growing_root" from="Root" to="." method="_on_root_growing_root"]
 [connection signal="removed_root" from="Root" to="." method="_on_root_removed_root"]
 [connection signal="water_gathered" from="Root" to="." method="_on_root_water_gathered"]
+
+[editable path="Water"]

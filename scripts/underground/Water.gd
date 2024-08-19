@@ -3,7 +3,7 @@ extends UndergroundVolume
 class_name Water
 @onready var water_consume_sfx: AudioStreamPlayer2D = $WaterConsumeSFX
 
-@export_range(1,100) var max_volume = 20:
+@export_range(1,5000) var max_volume:int = 20:
 	set(new_max):
 		_volume = new_max;
 		max_volume = new_max
