@@ -12,6 +12,7 @@ const CAMERA_MOVEMENT_UNLOCK = 7
 const FIRST_PUSH_ROCKS_TUTORIAL_MESSAGE = 8
 const PUSH_ROCKS_UNLOCK = 10
 
+var settings:Settings
 
 
 const TUTORIAL_MESSAGES:Array[String] = [
@@ -32,16 +33,28 @@ const TUTORIAL_MESSAGES:Array[String] = [
 	]
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	if ResourceLoader.exists("user://settings.tres"):
+		settings = ResourceLoader.load("user://settings.tres")
+		if settings.tutorial_step >0:
+			active_message = settings.tutorial_step
+			label.text = TUTORIAL_MESSAGES[active_message]
+			$BackButton.show()
+		if settings.unlocked_tutorials > unlocked_messages:
+			unlocked_messages = settings.unlocked_tutorials
+		if settings.tutorial_showing == false:
+			hide()
+	else:
+		settings = Settings.new()
 
 
 func set_and_show(message_index:int, unlocked_message:int = -1):
 	if unlocked_message > unlocked_messages:
 		unlocked_messages = unlocked_message
-	active_message = message_index
-	label.text = TUTORIAL_MESSAGES[active_message]
-	$BackButton.show()
-	show()
+		active_message = message_index
+		label.text = TUTORIAL_MESSAGES[active_message]
+		$BackButton.show()
+		show()
+		_save_tutorial()
 	
 
 func _on_back_button_button_up():
@@ -52,6 +65,7 @@ func _on_back_button_button_up():
 	label.text = TUTORIAL_MESSAGES[active_message]
 	if $NextButton.text == "Close":
 		$NextButton.text = "Next"
+	_save_tutorial()
 
 
 func _on_next_button_button_up():
@@ -66,8 +80,20 @@ func _on_next_button_button_up():
 	if active_message == unlocked_messages:
 		$NextButton.text = "Close"
 	label.text = TUTORIAL_MESSAGES[active_message]
+	_save_tutorial()
 	
 
 func _input(event):
 	if event.is_action_released("tutorial"):
 		show()
+
+func _save_tutorial():
+	var old_settings 
+	if ResourceLoader.exists("user://settings.tres"):
+		old_settings = ResourceLoader.load("user://settings.tres")
+	if old_settings:
+		settings.music_level = old_settings.music_level
+	settings.tutorial_showing = visible
+	settings.tutorial_step = active_message
+	settings.unlocked_tutorials = unlocked_messages
+	ResourceSaver.save(settings,"user://settings.tres")
