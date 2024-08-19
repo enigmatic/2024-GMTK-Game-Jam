@@ -19,12 +19,6 @@ func _ready():
 	_volume = max_volume;
 	super._ready();
 	_randomizeStructure();
-	
-func is_blocker():
-	return false;
-	
-func type():
-	return 'water';
 
 func _updateVolume():
 	var points = _orignalPoints.clone(true);

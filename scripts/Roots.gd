@@ -38,7 +38,7 @@ func _input(event):
 						if hitInfo:
 							collideWith = hitInfo.collider;
 							okToGrow = check_valid_target_node(collideWith);
-							if (collideWith.type() == 'water'):
+							if (collideWith.type == 'water'):
 								_grow_to_position = to_local(hitInfo.position);
 						elif (start_point.distance_to(_grow_to_position) < rootSectionMinSize):
 							okToGrow = false;
@@ -101,7 +101,7 @@ func _find_best_node(pos: Vector2) -> RootSection:
 		var dist = testPos.distance_to(pos);
 		if (dist < nearDist) && (dist > rootSectionMinSize):
 			var hit = checkCollision(pos, testPos);
-			if hit && hit.collider.is_blocker():
+			if hit && hit.collider.blocker:
 				if !clearPath:
 					nearest = root;
 					nearDist = dist;
@@ -127,8 +127,8 @@ func _draw_ghost_line(start: Vector2, target: Vector2):
 	
 	if hitInfo:
 		var collidedWith = hitInfo.collider;
-		var collideType = collidedWith.type();
-		if collidedWith.is_blocker():
+		var collideType = collidedWith.type;
+		if collidedWith.blocker:
 			ghostLine.default_color = Color(1,0,0);
 		elif (['water', 'pushable'].has(collideType)):
 			ghostLine.default_color = Color(0,0,1);
@@ -149,12 +149,12 @@ func checkCollision(source, target):
 	query.hit_from_inside = true
 	var hit = space_state.intersect_ray(query);
 	if hit:
-		if hit.collider.has_method("is_blocker"):
+		if hit.collider is UndergroundCollidable:
 			return hit
 	return null;
 
 func check_valid_target_node(node:UndergroundCollidable):
-	return !node.is_blocker();
+	return !node.blocker;
 
 func get_target_position() -> Vector2:
 	var targetClamp = get_local_mouse_position();

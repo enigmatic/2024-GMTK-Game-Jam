@@ -222,8 +222,10 @@ render_offset = 0.0
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_6lp5w")
-randomSeed = null
-variation = null
+randomSeed = true
+variation = "blocker"
+blocker = null
+type = "pushable"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(33, 42)

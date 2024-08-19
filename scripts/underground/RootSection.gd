@@ -64,7 +64,7 @@ func _process(delta):
 					target = start_point;
 					point = target;
 			
-		if touching && touching.type() == 'pushable' && !_pushing:
+		if touching && touching.type == 'pushable' && !_pushing:
 			var local_collision_position = to_local(collision.position);
 			
 			point = start_point.move_toward(to_local(collision.position), growthRate * delta);
@@ -138,7 +138,7 @@ func removed_child():
 
 func consume():
 	if touching && is_instance_valid(touching):
-		if touching.type() == 'water':
+		if touching.type == 'water':
 			if (touching.consume(1, to_global(target)) > 0):
 				consumeTimer.start();
 				start_drop();
