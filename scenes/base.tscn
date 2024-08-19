@@ -32,11 +32,17 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Rocks" parent="." instance=ExtResource("4_e7lab")]
 
+[node name="Rock17" parent="Rocks" index="0"]
+position = Vector2(-278, 1505)
+
 [node name="Rock9" parent="Rocks" index="9"]
-position = Vector2(-469, 275)
+position = Vector2(-372, 521)
 
 [node name="Rock29" parent="Rocks" index="13"]
 position = Vector2(832, 1090)
+
+[node name="Rock12" parent="Rocks" index="14"]
+position = Vector2(-779, 607)
 
 [node name="Rock13" parent="Rocks" index="15"]
 position = Vector2(-127, 724)
@@ -47,11 +53,32 @@ position = Vector2(543, 385)
 [node name="Rock15" parent="Rocks" index="17"]
 position = Vector2(568, 819)
 
+[node name="Rock31" parent="Rocks" index="18"]
+position = Vector2(907, 2607)
+
 [node name="Rock16" parent="Rocks" index="19"]
-position = Vector2(-267, 1134)
+position = Vector2(-281, 1138)
+
+[node name="Rock18" parent="Rocks" index="20"]
+position = Vector2(45, 1097)
 
 [node name="Rock19" parent="Rocks" index="21"]
-position = Vector2(648, 1491)
+position = Vector2(618, 2059)
+
+[node name="Rock22" parent="Rocks" index="24"]
+position = Vector2(1086, 1961)
+
+[node name="Rock23" parent="Rocks" index="25"]
+position = Vector2(1198, 2206)
+
+[node name="Rock24" parent="Rocks" index="26"]
+position = Vector2(-658, 2147)
+
+[node name="Rock26" parent="Rocks" index="28"]
+position = Vector2(-1237, 1362)
+
+[node name="Rock28" parent="Rocks" index="29"]
+position = Vector2(-447, 817)
 
 [node name="Water" parent="." instance=ExtResource("5_ydqxa")]
 
@@ -62,6 +89,9 @@ script = ExtResource("6_y7r05")
 max_volume = 2000
 randomSeed = 30
 variation = 30
+
+[node name="Water11" parent="Water" index="10"]
+position = Vector2(-499, 1523)
 
 [node name="Camera" type="Camera2D" parent="."]
 position = Vector2(320, 1)

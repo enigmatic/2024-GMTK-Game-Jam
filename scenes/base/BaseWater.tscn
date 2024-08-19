@@ -67,3 +67,32 @@ position = Vector2(1507, 436)
 max_volume = 60
 randomSeed = -1
 variation = 5
+
+[node name="Water15" parent="." instance=ExtResource("1_qmpsn")]
+position = Vector2(-908, 2192)
+max_volume = 25
+randomSeed = 18
+variation = 5
+
+[node name="Water13" parent="." instance=ExtResource("1_qmpsn")]
+position = Vector2(1537, 2275)
+max_volume = 35
+randomSeed = 12
+variation = 16
+
+[node name="Water14" parent="." instance=ExtResource("1_qmpsn")]
+position = Vector2(-891, 365)
+randomSeed = 90
+variation = 5
+
+[node name="Water16" parent="." instance=ExtResource("1_qmpsn")]
+position = Vector2(995, 2184)
+max_volume = 15
+randomSeed = 12
+variation = 7
+
+[node name="Water17" parent="." instance=ExtResource("1_qmpsn")]
+position = Vector2(-209, 310)
+max_volume = 25
+randomSeed = 76
+variation = 12
