@@ -1,16 +1,15 @@
-[gd_scene load_steps=20 format=3 uid="uid://ddpfqi0kg1m3w"]
+[gd_scene load_steps=19 format=3 uid="uid://ddpfqi0kg1m3w"]
 
 [ext_resource type="Script" path="res://scripts/Base.gd" id="1_20ccf"]
 [ext_resource type="PackedScene" uid="uid://bvuvu5rfmhqbr" path="res://scenes/base/background.tscn" id="2_a54lw"]
 [ext_resource type="PackedScene" uid="uid://c5yf141326e73" path="res://scenes/base/start_menu.tscn" id="3_n42ql"]
 [ext_resource type="PackedScene" uid="uid://b15l1t355unu0" path="res://scenes/placeables/Tree.tscn" id="4_78xgr"]
+[ext_resource type="PackedScene" uid="uid://dccghyvgs6k1b" path="res://scenes/base/rocks.tscn" id="4_e7lab"]
 [ext_resource type="PackedScene" uid="uid://brx7y5o0wye7q" path="res://scenes/base/BaseWater.tscn" id="5_ydqxa"]
-[ext_resource type="PackedScene" uid="uid://cmvwbb83jppve" path="res://scenes/placeables/Water.tscn" id="6_0eb08"]
 [ext_resource type="Script" path="res://scripts/Camera.gd" id="6_tqy8j"]
 [ext_resource type="Script" path="res://scenes/placeables/GoalWater.gd" id="6_y7r05"]
 [ext_resource type="PackedScene" uid="uid://d3ro0rdbnkf6" path="res://scenes/placeables/Root.tscn" id="7_cr1yp"]
 [ext_resource type="PackedScene" uid="uid://yk8neoeakd87" path="res://scenes/base/hud.tscn" id="7_j0avw"]
-[ext_resource type="PackedScene" uid="uid://bxfxlvuahy6vv" path="res://scenes/placeables/rock.tscn" id="8_g5x8e"]
 [ext_resource type="PackedScene" uid="uid://dq8bi2xm0l5yf" path="res://scenes/base/tutorials.tscn" id="11_8ts14"]
 [ext_resource type="AudioStream" uid="uid://blj0f6ajfudnd" path="res://assets/audio/generative_beeps_organic.mp3" id="12_s8a8x"]
 [ext_resource type="PackedScene" uid="uid://dti7psphqxfj7" path="res://scenes/puzzles/pushablePuzzle.tscn" id="13_4w4xn"]
@@ -31,201 +30,28 @@ process_mode = 3
 offset_bottom = 4.0
 metadata/_edit_use_anchors_ = true
 
-[node name="Rocks" type="Node" parent="."]
+[node name="Rocks" parent="." instance=ExtResource("4_e7lab")]
 
-[node name="Rock17" parent="Rocks" instance=ExtResource("8_g5x8e")]
-position = Vector2(-355, 1630)
-rotation = -1.03501
-scale = Vector2(4, 4)
-randomSeed = -1
-variation = 14
+[node name="Rock9" parent="Rocks" index="9"]
+position = Vector2(-469, 275)
 
-[node name="Rock2" parent="Rocks" instance=ExtResource("8_g5x8e")]
-position = Vector2(333, 114)
-randomSeed = -1
-variation = 9
+[node name="Rock29" parent="Rocks" index="13"]
+position = Vector2(832, 1090)
 
-[node name="Rock3" parent="Rocks" instance=ExtResource("8_g5x8e")]
-position = Vector2(133, 127)
-randomSeed = 3
+[node name="Rock13" parent="Rocks" index="15"]
+position = Vector2(-127, 724)
 
-[node name="Rock" parent="Rocks" instance=ExtResource("8_g5x8e")]
-position = Vector2(298, 52)
-scale = Vector2(0.5, 0.5)
-randomSeed = 2
+[node name="Rock14" parent="Rocks" index="16"]
+position = Vector2(543, 385)
 
-[node name="Rock4" parent="Rocks" instance=ExtResource("8_g5x8e")]
-position = Vector2(454, 188)
-randomSeed = 4
-variation = 15
+[node name="Rock15" parent="Rocks" index="17"]
+position = Vector2(568, 819)
 
-[node name="Rock5" parent="Rocks" instance=ExtResource("8_g5x8e")]
-position = Vector2(534, 60)
-rotation = -1.29503
-scale = Vector2(1.5, 1.5)
-randomSeed = 5
+[node name="Rock16" parent="Rocks" index="19"]
+position = Vector2(-267, 1134)
 
-[node name="Rock6" parent="Rocks" instance=ExtResource("8_g5x8e")]
-position = Vector2(411, 55)
-scale = Vector2(0.25, 0.25)
-randomSeed = 6
-
-[node name="Rock7" parent="Rocks" instance=ExtResource("8_g5x8e")]
-position = Vector2(65, 493)
-rotation = -2.98102
-scale = Vector2(3, 3)
-randomSeed = 20
-
-[node name="Rock8" parent="Rocks" instance=ExtResource("8_g5x8e")]
-position = Vector2(-84, 156)
-rotation = -1.05418
-scale = Vector2(2, 2)
-randomSeed = -1
-variation = 22
-
-[node name="Rock9" parent="Rocks" instance=ExtResource("8_g5x8e")]
-position = Vector2(-394, 305)
-rotation = -2.12029
-scale = Vector2(3, 3)
-randomSeed = 21
-
-[node name="Rock10" parent="Rocks" instance=ExtResource("8_g5x8e")]
-position = Vector2(1046, 697)
-rotation = -1.51601
-scale = Vector2(3, 3)
-randomSeed = 20
-
-[node name="Rock11" parent="Rocks" instance=ExtResource("8_g5x8e")]
-position = Vector2(1014, 288)
-rotation = -2.52466
-scale = Vector2(3, 3)
-randomSeed = 30
-variation = 30
-
-[node name="Rock25" parent="Rocks" instance=ExtResource("8_g5x8e")]
-position = Vector2(1740, 1374)
-rotation = 2.04261
-scale = Vector2(9, 9)
-randomSeed = 15
-
-[node name="Rock29" parent="Rocks" instance=ExtResource("8_g5x8e")]
-position = Vector2(884, 1009)
-rotation = 2.04261
-scale = Vector2(2, 2)
-randomSeed = 15
-
-[node name="Rock12" parent="Rocks" instance=ExtResource("8_g5x8e")]
-position = Vector2(-733, 583)
-rotation = -2.12029
-scale = Vector2(3, 3)
-randomSeed = 15
-
-[node name="Rock13" parent="Rocks" instance=ExtResource("8_g5x8e")]
-position = Vector2(-129, 737)
-rotation = -2.12029
-scale = Vector2(3, 3)
-randomSeed = 123
-
-[node name="Rock14" parent="Rocks" instance=ExtResource("8_g5x8e")]
-position = Vector2(533, 470)
-rotation = -1.51601
-scale = Vector2(3, 3)
-randomSeed = 89
-
-[node name="Rock15" parent="Rocks" instance=ExtResource("8_g5x8e")]
-position = Vector2(555, 739)
-rotation = -0.0293605
-scale = Vector2(3, 3)
-randomSeed = 60
-variation = 0
-
-[node name="Rock31" parent="Rocks" instance=ExtResource("8_g5x8e")]
-position = Vector2(946, 2550)
-rotation = -2.37063
-scale = Vector2(6, 6)
-randomSeed = -1
-variation = 14
-
-[node name="Rock16" parent="Rocks" instance=ExtResource("8_g5x8e")]
-position = Vector2(-315, 1063)
-rotation = -2.74889
-scale = Vector2(3, 3)
-randomSeed = 1923
-variation = 2
-
-[node name="Rock18" parent="Rocks" instance=ExtResource("8_g5x8e")]
-position = Vector2(70.0001, 1040)
-rotation = -5.53967
-scale = Vector2(3, 3)
-randomSeed = 1923
-variation = 2
-
-[node name="Rock19" parent="Rocks" instance=ExtResource("8_g5x8e")]
-position = Vector2(685, 1474)
-rotation = -0.0891249
-scale = Vector2(4, 4)
-randomSeed = -5
-variation = 30
-
-[node name="Rock20" parent="Rocks" instance=ExtResource("8_g5x8e")]
-position = Vector2(1203, 2375)
-rotation = -3.5509
-scale = Vector2(3, 3)
-randomSeed = 1423
-variation = 18
-
-[node name="Rock21" parent="Rocks" instance=ExtResource("8_g5x8e")]
-position = Vector2(-176, 2241)
-rotation = -3.35595
-scale = Vector2(3, 3)
-randomSeed = -23
-variation = 9
-
-[node name="Rock22" parent="Rocks" instance=ExtResource("8_g5x8e")]
-position = Vector2(903, 1792)
-rotation = -2.12029
-scale = Vector2(3, 3)
-randomSeed = 15
-
-[node name="Rock23" parent="Rocks" instance=ExtResource("8_g5x8e")]
-position = Vector2(1549, 2441)
-rotation = -1.51601
-scale = Vector2(4, 4)
-randomSeed = 89
-variation = 1
-
-[node name="Rock24" parent="Rocks" instance=ExtResource("8_g5x8e")]
-position = Vector2(-817, 2275)
-rotation = -2.91535
-scale = Vector2(3, 3)
-randomSeed = 60
-variation = 0
-
-[node name="Rock27" parent="Rocks" instance=ExtResource("8_g5x8e")]
-position = Vector2(-769, 196)
-rotation = 2.47231
-randomSeed = 1923
-variation = 2
-
-[node name="Rock26" parent="Rocks" instance=ExtResource("8_g5x8e")]
-position = Vector2(-960, 1607)
-rotation = 4.37775
-scale = Vector2(9, 9)
-randomSeed = 1923
-variation = 2
-
-[node name="Rock28" parent="Rocks" instance=ExtResource("8_g5x8e")]
-position = Vector2(-346, 589)
-rotation = 3.14257
-randomSeed = 814
-variation = 3
-
-[node name="Rock30" parent="Rocks" instance=ExtResource("8_g5x8e")]
-position = Vector2(-640, 2334)
-rotation = 0.331776
-scale = Vector2(5, 5)
-randomSeed = -1
-variation = 14
+[node name="Rock19" parent="Rocks" index="21"]
+position = Vector2(648, 1491)
 
 [node name="Water" parent="." instance=ExtResource("5_ydqxa")]
 
@@ -236,32 +62,6 @@ script = ExtResource("6_y7r05")
 max_volume = 2000
 randomSeed = 30
 variation = 30
-
-[node name="Water8" parent="Water" instance=ExtResource("6_0eb08")]
-position = Vector2(109, 605)
-randomSeed = 18
-
-[node name="Water9" parent="Water" instance=ExtResource("6_0eb08")]
-position = Vector2(162, 956)
-randomSeed = 11
-
-[node name="Water10" parent="Water" instance=ExtResource("6_0eb08")]
-position = Vector2(479, 650)
-max_volume = 40
-randomSeed = -1
-variation = 5
-
-[node name="Water11" parent="Water" instance=ExtResource("6_0eb08")]
-position = Vector2(-442, 1577)
-max_volume = 25
-randomSeed = -1
-variation = 5
-
-[node name="Water12" parent="Water" instance=ExtResource("6_0eb08")]
-position = Vector2(1507, 436)
-max_volume = 60
-randomSeed = -1
-variation = 5
 
 [node name="Camera" type="Camera2D" parent="."]
 position = Vector2(320, 1)
@@ -321,4 +121,5 @@ position = Vector2(-9, 941)
 [connection signal="removed_root" from="Root" to="." method="_on_root_removed_root"]
 [connection signal="water_gathered" from="Root" to="." method="_on_root_water_gathered"]
 
+[editable path="Rocks"]
 [editable path="Water"]

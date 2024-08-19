@@ -41,3 +41,29 @@ variation = 2
 position = Vector2(964, 8134)
 max_volume = 5000
 randomSeed = 3
+
+[node name="Water8" parent="." instance=ExtResource("1_qmpsn")]
+position = Vector2(109, 605)
+randomSeed = 18
+
+[node name="Water9" parent="." instance=ExtResource("1_qmpsn")]
+position = Vector2(162, 956)
+randomSeed = 11
+
+[node name="Water10" parent="." instance=ExtResource("1_qmpsn")]
+position = Vector2(479, 650)
+max_volume = 40
+randomSeed = -1
+variation = 5
+
+[node name="Water11" parent="." instance=ExtResource("1_qmpsn")]
+position = Vector2(-442, 1577)
+max_volume = 25
+randomSeed = -1
+variation = 5
+
+[node name="Water12" parent="." instance=ExtResource("1_qmpsn")]
+position = Vector2(1507, 436)
+max_volume = 60
+randomSeed = -1
+variation = 5
