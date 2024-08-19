@@ -10,5 +10,6 @@ position = Vector2(320, 0)
 
 [node name="Water" parent="." instance=ExtResource("2_ngf8t")]
 position = Vector2(350, 32)
-max_volume = 2
+max_volume = 6
+randomSeed = 6
 variation = 1
