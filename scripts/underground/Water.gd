@@ -1,6 +1,7 @@
 @tool
 extends UndergroundVolume
 class_name Water
+@onready var water_consume_sfx: AudioStreamPlayer2D = $WaterConsumeSFX
 
 @export_range(1,100) var max_volume = 20:
 	set(new_max):
@@ -49,12 +50,13 @@ func _consumeVolume(flow_to:Vector2):
 func consume(units:int, consuming_location:Vector2) -> int:
 	var consumed = min(_volume, units)
 	_volume -= units;
+	water_consume_sfx.pitch_scale = randf_range(.9,1.1)
+	water_consume_sfx.play(0.0)
 	if _volume > 0:
 		_consumeVolume(to_local(consuming_location));
 
 	if _volume <= 0:
-		queue_free();
-		
+		$FreeTimer.start()
 	return consumed;
 	
 func _randomizeStructure():
@@ -68,3 +70,7 @@ func _randomizeStructure():
 func reset(amount:int):
 	_volume += amount;
 	_updateVolume();
+
+
+func _on_free_timer_timeout():
+	queue_free()

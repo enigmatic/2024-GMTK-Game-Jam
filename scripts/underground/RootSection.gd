@@ -21,7 +21,7 @@ signal done_growing();
 @onready var drops = $Drops
 @onready var endCap:Sprite2D = $EndCap
 
-
+@onready var root_sfx: AudioStreamPlayer2D = $RootSFX
 
 var parent: RootSection = null;
 var children = [];
@@ -42,8 +42,11 @@ func _ready():
 	segment.a = source;
 	segment.b = source;
 	collisionShape.shape = segment;
+
 	
 	if parent:
+		root_sfx.pitch_scale = randf_range(.9,1.1)
+		root_sfx.play(0.0)
 		parent.added_child();
 		
 func remove():
@@ -57,6 +60,7 @@ func remove():
 
 func _process(delta):
 	if (!_doneGrowing):
+		
 		var start_point = line.get_point_position(1);
 		var point = target;
 			
@@ -88,6 +92,7 @@ func _process(delta):
 		
 		#make room for more growth
 		if _doneGrowing:
+			root_sfx.stop()
 			var room_to_grow = source.move_toward(target, 1);
 			segment.a = room_to_grow;
 			

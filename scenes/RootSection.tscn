@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://xm0ofe0xm664"]
+[gd_scene load_steps=9 format=3 uid="uid://xm0ofe0xm664"]
 
 [ext_resource type="Script" path="res://scripts/underground/RootSection.gd" id="1_3p7t0"]
 [ext_resource type="Script" path="res://scripts/underground/UndergroundCollidable.gd" id="2_h5hy5"]
+[ext_resource type="AudioStream" uid="uid://disqj38qrgxqa" path="res://assets/audio/root_growing.mp3" id="3_3r5ph"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_mhe8i"]
 
@@ -57,5 +58,10 @@ texture = SubResource("GradientTexture2D_egxcd")
 texture = SubResource("GradientTexture2D_kl15e")
 
 [node name="Drops" type="Node" parent="."]
+
+[node name="RootSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_3r5ph")
+volume_db = 6.559
+bus = &"Soundtrack"
 
 [connection signal="timeout" from="ConsumeTimer" to="." method="_on_consume_timer_timeout"]
