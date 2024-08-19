@@ -33,7 +33,7 @@ func increase_tree_size(height: int = 32, tween:bool = false):
 		foliage.material.set_shader_parameter("radius", foliage.size.y * .5)
 	for i in range(0,height,32):
 		add_foliage()
-	tree_growth_sound.pitch_scale = randf_range(.9,1.1)
+	tree_growth_sound.pitch_scale = clampf(1028.0/size.y, 0.01, 3)
 	tree_growth_sound.play()
 	
 	
@@ -71,7 +71,7 @@ func add_foliage(foliage_position:Vector2 = Vector2(-1,-1), radius: int = -1):
 	foliages_node.add_child(new_foliage)
 	
 	if radius == -1:
-		radius = randi_range(4,clamp(size.y*.2,5,16))
+		radius = randi_range(4,size.x*.5)
 	if foliage_position == Vector2(-1,-1):
 		foliage_position = Vector2(0, randf_range(size.y*.1,size.y*.2))
 		foliage_position.y = position.y
@@ -100,3 +100,7 @@ func add_foliage(foliage_position:Vector2 = Vector2(-1,-1), radius: int = -1):
 	new_foliage.material.get_shader_parameter("green_noise").noise.seed = randi()
 	new_foliage.material.get_shader_parameter("shape_noise").noise.seed = randi()
 
+
+
+func _on_timer_timeout():
+	tree_growth_sound.stop()

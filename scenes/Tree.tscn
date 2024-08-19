@@ -77,3 +77,8 @@ texture = ExtResource("2_y3cnv")
 stream = ExtResource("5_h6y81")
 volume_db = 6.0
 bus = &"SFX"
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
