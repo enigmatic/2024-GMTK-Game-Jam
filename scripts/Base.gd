@@ -1,7 +1,8 @@
 extends Node2D
 
 @onready var root:Root = $Root;
-@onready var tree_node = $Tree
+@onready var tree_node = $Tree;
+@onready var water_node = $Water;
 @onready var hud:HUD = $HUD
 @onready var start_menu:StartMenu = $HUD/StartMenu
 @onready var tutorial:Tutorial = $HUD/Tutorials
@@ -21,12 +22,27 @@ func _on_tutorial_step(step:int = 0):
 		tutorial.set_and_show(tutorial.FIRST_CAMERA_MOVEMENT_TUTORIAL_MESSAGE, tutorial.CAMERA_MOVEMENT_UNLOCK)
 	if step==2:
 		tutorial.set_and_show(tutorial.FIRST_PUSH_ROCKS_TUTORIAL_MESSAGE,tutorial.PUSH_ROCKS_UNLOCK)
+
+# based on https://www.reddit.com/r/godot/comments/cqzifo/reload_a_child_scene/
+func _reset_node(old_node:Node)->Node:
+	var replacement_scene = load(old_node.scene_file_path);
+	var parent = old_node.get_parent();
+	var index = old_node.get_index();
+	old_node.call_deferred('free');
+	var new_node = replacement_scene.instantiate();
+	parent.add_child(new_node);
+	parent.move_child(new_node, index);
+	return new_node;
 	
+
 func _reset_game():
 	tree_node.reset()
 	root_counter = 2
 	water_counter = 0
 	score = 0
+	water_node = _reset_node(water_node);
+	root.reset();
+	root.start_growing();
 	_update_scores()
 	
 func _process(_delta):

@@ -51,7 +51,7 @@ func _ready():
 		
 func remove():
 	if parent:
-		parent.removed_child();
+		parent.removed_child(self);
 	for child in children:
 		child.remove();
 	if is_instance_valid(touching):
@@ -137,13 +137,14 @@ func added_child():
 	if parent:
 		parent.added_child();
 		
-func removed_child():
+func removed_child(child):
 	width -= widthGrowth;
 	line.width = width;
 	endCap.texture.height = width + widthGrowth;
 	endCap.texture.width = width + widthGrowth;
+	children.erase(child)
 	if parent:
-		parent.removed_child();
+		parent.removed_child(self);
 
 func consume():
 	if touching && is_instance_valid(touching):

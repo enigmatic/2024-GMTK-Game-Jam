@@ -1,0 +1,38 @@
+[gd_scene load_steps=2 format=3 uid="uid://brx7y5o0wye7q"]
+
+[ext_resource type="PackedScene" uid="uid://cmvwbb83jppve" path="res://scenes/Water.tscn" id="1_qmpsn"]
+
+[node name="Water" type="Node2D"]
+
+[node name="Water2" parent="." instance=ExtResource("1_qmpsn")]
+position = Vector2(281, 216)
+max_volume = 10
+randomSeed = 5
+variation = 5
+
+[node name="Water3" parent="." instance=ExtResource("1_qmpsn")]
+position = Vector2(361, 27)
+max_volume = 2
+variation = 1
+
+[node name="Water4" parent="." instance=ExtResource("1_qmpsn")]
+position = Vector2(449, 93)
+max_volume = 5
+randomSeed = 1
+variation = 2
+
+[node name="Water5" parent="." instance=ExtResource("1_qmpsn")]
+position = Vector2(82, 288)
+randomSeed = 16
+
+[node name="Water6" parent="." instance=ExtResource("1_qmpsn")]
+position = Vector2(245, 95)
+max_volume = 10
+randomSeed = -1
+variation = 5
+
+[node name="Water7" parent="." instance=ExtResource("1_qmpsn")]
+position = Vector2(53, 143)
+max_volume = 5
+randomSeed = 2
+variation = 2

@@ -195,3 +195,9 @@ func cancel_growing():
 func _on_root_section_done_growing():
 	start_growing();
 
+func reset():
+	var mainRoot:RootSection = rootList.get_child(0);
+	while mainRoot.children.size() > 0:
+		var root = mainRoot.children[0];
+		root.remove();
+	_calculate_path();
