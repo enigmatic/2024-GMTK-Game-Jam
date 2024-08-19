@@ -50,10 +50,11 @@ func _ready():
 		parent.added_child();
 		
 func remove():
-	if parent:
+	if is_instance_valid(parent):
 		parent.removed_child(self);
 	for child in children:
-		child.remove();
+		if is_instance_valid(child):
+			child.remove();
 	if is_instance_valid(touching):
 		touching.reset(_consumedAmount);
 	queue_free();
