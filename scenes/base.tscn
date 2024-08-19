@@ -90,7 +90,6 @@ process_mode = 3
 process_mode = 3
 
 [node name="StartMenu" parent="HUD" instance=ExtResource("3_n42ql")]
-visible = false
 offset_left = -320.0
 offset_top = -180.0
 offset_right = 320.0
