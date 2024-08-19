@@ -21,6 +21,8 @@ extends Node2D
 
 var _target;
 var _moving = true;
+var _goal_found = false;
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	mover.position = start_pos.position;
@@ -55,8 +57,9 @@ func turn_around():
 
 func _on_area_2d_area_entered(area:Area2D):
 	if area.get_parent() is RootSection:
-		chewing.emitting = true;	
-		var root = area.get_parent().remove();
+		if (!_goal_found):
+			chewing.emitting = true;	
+			var root = area.get_parent().remove();
 	elif area.type != 'rodent':
 		turn_around();
 
@@ -67,3 +70,9 @@ func _on_gpu_particles_2d_finished():
 
 func _on_area_2d_body_entered(body):
 	turn_around();
+
+func _on_water_collected_from_goal_water():
+	_goal_found = true;
+	
+func reset():
+	_goal_found = false;

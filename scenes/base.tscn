@@ -126,11 +126,11 @@ position = Vector2(-37, 564)
 [node name="RodentPuzzle2" parent="Puzzles" instance=ExtResource("15_t2myq")]
 position = Vector2(-24, 738)
 
+[node name="RodentPuzzle3" parent="Puzzles" instance=ExtResource("17_f3t5o")]
+position = Vector2(-9, 941)
+
 [node name="Root" parent="." instance=ExtResource("7_cr1yp")]
 position = Vector2(320, 3)
-
-[node name="RodentPuzzle3" parent="." instance=ExtResource("17_f3t5o")]
-position = Vector2(-9, 941)
 
 [connection signal="tree_growing" from="Tree" to="Camera" method="_on_tree_tree_growing"]
 [connection signal="goal_water_found" from="Water" to="." method="_on_goal_water_collected_from_goal_water"]

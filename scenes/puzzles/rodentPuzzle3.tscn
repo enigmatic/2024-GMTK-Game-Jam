@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://becy77eneer6y"]
+[gd_scene load_steps=8 format=3 uid="uid://becy77eneer6y"]
 
 [ext_resource type="Script" path="res://scripts/Puzzle.gd" id="1_4tc62"]
 [ext_resource type="PackedScene" uid="uid://caqcwa0b12ar3" path="res://scenes/placeables/Rodent.tscn" id="2_f3st7"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bxfxlvuahy6vv" path="res://scenes/placeables/rock.tscn" id="4_3i04n"]
 [ext_resource type="PackedScene" uid="uid://cmvwbb83jppve" path="res://scenes/placeables/Water.tscn" id="5_vp1hn"]
 [ext_resource type="PackedScene" uid="uid://ct8c2udaf2iy6" path="res://scenes/placeables/PushableRock.tscn" id="6_862ef"]
+[ext_resource type="Script" path="res://scripts/underground/GoalWater.gd" id="6_yjvrw"]
 
 [node name="RodentPuzzle3" type="Node2D"]
 script = ExtResource("1_4tc62")
@@ -36,7 +37,9 @@ randomSeed = 191
 variation = 30
 
 [node name="Water" parent="." instance=ExtResource("5_vp1hn")]
-position = Vector2(341, 193)
+position = Vector2(339, 199)
+scale = Vector2(2.1, 1)
+script = ExtResource("6_yjvrw")
 max_volume = 5
 randomSeed = 10
 variation = 1
@@ -56,3 +59,6 @@ variation = 27
 [node name="PushableRock" parent="." instance=ExtResource("6_862ef")]
 position = Vector2(337, 73)
 scale = Vector2(0.15, 0.15)
+
+[connection signal="collected_from_goal_water" from="Water" to="Rodent" method="_on_water_collected_from_goal_water"]
+[connection signal="collected_from_goal_water" from="Water" to="Rodent2" method="_on_water_collected_from_goal_water"]
