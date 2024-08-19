@@ -115,7 +115,6 @@ noise = SubResource("FastNoiseLite_osx2q")
 [node name="Background" type="Node2D"]
 
 [node name="Dirt" type="TextureRect" parent="."]
-z_as_relative = false
 material = SubResource("ShaderMaterial_ldifg")
 offset_left = -959.0
 offset_right = 1601.0
