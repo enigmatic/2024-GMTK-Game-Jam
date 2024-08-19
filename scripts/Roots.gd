@@ -62,7 +62,7 @@ func _unhandled_input(event):
 			removed_root.emit();
 		
 func _growRoot(target: Vector2, collideInfo):
-	var scene = load("res://scenes/RootSection.tscn");
+	var scene = load("res://scenes/placeables/helper/RootSection.tscn");
 	var section:RootSection = scene.instantiate();
 	section.parent = _nearestNode;
 	_nearestNode.children.push_back(section);

@@ -7,7 +7,7 @@ signal tree_growing(int);
 @onready var top_foliage = $TopFoliage
 @onready var foliages_node = $Foliages
 @onready var tree_growth_sound:AudioStreamPlayer2D = $TreeGrowthSound
-var foliage_preload = preload("res://scenes/foliage.tscn")
+var foliage_preload = preload("res://scenes/base/foliage.tscn")
 var last_foliage_side = -1
 # Called when the node enters the scene tree for the first time.
 
