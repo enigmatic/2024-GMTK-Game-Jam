@@ -31,6 +31,6 @@ jobs:
         with:
           butler_key: ${{secrets.ITCHIO_RELEASE}}
           itch_user: unprecedented
-          itch_game: 2024-gmtk-game-jam
+          itch_game: taproot
           version: ${{ github.ref_name }}
           files: "${{ steps.export.outputs.archive_directory }}/GMTK-2024-web.zip"
