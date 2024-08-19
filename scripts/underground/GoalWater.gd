@@ -13,3 +13,7 @@ func consume(units:int, consuming_location:Vector2) -> int:
 	
 	
 	return super.consume(units, consuming_location);
+	
+func reset(amount:int = max_volume):
+	_emited_win_condition = false;
+	super.reset();

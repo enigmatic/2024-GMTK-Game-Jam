@@ -53,9 +53,13 @@ func _ready():
 		
 func remove():
 	removed.emit(self);
+	for drop:WaterDrop in drops.get_children():
+		drop.queue_free();
+		
 	if is_instance_valid(parent):
 		parent.removed_child(self);
-	for child in children:
+	while children.size() > 0:
+		var child = children[0];
 		if is_instance_valid(child):
 			child.remove();
 	if is_instance_valid(touching):
@@ -147,7 +151,7 @@ func removed_child(child):
 	endCap.texture.height = width + widthGrowth;
 	endCap.texture.width = width + widthGrowth;
 	children.erase(child)
-	if parent:
+	if is_instance_valid(parent):
 		parent.removed_child(null);
 
 func consume():

@@ -48,4 +48,6 @@ rotation = -0.308923
 randomSeed = 4
 variation = 14
 
+[connection signal="reset_puzzle" from="." to="Rodent" method="_on_puzzle_reset"]
+[connection signal="reset_puzzle" from="." to="Water" method="_on_puzzle_reset"]
 [connection signal="collected_from_goal_water" from="Water" to="Rodent" method="_on_water_collected_from_goal_water"]

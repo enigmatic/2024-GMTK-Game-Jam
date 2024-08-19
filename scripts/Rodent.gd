@@ -76,3 +76,6 @@ func _on_water_collected_from_goal_water():
 	
 func reset():
 	_goal_found = false;
+
+func _on_puzzle_reset():
+	reset();

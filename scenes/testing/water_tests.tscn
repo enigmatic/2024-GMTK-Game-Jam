@@ -9,4 +9,6 @@
 position = Vector2(320, 0)
 
 [node name="Water" parent="." instance=ExtResource("2_ngf8t")]
-position = Vector2(255, 110)
+position = Vector2(350, 32)
+max_volume = 2
+variation = 1

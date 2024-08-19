@@ -56,7 +56,8 @@ func consume(units:int, consuming_location:Vector2) -> int:
 		_consumeVolume(to_local(consuming_location));
 
 	if _volume <= 0:
-		$FreeTimer.start()
+		$CollisionPolygon2D.disabled = true;
+		visible = false;
 	return consumed;
 	
 func _randomizeStructure():
@@ -67,10 +68,11 @@ func _randomizeStructure():
 	super._randomizeStructure();
 
 
-func reset(amount:int):
-	_volume += amount;
+func reset(amount:int = max_volume):
+	_volume = max(_volume + amount, max_volume);
+	$CollisionPolygon2D.disabled = false;
+	visible = true;
 	_updateVolume();
-
-
-func _on_free_timer_timeout():
-	queue_free()
+	
+func _on_puzzle_reset():
+	reset();

@@ -39,3 +39,5 @@ position = Vector2(290, 142)
 rotation = -0.158825
 randomSeed = -1
 variation = 21
+
+[connection signal="reset_puzzle" from="." to="Water" method="_on_puzzle_reset"]

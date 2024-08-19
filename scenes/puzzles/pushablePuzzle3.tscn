@@ -26,7 +26,6 @@ randomSeed = -27
 [node name="PushableRock" parent="." instance=ExtResource("4_omsum")]
 position = Vector2(314, 85)
 scale = Vector2(0.1, 0.1)
-randomSeed = 1
 variation = 2
 
 [node name="PushableRock3" parent="." instance=ExtResource("4_omsum")]
@@ -65,3 +64,5 @@ position = Vector2(298, 94)
 scale = Vector2(0.25, 0.25)
 randomSeed = 13
 variation = 8
+
+[connection signal="reset_puzzle" from="." to="Water2" method="_on_puzzle_reset"]
