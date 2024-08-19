@@ -9,8 +9,8 @@ var unlocked_messages:int = 4
 const FIRST_CAMERA_MOVEMENT_TUTORIAL_MESSAGE = 5
 const CAMERA_MOVEMENT_UNLOCK = 7
 
-const FIRST_PUSH_ROCKS_TUTORIAL_MESSAGE = 8
-const PUSH_ROCKS_UNLOCK = 10
+const FIRST_PUSH_ROCKS_TUTORIAL_MESSAGE = 9
+const PUSH_ROCKS_UNLOCK = 11
 
 var settings:Settings
 
@@ -23,6 +23,7 @@ const TUTORIAL_MESSAGES:Array[String] = [
 	"Press T to bring the tutorial and tips back up",
 	
 	"Zoom in and out by scrolling",
+	"As the tree grows, you can zoom out further",
 	"Move the camera with WASD, Arrow keys",
 	"Drag the camera with Middle or Right Click",
 	
