@@ -21,10 +21,14 @@ var _cancelClick = false;
 var _planning_to_draw = false;
 var _removable_roots = [];
 
+func _process(delta):
+	if _planning_to_draw:
+		_calculate_path();
+
 func _input(event):
 	if event is InputEventMouse:
 		if _can_grow:
-			_calculate_path()
+			_calculate_path();
 			
 			if event is InputEventMouseButton:
 				if event.button_index == 1:
@@ -79,7 +83,6 @@ func _calculate_path():
 	targetNode.position = startPos;
 	targetNode.look_at(to_global(target));
 	
-
 	if _planning_to_draw:
 		_grow_to_position = startPos.move_toward(target, rootSectionMaxSize);
 	
