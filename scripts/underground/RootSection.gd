@@ -160,6 +160,8 @@ func consume():
 func _on_consume_timer_timeout():
 	consume()
 
+
+@onready var water_shader = preload("res://assets/shaders/Water.gdshader")
 func start_drop():
 	emit_water_flow();
 	var newDrop:Sprite2D = main_drop.duplicate();

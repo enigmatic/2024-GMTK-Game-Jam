@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://cmvwbb83jppve"]
+[gd_scene load_steps=41 format=3 uid="uid://cmvwbb83jppve"]
 
 [ext_resource type="Script" path="res://scripts/underground/Water.gd" id="1_6e2tw"]
 [ext_resource type="Script" path="res://addons/rmsmartshape/shapes/shape.gd" id="2_6ikxx"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://addons/rmsmartshape/shapes/point.gd" id="4_4hqk7"]
 [ext_resource type="Script" path="res://addons/rmsmartshape/shapes/point_array.gd" id="5_rcsld"]
 [ext_resource type="Texture2D" uid="uid://naakpqegx4es" path="res://assets/images/water.png" id="6_ipc41"]
+[ext_resource type="Shader" path="res://assets/shaders/Water.gdshader" id="6_rdqc8"]
 [ext_resource type="Script" path="res://addons/rmsmartshape/materials/shape_material.gd" id="7_l7l3r"]
 [ext_resource type="AudioStream" uid="uid://bu28g5hdo3c4u" path="res://assets/audio/water_gathered.mp3" id="8_58xrq"]
 
@@ -74,9 +75,9 @@ point_in = Vector2(0, 0)
 point_out = Vector2(0, 0)
 properties = SubResource("Resource_iixdq")
 
-[sub_resource type="Resource" id="Resource_0cccl"]
+[sub_resource type="Resource" id="Resource_8b54i"]
 script = ExtResource("3_ustuq")
-texture_idx = 0
+texture_idx = 2
 flip = false
 width = 1.0
 
@@ -85,7 +86,7 @@ script = ExtResource("4_4hqk7")
 position = Vector2(13.1974, 15.0276)
 point_in = Vector2(0, 0)
 point_out = Vector2(0, 0)
-properties = SubResource("Resource_0cccl")
+properties = SubResource("Resource_8b54i")
 
 [sub_resource type="Resource" id="Resource_airlr"]
 script = ExtResource("3_ustuq")
@@ -126,9 +127,9 @@ point_in = Vector2(0, 0)
 point_out = Vector2(0, 0)
 properties = SubResource("Resource_dq4a6")
 
-[sub_resource type="Resource" id="Resource_8uvej"]
+[sub_resource type="Resource" id="Resource_pka2v"]
 script = ExtResource("3_ustuq")
-texture_idx = 0
+texture_idx = 6
 flip = false
 width = 1.0
 
@@ -137,7 +138,7 @@ script = ExtResource("4_4hqk7")
 position = Vector2(-19.9941, -0.487732)
 point_in = Vector2(0, 0)
 point_out = Vector2(0, 0)
-properties = SubResource("Resource_8uvej")
+properties = SubResource("Resource_pka2v")
 
 [sub_resource type="Resource" id="Resource_rwpr1"]
 script = ExtResource("3_ustuq")
@@ -202,6 +203,21 @@ Array[int]([0, 10]): 15
 _next_key = 13
 _material_overrides = {}
 
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_vyy6p"]
+seed = 432
+frequency = 0.0015
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_t678a"]
+seamless = true
+seamless_blend_skirt = 0.283
+noise = SubResource("FastNoiseLite_vyy6p")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qcep4"]
+shader = ExtResource("6_rdqc8")
+shader_parameter/offset1 = Vector2(0.1, 0)
+shader_parameter/speed = 0.2
+shader_parameter/water_noise = SubResource("NoiseTexture2D_t678a")
+
 [sub_resource type="Resource" id="Resource_c3cqm"]
 script = ExtResource("7_l7l3r")
 _edge_meta_materials = Array[Resource("res://addons/rmsmartshape/materials/edge_material_metadata.gd")]([])
@@ -214,6 +230,7 @@ fill_texture_absolute_rotation = true
 fill_texture_offset = Vector2(0, 0)
 fill_texture_angle_offset = -2.5
 fill_mesh_offset = 0.0
+fill_mesh_material = SubResource("ShaderMaterial_qcep4")
 render_offset = 0.0
 
 [node name="Water" type="StaticBody2D"]

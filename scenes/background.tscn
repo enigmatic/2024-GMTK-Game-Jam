@@ -1,7 +1,7 @@
 [gd_scene load_steps=26 format=3 uid="uid://bvuvu5rfmhqbr"]
 
 [ext_resource type="Shader" path="res://assets/shaders/dirt.gdshader" id="1_iifse"]
-[ext_resource type="Texture2D" uid="uid://dn14pxijufbb2" path="res://assets/images/mountain.png" id="2_g18cl"]
+[ext_resource type="Texture2D" uid="uid://b5l5jmtq8gfwm" path="res://assets/images/mountain.png" id="2_g18cl"]
 [ext_resource type="Shader" path="res://assets/shaders/clouds.gdshader" id="2_wcgt4"]
 [ext_resource type="Shader" path="res://assets/shaders/space.gdshader" id="3_nt52e"]
 [ext_resource type="Shader" path="res://assets/shaders/grass.gdshader" id="4_tsbtx"]
@@ -131,9 +131,8 @@ texture = SubResource("GradientTexture2D_ch5im")
 [node name="MountainFar" type="TextureRect" parent="."]
 self_modulate = Color(1, 1, 1, 0.694118)
 offset_left = 595.0
-offset_top = -2192.0
+offset_top = -2188.0
 offset_right = 2465.0
-offset_bottom = -4.0
 texture = ExtResource("2_g18cl")
 
 [node name="MountainFar3" type="TextureRect" parent="."]
