@@ -15,7 +15,6 @@ extends Node2D
 
 @onready var mover:Area2D = $Area2D
 @onready var burrow:Line2D = $Burrow
-@onready var ratBox = $Area2D/Rat
 @onready var chewing = $Area2D/Rat/sprite/GPUParticles2D
 
 var _target;
@@ -24,7 +23,7 @@ var _moving = true;
 func _ready():
 	mover.position = start_pos.position;
 	_target = end_pos.position;
-	ratBox.scale.x = 1;
+	mover.scale.x = 1;
 	burrow.clear_points();
 	burrow.add_point(start_pos.position - Vector2(96/2,0));
 	burrow.add_point(end_pos.position + Vector2(96/2, 0));
@@ -41,10 +40,10 @@ func _process(delta):
 func turn_around():
 	if _target == end_pos.position:
 		_target = start_pos.position;
-		ratBox.scale.x = -1;
+		mover.scale.x = -1;
 	else:
 		_target = end_pos.position;
-		ratBox.scale.x = 1;
+		mover.scale.x = 1;
 	
 
 func _on_area_2d_area_entered(area:Area2D):

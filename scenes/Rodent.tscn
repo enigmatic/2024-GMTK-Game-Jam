@@ -4,6 +4,9 @@
 [ext_resource type="Script" path="res://scripts/underground/UndergroundCollidable.gd" id="2_1un10"]
 [ext_resource type="Texture2D" uid="uid://b2302gu1m05wg" path="res://assets/images/tempArt/000.png" id="2_rim7q"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ylsem"]
+size = Vector2(65, 63)
+
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_c4m1u"]
 particle_flag_disable_z = true
 direction = Vector3(0, 0, 0)
@@ -24,9 +27,6 @@ fill = 1
 fill_from = Vector2(0.534188, 0.508547)
 fill_to = Vector2(1, 0.491453)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ylsem"]
-size = Vector2(65, 63)
-
 [node name="Rodent" type="Node2D" node_paths=PackedStringArray("start_pos", "end_pos")]
 position = Vector2(205.164, -0.695472)
 scale = Vector2(0.25, 0.25)
@@ -46,14 +46,25 @@ default_color = Color(0.243137, 0.133333, 0.0705882, 1)
 [node name="B" type="Marker2D" parent="MovePoints"]
 position = Vector2(295, 0)
 
-[node name="Rat" type="Node2D" parent="."]
-position = Vector2(196.466, 0)
-scale = Vector2(-1, 1)
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(82.9297, 0)
+collision_layer = 7
+collision_mask = 7
+script = ExtResource("2_1un10")
+type = "rodent"
 
-[node name="sprite" type="Sprite2D" parent="Rat"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(15, 0)
+shape = SubResource("RectangleShape2D_ylsem")
+
+[node name="Rat" type="Node2D" parent="Area2D"]
+rotation = -3.14159
+scale = Vector2(-1, -1)
+
+[node name="sprite" type="Sprite2D" parent="Area2D/Rat"]
 texture = ExtResource("2_rim7q")
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="Rat/sprite"]
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Area2D/Rat/sprite"]
 position = Vector2(40.3437, 5.69547)
 emitting = false
 amount = 20
@@ -62,19 +73,6 @@ texture = SubResource("GradientTexture2D_dfjs4")
 one_shot = true
 explosiveness = 1.0
 
-[node name="Area2D" type="Area2D" parent="Rat"]
-position = Vector2(82.4398, 0)
-rotation = 3.14159
-scale = Vector2(1, -1)
-collision_layer = 7
-collision_mask = 7
-script = ExtResource("2_1un10")
-type = "rodent"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Rat/Area2D"]
-position = Vector2(15, 0)
-shape = SubResource("RectangleShape2D_ylsem")
-
-[connection signal="finished" from="Rat/sprite/GPUParticles2D" to="." method="_on_gpu_particles_2d_finished"]
-[connection signal="area_entered" from="Rat/Area2D" to="." method="_on_area_2d_area_entered"]
-[connection signal="body_entered" from="Rat/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="finished" from="Area2D/Rat/sprite/GPUParticles2D" to="." method="_on_gpu_particles_2d_finished"]
