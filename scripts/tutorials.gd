@@ -5,10 +5,13 @@ class_name Tutorial
 
 var active_message:int = 0
 var unlocked_messages:int = 4
-const CAMERA_MOVEMENT_UNLOCK = 7
+
 const FIRST_CAMERA_MOVEMENT_TUTORIAL_MESSAGE = 5
+const CAMERA_MOVEMENT_UNLOCK = 7
+
 const FIRST_PUSH_ROCKS_TUTORIAL_MESSAGE = 8
 const PUSH_ROCKS_UNLOCK = 10
+
 
 
 const TUTORIAL_MESSAGES:Array[String] = [
