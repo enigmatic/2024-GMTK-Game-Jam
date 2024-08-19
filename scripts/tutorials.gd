@@ -94,6 +94,7 @@ func _save_tutorial():
 		old_settings = ResourceLoader.load("user://settings.tres")
 	if old_settings:
 		settings.music_level = old_settings.music_level
+		settings.sound_level = old_settings.sound_level
 	settings.tutorial_showing = visible
 	settings.tutorial_step = active_message
 	settings.unlocked_tutorials = unlocked_messages

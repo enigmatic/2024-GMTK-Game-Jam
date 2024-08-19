@@ -62,6 +62,6 @@ texture = SubResource("GradientTexture2D_kl15e")
 [node name="RootSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_3r5ph")
 volume_db = 6.559
-bus = &"Soundtrack"
+bus = &"SFX"
 
 [connection signal="timeout" from="ConsumeTimer" to="." method="_on_consume_timer_timeout"]

@@ -72,17 +72,32 @@ theme = ExtResource("1_frng1")
 keep_pressed_outside = true
 text = "Tutorial"
 
-[node name="HSeparator3" type="HSeparator" parent="VBoxContainer"]
+[node name="AudioSettings" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="HSeparator3" type="HSeparator" parent="VBoxContainer/AudioSettings"]
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer"]
+[node name="Label" type="Label" parent="VBoxContainer/AudioSettings"]
 layout_mode = 2
 theme = ExtResource("1_frng1")
-text = "Volume"
+text = "Music Volume"
 horizontal_alignment = 1
 
-[node name="MusicSlider" type="HSlider" parent="VBoxContainer"]
+[node name="MusicSlider" type="HSlider" parent="VBoxContainer/AudioSettings"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_frng1")
+value = 100.0
+
+[node name="Label2" type="Label" parent="VBoxContainer/AudioSettings"]
+layout_mode = 2
+theme = ExtResource("1_frng1")
+text = "Sound Volume"
+horizontal_alignment = 1
+
+[node name="SoundSlider" type="HSlider" parent="VBoxContainer/AudioSettings"]
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("1_frng1")
@@ -91,4 +106,5 @@ value = 100.0
 [connection signal="button_up" from="VBoxContainer/PlayButton" to="." method="_on_play_button_button_up"]
 [connection signal="button_up" from="VBoxContainer/ResetButton" to="." method="_on_reset_button_button_up"]
 [connection signal="button_up" from="VBoxContainer/TutorialButton" to="." method="_on_tutorial_button_button_up"]
-[connection signal="value_changed" from="VBoxContainer/MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/AudioSettings/MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/AudioSettings/SoundSlider" to="." method="_on_sound_slider_value_changed"]
