@@ -24,11 +24,13 @@ signal done_growing();
 
 
 var parent: RootSection = null;
+var children = [];
 var collision = null;
 var _pushing = false;
 var touching: UndergroundCollidable = null;
 var segment = SegmentShape2D.new();
 var _doneGrowing = false;
+var _consumedAmount = 0;
 
 func _ready():
 	if parent:
@@ -47,8 +49,10 @@ func _ready():
 func remove():
 	if parent:
 		parent.removed_child();
+	for child in children:
+		child.remove();
 	if touching:
-		touching.reset();
+		touching.reset(_consumedAmount);
 	queue_free();
 
 func _process(delta):
@@ -140,6 +144,7 @@ func consume():
 	if touching && is_instance_valid(touching):
 		if touching.type == 'water':
 			if (touching.consume(1, to_global(target)) > 0):
+				_consumedAmount += 1;
 				consumeTimer.start();
 				start_drop();
 			else:

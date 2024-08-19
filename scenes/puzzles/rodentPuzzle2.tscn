@@ -1,0 +1,53 @@
+[gd_scene load_steps=7 format=3 uid="uid://blbynj3na2oc5"]
+
+[ext_resource type="Script" path="res://scripts/Puzzle.gd" id="1_v4ipw"]
+[ext_resource type="PackedScene" uid="uid://caqcwa0b12ar3" path="res://scenes/Rodent.tscn" id="2_lns66"]
+[ext_resource type="PackedScene" uid="uid://d3ro0rdbnkf6" path="res://scenes/Root.tscn" id="3_ngdg0"]
+[ext_resource type="PackedScene" uid="uid://bxfxlvuahy6vv" path="res://scenes/rock.tscn" id="4_gcni3"]
+[ext_resource type="PackedScene" uid="uid://cmvwbb83jppve" path="res://scenes/Water.tscn" id="5_51c1y"]
+[ext_resource type="PackedScene" uid="uid://ct8c2udaf2iy6" path="res://scenes/PushableRock.tscn" id="6_o4ug6"]
+
+[node name="RodentPuzzle2" type="Node2D"]
+script = ExtResource("1_v4ipw")
+
+[node name="Rodent" parent="." instance=ExtResource("2_lns66")]
+position = Vector2(288, 126)
+
+[node name="Root" parent="." instance=ExtResource("3_ngdg0")]
+position = Vector2(328, 19)
+
+[node name="Rock" parent="." instance=ExtResource("4_gcni3")]
+position = Vector2(401, 46)
+rotation = -0.706858
+randomSeed = 15
+variation = 27
+
+[node name="Rock2" parent="." instance=ExtResource("4_gcni3")]
+position = Vector2(229, 114)
+rotation = -1.95651
+randomSeed = 186
+variation = 30
+
+[node name="Water" parent="." instance=ExtResource("5_51c1y")]
+position = Vector2(341, 193)
+max_volume = 5
+randomSeed = 10
+variation = 1
+
+[node name="Rock3" parent="." instance=ExtResource("4_gcni3")]
+position = Vector2(263, 154)
+rotation = 0.647517
+skew = -0.668461
+randomSeed = 5660
+
+[node name="Rock4" parent="." instance=ExtResource("4_gcni3")]
+position = Vector2(389, 158)
+rotation = -0.308923
+randomSeed = 9
+variation = 18
+
+[node name="PushableRock" parent="." instance=ExtResource("6_o4ug6")]
+position = Vector2(318, 100)
+scale = Vector2(0.15, 0.15)
+randomSeed = 1
+variation = 0

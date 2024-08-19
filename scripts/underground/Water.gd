@@ -63,3 +63,8 @@ func _randomizeStructure():
 		
 	_updateVolume();
 	super._randomizeStructure();
+
+
+func reset(amount:int):
+	_volume += amount;
+	_updateVolume();

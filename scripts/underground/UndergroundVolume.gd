@@ -34,3 +34,6 @@ func _randomizeStructure():
 		var point_position = point.position.move_toward(Vector2(0,0),randf_range(-variation,variation));
 		points.set_point_position(points.get_point_key_at_index(i), point_position);
 	shape.set_point_array(points);
+
+func reset(amount:int):
+	pass

@@ -64,6 +64,7 @@ func _growRoot(target: Vector2, collideInfo):
 	var scene = load("res://scenes/RootSection.tscn");
 	var section:RootSection = scene.instantiate();
 	section.parent = _nearestNode;
+	_nearestNode.children.push_back(section);
 	section.target = target;
 	section.collision = collideInfo;
 	if collideInfo:

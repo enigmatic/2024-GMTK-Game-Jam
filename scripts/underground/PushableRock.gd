@@ -21,7 +21,7 @@ func start_push():
 func _on_body_entered(_body):
 	blocker = true;
 	
-func reset():
+func reset(_amount):
 	position = _positionQueue.pop_front();
 	blocker = false;
 	
