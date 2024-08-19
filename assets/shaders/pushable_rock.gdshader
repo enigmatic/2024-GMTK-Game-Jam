@@ -18,8 +18,8 @@ void fragment() {
 	vec4 white = vec4(vec3(1.),0.0);
 	vec2 UVPix = pixelizeCoordinates(UV);
 	vec4 final_color  = texture(rock_noise, UV);
-	if (sin(TIME*speed) > 0.5 && !pushed) {
-		final_color.r +=  sin(TIME*speed)-.5;
+	if (sin(TIME*speed) > 0.7 && !pushed) {
+		final_color.r +=  sin(TIME*speed)-.7;
 	}
 	COLOR = final_color;
 }
