@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://blbynj3na2oc5"]
 
 [ext_resource type="Script" path="res://scripts/Puzzle.gd" id="1_v4ipw"]
-[ext_resource type="PackedScene" uid="uid://caqcwa0b12ar3" path="res://scenes/Rodent.tscn" id="2_lns66"]
-[ext_resource type="PackedScene" uid="uid://d3ro0rdbnkf6" path="res://scenes/Root.tscn" id="3_ngdg0"]
-[ext_resource type="PackedScene" uid="uid://bxfxlvuahy6vv" path="res://scenes/rock.tscn" id="4_gcni3"]
-[ext_resource type="PackedScene" uid="uid://cmvwbb83jppve" path="res://scenes/Water.tscn" id="5_51c1y"]
-[ext_resource type="PackedScene" uid="uid://ct8c2udaf2iy6" path="res://scenes/PushableRock.tscn" id="6_o4ug6"]
+[ext_resource type="PackedScene" uid="uid://caqcwa0b12ar3" path="res://scenes/placeables/Rodent.tscn" id="2_lns66"]
+[ext_resource type="PackedScene" uid="uid://d3ro0rdbnkf6" path="res://scenes/placeables/Root.tscn" id="3_ngdg0"]
+[ext_resource type="PackedScene" uid="uid://bxfxlvuahy6vv" path="res://scenes/placeables/rock.tscn" id="4_gcni3"]
+[ext_resource type="PackedScene" uid="uid://cmvwbb83jppve" path="res://scenes/placeables/Water.tscn" id="5_51c1y"]
+[ext_resource type="PackedScene" uid="uid://ct8c2udaf2iy6" path="res://scenes/placeables/PushableRock.tscn" id="6_o4ug6"]
 
 [node name="RodentPuzzle2" type="Node2D"]
 script = ExtResource("1_v4ipw")

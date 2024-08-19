@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://docsbu11dh2gr"]
 
-[ext_resource type="PackedScene" uid="uid://caqcwa0b12ar3" path="res://scenes/Rodent.tscn" id="1_yyg7d"]
-[ext_resource type="PackedScene" uid="uid://d3ro0rdbnkf6" path="res://scenes/Root.tscn" id="2_3ecwm"]
-[ext_resource type="PackedScene" uid="uid://ct8c2udaf2iy6" path="res://scenes/PushableRock.tscn" id="3_nixnj"]
-[ext_resource type="PackedScene" uid="uid://bxfxlvuahy6vv" path="res://scenes/rock.tscn" id="4_p40ad"]
+[ext_resource type="PackedScene" uid="uid://caqcwa0b12ar3" path="res://scenes/placeables/Rodent.tscn" id="1_yyg7d"]
+[ext_resource type="PackedScene" uid="uid://d3ro0rdbnkf6" path="res://scenes/placeables/Root.tscn" id="2_3ecwm"]
+[ext_resource type="PackedScene" uid="uid://ct8c2udaf2iy6" path="res://scenes/placeables/PushableRock.tscn" id="3_nixnj"]
+[ext_resource type="PackedScene" uid="uid://bxfxlvuahy6vv" path="res://scenes/placeables/rock.tscn" id="4_p40ad"]
 
 [node name="RodentTest" type="Node2D"]
 

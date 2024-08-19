@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://brx7y5o0wye7q"]
 
-[ext_resource type="PackedScene" uid="uid://cmvwbb83jppve" path="res://scenes/Water.tscn" id="1_qmpsn"]
+[ext_resource type="PackedScene" uid="uid://cmvwbb83jppve" path="res://scenes/placeables/Water.tscn" id="1_qmpsn"]
 
 [node name="Water" type="Node2D"]
 

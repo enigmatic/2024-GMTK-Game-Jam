@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cm5dscklgc26s"]
 
-[ext_resource type="PackedScene" uid="uid://d3ro0rdbnkf6" path="res://scenes/Root.tscn" id="1_0lvgt"]
-[ext_resource type="PackedScene" uid="uid://cmvwbb83jppve" path="res://scenes/Water.tscn" id="2_ngf8t"]
+[ext_resource type="PackedScene" uid="uid://d3ro0rdbnkf6" path="res://scenes/placeables/Root.tscn" id="1_0lvgt"]
+[ext_resource type="PackedScene" uid="uid://cmvwbb83jppve" path="res://scenes/placeables/Water.tscn" id="2_ngf8t"]
 
 [node name="WaterTests" type="Node2D"]
 

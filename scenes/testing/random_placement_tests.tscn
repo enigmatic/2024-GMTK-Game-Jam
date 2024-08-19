@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dalfmd6hadgrs"]
 
-[ext_resource type="PackedScene" uid="uid://bxfxlvuahy6vv" path="res://scenes/rock.tscn" id="1_5l8ng"]
+[ext_resource type="PackedScene" uid="uid://bxfxlvuahy6vv" path="res://scenes/placeables/rock.tscn" id="1_5l8ng"]
 
 [node name="RandomPlacementTests" type="Node2D"]
 

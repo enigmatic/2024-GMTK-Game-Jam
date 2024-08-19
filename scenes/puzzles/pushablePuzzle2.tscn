@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://be02t12fxgu6i"]
 
 [ext_resource type="Script" path="res://scripts/Puzzle.gd" id="1_ujxi8"]
-[ext_resource type="PackedScene" uid="uid://d3ro0rdbnkf6" path="res://scenes/Root.tscn" id="2_b62mm"]
-[ext_resource type="PackedScene" uid="uid://bxfxlvuahy6vv" path="res://scenes/rock.tscn" id="3_iywgk"]
-[ext_resource type="PackedScene" uid="uid://ct8c2udaf2iy6" path="res://scenes/PushableRock.tscn" id="4_ysfmx"]
-[ext_resource type="PackedScene" uid="uid://cmvwbb83jppve" path="res://scenes/Water.tscn" id="5_g5ihl"]
+[ext_resource type="PackedScene" uid="uid://d3ro0rdbnkf6" path="res://scenes/placeables/Root.tscn" id="2_b62mm"]
+[ext_resource type="PackedScene" uid="uid://bxfxlvuahy6vv" path="res://scenes/placeables/rock.tscn" id="3_iywgk"]
+[ext_resource type="PackedScene" uid="uid://ct8c2udaf2iy6" path="res://scenes/placeables/PushableRock.tscn" id="4_ysfmx"]
+[ext_resource type="PackedScene" uid="uid://cmvwbb83jppve" path="res://scenes/placeables/Water.tscn" id="5_g5ihl"]
 
 [node name="PushablePuzzle2" type="Node2D"]
 script = ExtResource("1_ujxi8")
