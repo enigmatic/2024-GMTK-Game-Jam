@@ -16,7 +16,6 @@ func _ready():
 	start_menu.connect("reset", _reset_game)
 	camera.connect("tutorial_step",_on_tutorial_step)
 	
-	
 func _on_tutorial_step(step:int = 0):
 	if step ==1:
 		tutorial.set_and_show(tutorial.FIRST_CAMERA_MOVEMENT_TUTORIAL_MESSAGE, tutorial.CAMERA_MOVEMENT_UNLOCK)

@@ -1,0 +1,199 @@
+[gd_scene load_steps=2 format=3 uid="uid://dccghyvgs6k1b"]
+
+[ext_resource type="PackedScene" uid="uid://bxfxlvuahy6vv" path="res://scenes/placeables/rock.tscn" id="1_r7vqv"]
+
+[node name="Rocks" type="Node"]
+
+[node name="Rock17" parent="." instance=ExtResource("1_r7vqv")]
+position = Vector2(-355, 1630)
+rotation = -1.03501
+scale = Vector2(4, 4)
+randomSeed = -1
+variation = 14
+
+[node name="Rock2" parent="." instance=ExtResource("1_r7vqv")]
+position = Vector2(333, 114)
+randomSeed = -1
+variation = 9
+
+[node name="Rock3" parent="." instance=ExtResource("1_r7vqv")]
+position = Vector2(133, 127)
+randomSeed = 3
+
+[node name="Rock" parent="." instance=ExtResource("1_r7vqv")]
+position = Vector2(298, 52)
+scale = Vector2(0.5, 0.5)
+randomSeed = 2
+
+[node name="Rock4" parent="." instance=ExtResource("1_r7vqv")]
+position = Vector2(454, 188)
+randomSeed = 4
+variation = 15
+
+[node name="Rock5" parent="." instance=ExtResource("1_r7vqv")]
+position = Vector2(534, 60)
+rotation = -1.29503
+scale = Vector2(1.5, 1.5)
+randomSeed = 5
+
+[node name="Rock6" parent="." instance=ExtResource("1_r7vqv")]
+position = Vector2(411, 55)
+scale = Vector2(0.25, 0.25)
+randomSeed = 6
+
+[node name="Rock7" parent="." instance=ExtResource("1_r7vqv")]
+position = Vector2(65, 493)
+rotation = -2.98102
+scale = Vector2(3, 3)
+randomSeed = 20
+
+[node name="Rock8" parent="." instance=ExtResource("1_r7vqv")]
+position = Vector2(-84, 156)
+rotation = -1.05418
+scale = Vector2(2, 2)
+randomSeed = -1
+variation = 22
+
+[node name="Rock9" parent="." instance=ExtResource("1_r7vqv")]
+position = Vector2(-394, 305)
+rotation = -2.12029
+scale = Vector2(3, 3)
+randomSeed = 21
+
+[node name="Rock10" parent="." instance=ExtResource("1_r7vqv")]
+position = Vector2(1046, 697)
+rotation = -1.51601
+scale = Vector2(3, 3)
+randomSeed = 20
+
+[node name="Rock11" parent="." instance=ExtResource("1_r7vqv")]
+position = Vector2(1014, 288)
+rotation = -2.52466
+scale = Vector2(3, 3)
+randomSeed = 30
+variation = 30
+
+[node name="Rock25" parent="." instance=ExtResource("1_r7vqv")]
+position = Vector2(1740, 1374)
+rotation = 2.04261
+scale = Vector2(9, 9)
+randomSeed = 15
+
+[node name="Rock29" parent="." instance=ExtResource("1_r7vqv")]
+position = Vector2(884, 1009)
+rotation = 2.04261
+scale = Vector2(2, 2)
+randomSeed = 15
+
+[node name="Rock12" parent="." instance=ExtResource("1_r7vqv")]
+position = Vector2(-733, 583)
+rotation = -2.12029
+scale = Vector2(3, 3)
+randomSeed = 15
+
+[node name="Rock13" parent="." instance=ExtResource("1_r7vqv")]
+position = Vector2(-129, 737)
+rotation = -2.12029
+scale = Vector2(3, 3)
+randomSeed = 123
+
+[node name="Rock14" parent="." instance=ExtResource("1_r7vqv")]
+position = Vector2(533, 470)
+rotation = -1.51601
+scale = Vector2(3, 3)
+randomSeed = 89
+
+[node name="Rock15" parent="." instance=ExtResource("1_r7vqv")]
+position = Vector2(555, 739)
+rotation = -0.0293605
+scale = Vector2(3, 3)
+randomSeed = 60
+variation = 0
+
+[node name="Rock31" parent="." instance=ExtResource("1_r7vqv")]
+position = Vector2(946, 2550)
+rotation = -2.37063
+scale = Vector2(6, 6)
+randomSeed = -1
+variation = 14
+
+[node name="Rock16" parent="." instance=ExtResource("1_r7vqv")]
+position = Vector2(-315, 1063)
+rotation = -2.74889
+scale = Vector2(3, 3)
+randomSeed = 1923
+variation = 2
+
+[node name="Rock18" parent="." instance=ExtResource("1_r7vqv")]
+position = Vector2(70.0001, 1040)
+rotation = -5.53967
+scale = Vector2(3, 3)
+randomSeed = 1923
+variation = 2
+
+[node name="Rock19" parent="." instance=ExtResource("1_r7vqv")]
+position = Vector2(685, 1474)
+rotation = -0.0891249
+scale = Vector2(4, 4)
+randomSeed = -5
+variation = 30
+
+[node name="Rock20" parent="." instance=ExtResource("1_r7vqv")]
+position = Vector2(1203, 2375)
+rotation = -3.5509
+scale = Vector2(3, 3)
+randomSeed = 1423
+variation = 18
+
+[node name="Rock21" parent="." instance=ExtResource("1_r7vqv")]
+position = Vector2(-176, 2241)
+rotation = -3.35595
+scale = Vector2(3, 3)
+randomSeed = -23
+variation = 9
+
+[node name="Rock22" parent="." instance=ExtResource("1_r7vqv")]
+position = Vector2(903, 1792)
+rotation = -2.12029
+scale = Vector2(3, 3)
+randomSeed = 15
+
+[node name="Rock23" parent="." instance=ExtResource("1_r7vqv")]
+position = Vector2(1549, 2441)
+rotation = -1.51601
+scale = Vector2(4, 4)
+randomSeed = 89
+variation = 1
+
+[node name="Rock24" parent="." instance=ExtResource("1_r7vqv")]
+position = Vector2(-817, 2275)
+rotation = -2.91535
+scale = Vector2(3, 3)
+randomSeed = 60
+variation = 0
+
+[node name="Rock27" parent="." instance=ExtResource("1_r7vqv")]
+position = Vector2(-769, 196)
+rotation = 2.47231
+randomSeed = 1923
+variation = 2
+
+[node name="Rock26" parent="." instance=ExtResource("1_r7vqv")]
+position = Vector2(-960, 1607)
+rotation = 4.37775
+scale = Vector2(9, 9)
+randomSeed = 1923
+variation = 2
+
+[node name="Rock28" parent="." instance=ExtResource("1_r7vqv")]
+position = Vector2(-346, 589)
+rotation = 3.14257
+randomSeed = 814
+variation = 3
+
+[node name="Rock30" parent="." instance=ExtResource("1_r7vqv")]
+position = Vector2(-640, 2334)
+rotation = 0.331776
+scale = Vector2(5, 5)
+randomSeed = -1
+variation = 14
