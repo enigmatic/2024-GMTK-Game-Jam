@@ -43,7 +43,9 @@ func _reset_game():
 	water_node = _reset_node(water_node);
 	root.reset();
 	root.start_growing();
-	_update_scores()
+	_update_scores();
+	var cameraTween = create_tween()
+	cameraTween.tween_property(camera, "position", Vector2(320,1), 1).set_ease(Tween.EASE_IN_OUT);
 	
 func _process(_delta):
 	if !$SoundTrackPlayer.playing:
