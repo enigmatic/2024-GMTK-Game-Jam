@@ -86,7 +86,10 @@ func _on_next_button_button_up():
 
 func _input(event):
 	if event.is_action_released("tutorial"):
-		show()
+		if visible:
+			hide()
+		else:
+			show()
 
 func _save_tutorial():
 	var old_settings 
