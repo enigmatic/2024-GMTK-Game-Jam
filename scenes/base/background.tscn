@@ -1,6 +1,7 @@
-[gd_scene load_steps=26 format=3 uid="uid://bvuvu5rfmhqbr"]
+[gd_scene load_steps=35 format=3 uid="uid://bvuvu5rfmhqbr"]
 
 [ext_resource type="Shader" path="res://assets/shaders/dirt.gdshader" id="1_iifse"]
+[ext_resource type="Shader" path="res://assets/shaders/general_pixel.gdshader" id="2_ev47e"]
 [ext_resource type="Texture2D" uid="uid://b5l5jmtq8gfwm" path="res://assets/images/mountain.png" id="2_g18cl"]
 [ext_resource type="Shader" path="res://assets/shaders/clouds.gdshader" id="2_wcgt4"]
 [ext_resource type="Shader" path="res://assets/shaders/space.gdshader" id="3_nt52e"]
@@ -44,6 +45,39 @@ colors = PackedColorArray(0.00170681, 0.167748, 0.681828, 1, 0.110186, 0.269372,
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_ch5im"]
 gradient = SubResource("Gradient_tyulx")
 fill_from = Vector2(0.290598, 1)
+
+[sub_resource type="Gradient" id="Gradient_v4lep"]
+offsets = PackedFloat32Array(0, 0.148728, 0.268102, 1)
+colors = PackedColorArray(0.808621, 0.456464, 0, 1, 0.231373, 0.0745098, 0.00392157, 1, 0.246849, 0.0835812, 0.00419603, 1, 0, 0, 0, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_112pn"]
+seed = 35
+frequency = 0.0504
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ahpap"]
+color_ramp = SubResource("Gradient_v4lep")
+noise = SubResource("FastNoiseLite_112pn")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fdunc"]
+shader = ExtResource("2_ev47e")
+shader_parameter/pixelization = 1440.0
+shader_parameter/noise = SubResource("NoiseTexture2D_ahpap")
+
+[sub_resource type="Gradient" id="Gradient_wfe4e"]
+colors = PackedColorArray(0.127146, 0.0652995, 0.000961225, 1, 0.398692, 0.244539, 0.0105282, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_jiosd"]
+seed = 19
+frequency = 0.0385
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_mrcvh"]
+color_ramp = SubResource("Gradient_wfe4e")
+noise = SubResource("FastNoiseLite_jiosd")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jbp1m"]
+shader = ExtResource("2_ev47e")
+shader_parameter/pixelization = 1440.0
+shader_parameter/noise = SubResource("NoiseTexture2D_mrcvh")
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_1laa7"]
 noise_type = 3
@@ -130,6 +164,7 @@ texture = SubResource("GradientTexture2D_ch5im")
 
 [node name="MountainFar" type="TextureRect" parent="."]
 self_modulate = Color(1, 1, 1, 0.694118)
+material = SubResource("ShaderMaterial_fdunc")
 offset_left = 595.0
 offset_top = -2188.0
 offset_right = 2465.0
@@ -137,6 +172,7 @@ texture = ExtResource("2_g18cl")
 
 [node name="MountainFar3" type="TextureRect" parent="."]
 self_modulate = Color(1, 1, 1, 0.713726)
+material = SubResource("ShaderMaterial_jbp1m")
 offset_left = -2090.0
 offset_top = -1198.0
 offset_right = 11.0

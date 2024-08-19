@@ -20,7 +20,7 @@ noise = SubResource("FastNoiseLite_y4mkh")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vwadl"]
 shader = ExtResource("3_dw37v")
 shader_parameter/offset1 = Vector2(0.1, 0)
-shader_parameter/speed = 0.2
+shader_parameter/speed = 0.4
 shader_parameter/water_noise = SubResource("NoiseTexture2D_xh0mr")
 
 [sub_resource type="Gradient" id="Gradient_oumjd"]

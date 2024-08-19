@@ -1,9 +1,15 @@
 [gd_scene load_steps=17 format=3 uid="uid://ddpfqi0kg1m3w"]
 
 [ext_resource type="Script" path="res://scripts/Base.gd" id="1_20ccf"]
+<<<<<<< Updated upstream
 [ext_resource type="PackedScene" uid="uid://bvuvu5rfmhqbr" path="res://scenes/background.tscn" id="2_a54lw"]
 [ext_resource type="PackedScene" uid="uid://c5yf141326e73" path="res://scenes/base/start_menu.tscn" id="3_n42ql"]
 [ext_resource type="PackedScene" uid="uid://b15l1t355unu0" path="res://scenes/placeables/Tree.tscn" id="4_78xgr"]
+=======
+[ext_resource type="PackedScene" uid="uid://bvuvu5rfmhqbr" path="res://scenes/base/background.tscn" id="2_a54lw"]
+[ext_resource type="PackedScene" uid="uid://c5yf141326e73" path="res://scenes/start_menu.tscn" id="3_n42ql"]
+[ext_resource type="PackedScene" uid="uid://b15l1t355unu0" path="res://scenes/Tree.tscn" id="4_78xgr"]
+>>>>>>> Stashed changes
 [ext_resource type="PackedScene" uid="uid://brx7y5o0wye7q" path="res://scenes/base/BaseWater.tscn" id="5_ydqxa"]
 [ext_resource type="Script" path="res://scripts/Camera.gd" id="6_tqy8j"]
 [ext_resource type="PackedScene" uid="uid://d3ro0rdbnkf6" path="res://scenes/placeables/Root.tscn" id="7_cr1yp"]
