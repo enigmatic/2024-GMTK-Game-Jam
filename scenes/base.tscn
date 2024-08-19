@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://ddpfqi0kg1m3w"]
+[gd_scene load_steps=19 format=3 uid="uid://ddpfqi0kg1m3w"]
 
 [ext_resource type="Script" path="res://scripts/Base.gd" id="1_20ccf"]
 [ext_resource type="PackedScene" uid="uid://bvuvu5rfmhqbr" path="res://scenes/base/background.tscn" id="2_a54lw"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b15l1t355unu0" path="res://scenes/placeables/Tree.tscn" id="4_78xgr"]
 [ext_resource type="PackedScene" uid="uid://brx7y5o0wye7q" path="res://scenes/base/BaseWater.tscn" id="5_ydqxa"]
 [ext_resource type="Script" path="res://scripts/Camera.gd" id="6_tqy8j"]
+[ext_resource type="Script" path="res://scenes/placeables/GoalWater.gd" id="6_y7r05"]
 [ext_resource type="PackedScene" uid="uid://d3ro0rdbnkf6" path="res://scenes/placeables/Root.tscn" id="7_cr1yp"]
 [ext_resource type="PackedScene" uid="uid://yk8neoeakd87" path="res://scenes/base/hud.tscn" id="7_j0avw"]
 [ext_resource type="PackedScene" uid="uid://bxfxlvuahy6vv" path="res://scenes/placeables/rock.tscn" id="8_g5x8e"]
@@ -79,6 +80,7 @@ variation = 22
 [node name="Goal Water" parent="Water" index="6"]
 position = Vector2(259, 2792)
 scale = Vector2(1, 0.25)
+script = ExtResource("6_y7r05")
 max_volume = 2000
 randomSeed = 30
 variation = 30
@@ -135,6 +137,7 @@ position = Vector2(320, 3)
 position = Vector2(-9, 941)
 
 [connection signal="tree_growing" from="Tree" to="Camera" method="_on_tree_tree_growing"]
+[connection signal="collected_from_goal_water" from="Water/Goal Water" to="." method="_on_goal_water_collected_from_goal_water"]
 [connection signal="growing_root" from="Root" to="." method="_on_root_growing_root"]
 [connection signal="removed_root" from="Root" to="." method="_on_root_removed_root"]
 [connection signal="water_gathered" from="Root" to="." method="_on_root_water_gathered"]

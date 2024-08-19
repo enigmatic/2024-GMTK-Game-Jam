@@ -76,3 +76,8 @@ func _on_root_water_gathered(amount):
 func _update_scores():
 	hud.set_score(score);
 	hud.set_root(root_counter);
+
+func _on_goal_water_collected_from_goal_water():
+	start_menu.show_victory_screen();
+	# TODO: make camera go to tree and watch it grow
+	pass # Replace with function body.

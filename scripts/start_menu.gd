@@ -76,6 +76,3 @@ func load_settings():
 
 func _on_tutorial_button_button_up():
 	get_parent().find_child("Tutorials").show()
-
-
-
