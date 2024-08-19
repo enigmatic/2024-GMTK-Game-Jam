@@ -68,7 +68,7 @@ func add_foliage(foliage_position:Vector2 = Vector2(-1,-1), radius: int = -1):
 	if radius == -1:
 		radius = randi_range(4,clamp(size.y*.2,5,16))
 	if foliage_position == Vector2(-1,-1):
-		foliage_position = Vector2(0, randi_range(size.y*.1,size.y*.2))
+		foliage_position = Vector2(0, randf_range(size.y*.1,size.y*.2))
 		foliage_position.y = position.y
 		if last_foliage_side < 0.0:
 			foliage_position.x = randi_range(310,320)
