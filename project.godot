@@ -25,6 +25,8 @@ window/size/viewport_width=640
 window/size/viewport_height=360
 window/stretch/mode="viewport"
 window/dpi/allow_hidpi=false
+mouse_cursor/custom_image="res://assets/ui/mouse_cursor.png"
+mouse_cursor/custom_image_hotspot=Vector2(10, 5)
 
 [editor_plugins]
 

@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://yk8neoeakd87" path="res://scenes/hud.tscn" id="7_j0avw"]
 [ext_resource type="PackedScene" uid="uid://bxfxlvuahy6vv" path="res://scenes/rock.tscn" id="8_g5x8e"]
 [ext_resource type="PackedScene" uid="uid://cmvwbb83jppve" path="res://scenes/Water.tscn" id="9_t2bt7"]
-[ext_resource type="PackedScene" path="res://scenes/tutorials.tscn" id="11_8ts14"]
+[ext_resource type="PackedScene" uid="uid://dq8bi2xm0l5yf" path="res://scenes/tutorials.tscn" id="11_8ts14"]
 [ext_resource type="AudioStream" uid="uid://blj0f6ajfudnd" path="res://assets/audio/generative_beeps_organic.mp3" id="12_s8a8x"]
 [ext_resource type="PackedScene" uid="uid://dti7psphqxfj7" path="res://scenes/puzzles/pushablePuzzle.tscn" id="13_4w4xn"]
 [ext_resource type="PackedScene" uid="uid://be02t12fxgu6i" path="res://scenes/puzzles/pushablePuzzle2.tscn" id="13_eag6f"]
