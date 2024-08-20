@@ -20,6 +20,8 @@ func _on_tutorial_step(step:int = 0):
 		tutorial.set_and_show(tutorial.FIRST_CAMERA_MOVEMENT_TUTORIAL_MESSAGE, tutorial.CAMERA_MOVEMENT_UNLOCK)
 	if step==2:
 		tutorial.set_and_show(tutorial.FIRST_PUSH_ROCKS_TUTORIAL_MESSAGE,tutorial.PUSH_ROCKS_UNLOCK)
+	if step==3:
+		tutorial.set_and_show(tutorial.FIRST_RATS_TUTORIAL_MESSAGE,tutorial.RATS_UNLOCK)
 
 # based on https://www.reddit.com/r/godot/comments/cqzifo/reload_a_child_scene/
 func _reset_node(old_node:Node)->Node:

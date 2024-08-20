@@ -12,6 +12,9 @@ const CAMERA_MOVEMENT_UNLOCK = 7
 const FIRST_PUSH_ROCKS_TUTORIAL_MESSAGE = 9
 const PUSH_ROCKS_UNLOCK = 11
 
+const FIRST_RATS_TUTORIAL_MESSAGE = 12
+const RATS_UNLOCK = 13
+
 var settings:Settings
 
 
@@ -31,6 +34,8 @@ const TUTORIAL_MESSAGES:Array[String] = [
 	"Press R to undo",
 	"Don't forget to see how large your tree has grown!",
 
+	"Watch out for the mice, they eat roots!",
+	"Can you make it to the aquifer at the bottom of the map?"
 	]
 # Called when the node enters the scene tree for the first time.
 func _ready():

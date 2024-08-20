@@ -9,6 +9,7 @@ const CAMERA_SPEED:int = 300
 var is_dragging:bool = false
 var first_zoom_complete:bool = false
 var moveable_rocks_complete:bool = false
+var rats_complete:bool = false
 signal tutorial_step
 
 # Called when the node enters the scene tree for the first time.
@@ -44,6 +45,11 @@ func _input(event):
 	if !moveable_rocks_complete and position.y >= 200:
 		tutorial_step.emit(2)
 		moveable_rocks_complete = true
+	elif !rats_complete and position.y >= 1300:
+		tutorial_step.emit(3)
+		rats_complete = true
+		
+		
 
 
 func _on_tree_tree_growing(height):
