@@ -26,6 +26,15 @@ func _process(delta):
 		position.x += delta* CAMERA_SPEED/zoom.x
 	if Input.is_action_pressed("ui_left"):
 		position.x -= delta* CAMERA_SPEED/zoom.x
+		
+	if position.x+(320.0/zoom.x) > limit_right:
+		position.x = limit_right-(320.0/zoom.x)
+	if position.x-(320.0/zoom.x) < limit_left:
+		position.x = limit_left+(320.0/zoom.x)
+	if position.y+(180.0/zoom.y) > limit_bottom:
+		position.y = limit_bottom-(180.0/zoom.y)
+	if position.y-(180.0/zoom.y) < limit_top:
+		position.y = limit_top+(180.0/zoom.y)
 
 func _input(event):
 	#Mouse Movements
