@@ -86,7 +86,7 @@ end_cap_mode = 2
 position = Vector2(295, 0)
 
 [node name="Area2D" type="Area2D" parent="."]
-position = Vector2(34.0456, 0)
+position = Vector2(279.249, 0)
 scale = Vector2(-1, 1)
 collision_layer = 7
 collision_mask = 7

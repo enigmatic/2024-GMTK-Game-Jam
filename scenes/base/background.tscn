@@ -1,11 +1,9 @@
-[gd_scene load_steps=37 format=3 uid="uid://bvuvu5rfmhqbr"]
+[gd_scene load_steps=38 format=3 uid="uid://bvuvu5rfmhqbr"]
 
 [ext_resource type="Shader" path="res://assets/shaders/dirt.gdshader" id="1_iifse"]
 [ext_resource type="Script" path="res://scripts/background.gd" id="1_v86ar"]
-[ext_resource type="Texture2D" uid="uid://b5l5jmtq8gfwm" path="res://assets/images/mountain.png" id="2_g18cl"]
 [ext_resource type="Shader" path="res://assets/shaders/clouds.gdshader" id="2_wcgt4"]
 [ext_resource type="Shader" path="res://assets/shaders/space.gdshader" id="3_nt52e"]
-[ext_resource type="Shader" path="res://assets/shaders/mountain.gdshader" id="3_nw6sc"]
 [ext_resource type="Shader" path="res://assets/shaders/grass.gdshader" id="4_tsbtx"]
 
 [sub_resource type="Gradient" id="Gradient_c3m7p"]
@@ -47,37 +45,54 @@ colors = PackedColorArray(0.00170681, 0.167748, 0.681828, 1, 0.110186, 0.269372,
 gradient = SubResource("Gradient_tyulx")
 fill_from = Vector2(0.290598, 1)
 
-[sub_resource type="Gradient" id="Gradient_o3l5j"]
-offsets = PackedFloat32Array(0, 0.688525, 0.95082)
-colors = PackedColorArray(0, 0, 0, 1, 0.341176, 0.172549, 0, 1, 0.857541, 0.422906, 0, 1)
+[sub_resource type="Gradient" id="Gradient_qp6b5"]
+colors = PackedColorArray(0.198828, 0.136121, 0.0118479, 1, 0.326084, 0.313448, 0.174333, 1)
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_5uvbc"]
-frequency = 0.0158
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ni76y"]
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_cct5o"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_vxeg8"]
+width = 2000
+height = 2000
+color_ramp = SubResource("Gradient_qp6b5")
+noise = SubResource("FastNoiseLite_ni76y")
+
+[sub_resource type="Gradient" id="Gradient_bau6b"]
+offsets = PackedFloat32Array(0, 0.288732, 0.852113, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.198828, 0.136121, 0.0118479, 1, 0.326084, 0.313448, 0.174333, 1, 0.313986, 0.287453, 4.81308e-08, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_v74go"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_asyj7"]
+width = 2000
+height = 2000
+color_ramp = SubResource("Gradient_bau6b")
+noise = SubResource("FastNoiseLite_v74go")
+
+[sub_resource type="Gradient" id="Gradient_r888d"]
+offsets = PackedFloat32Array(0, 0.295775, 0.838028)
+colors = PackedColorArray(0.0579844, 0.0283627, 0, 1, 0.189549, 0.12319, 3.60981e-08, 1, 0.292001, 0.280438, 9.62615e-08, 1)
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_lhopn"]
+width = 3000
+height = 2000
 seamless = true
-seamless_blend_skirt = 0.312
-color_ramp = SubResource("Gradient_o3l5j")
-noise = SubResource("FastNoiseLite_5uvbc")
+seamless_blend_skirt = 0.731
+color_ramp = SubResource("Gradient_r888d")
+noise = SubResource("FastNoiseLite_v74go")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_784d0"]
-shader = ExtResource("3_nw6sc")
-shader_parameter/mountain_noise = SubResource("NoiseTexture2D_cct5o")
+[sub_resource type="Gradient" id="Gradient_b3xfd"]
+offsets = PackedFloat32Array(0, 0.950704)
+colors = PackedColorArray(0.189549, 0.12319, 3.60981e-08, 1, 0.336414, 0.230204, 1.92523e-07, 1)
 
-[sub_resource type="Gradient" id="Gradient_pphg5"]
-colors = PackedColorArray(0, 0, 0, 1, 0.419378, 0.163491, 0, 1)
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_dx5pt"]
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_3lf4m"]
-seed = 4
-frequency = 0.0198
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_t384j"]
-color_ramp = SubResource("Gradient_pphg5")
-noise = SubResource("FastNoiseLite_3lf4m")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_aeicm"]
-shader = ExtResource("3_nw6sc")
-shader_parameter/mountain_noise = SubResource("NoiseTexture2D_t384j")
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_h7146"]
+width = 3000
+height = 2000
+seamless = true
+seamless_blend_skirt = 0.731
+color_ramp = SubResource("Gradient_b3xfd")
+noise = SubResource("FastNoiseLite_dx5pt")
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_1laa7"]
 noise_type = 3
@@ -167,22 +182,41 @@ offset_top = -2560.0
 offset_right = 1600.0
 texture = SubResource("GradientTexture2D_ch5im")
 
-[node name="MountainFar" type="TextureRect" parent="."]
-self_modulate = Color(0.827451, 0.827451, 0.827451, 0.643137)
-material = SubResource("ShaderMaterial_784d0")
-offset_left = 595.0
-offset_top = -2188.0
-offset_right = 2465.0
-texture = ExtResource("2_g18cl")
+[node name="MountainFar4" type="Polygon2D" parent="."]
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(78, 2)
+texture = SubResource("NoiseTexture2D_vxeg8")
+polygon = PackedVector2Array(827, -166, 877, -282, 981, -370, 1008, -476, 1034, -614, 1088, -727, 1249, -757, 1284, -867, 1328, -1028, 1428, -1188, 1496, -1221, 1526, -1365, 1727, -1357, 1738, -921, 1768, -667, 2022, 2, 1603, -1, 576, -3)
+uv = PackedVector2Array(639, -43, 764, -161, 785, -314, 872.881, -464.786, 882, -536, 905, -542, 937, -522, 952, -514, 999, -527, 1075, -707, 1091, -852, 1171, -850, 1269, -786, 1327, -913, 1450, -997, 1548, -1131, 1570.07, -1351.12, 1586, -1510, 1716, -1670, 1731, -1279, 1738, -921, 1768, -667, 1736, -3, 1601, -1, 570, -2)
 
-[node name="MountainFar3" type="TextureRect" parent="."]
-self_modulate = Color(1, 1, 1, 0.713726)
-material = SubResource("ShaderMaterial_aeicm")
-offset_left = -2090.0
-offset_top = -1198.0
-offset_right = 11.0
-offset_bottom = -1.0
-texture = ExtResource("2_g18cl")
+[node name="MountainFar" type="Polygon2D" parent="."]
+self_modulate = Color(0.827451, 0.827451, 0.827451, 0.643137)
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(-91, -1)
+texture = SubResource("NoiseTexture2D_asyj7")
+polygon = PackedVector2Array(639, -43, 764, -161, 785, -314, 872.881, -464.786, 882, -536, 905, -542, 937, -522, 952, -514, 999, -527, 1075, -707, 1091, -852, 1171, -850, 1269, -786, 1327, -913, 1347, -1188, 1428, -1188, 1496, -1221, 1526, -1365, 1562, -1398, 1580, -1716, 1619, -1838, 1733, -1832, 1731, -1279, 1738, -921, 1768, -667, 1736, 0, 1601, 0, 570, 0)
+uv = PackedVector2Array(639, -43, 764, -161, 785, -314, 872.881, -464.786, 882, -536, 905, -542, 937, -522, 952, -514, 999, -527, 1075, -707, 1091, -852, 1171, -850, 1269, -786, 1327, -913, 1450, -997, 1548, -1131, 1570.07, -1351.12, 1586, -1510, 1716, -1670, 1731, -1279, 1738, -921, 1768, -667, 1736, -3, 1601, -1, 570, -2)
+
+[node name="MountainFar2" type="Polygon2D" parent="."]
+self_modulate = Color(0.827451, 0.827451, 0.827451, 0.643137)
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(-2356, -2)
+texture = SubResource("NoiseTexture2D_lhopn")
+polygon = PackedVector2Array(1218, -347, 1313, -1171, 1328, -1352, 1417, -1351, 1497, -1336, 1580, -1088, 1684, -1062, 1747, -1109, 1886, -1046, 1853, -738, 1945, -600, 1994, -311, 2083, -246, 2153, -220, 2226, -229, 2258, -203, 2254, -116, 2299, -114, 2363, -90, 2434, 1, 1736, 0, 1317, 1)
+uv = PackedVector2Array(639, -43, 764, -161, 785, -314, 872.881, -464.786, 882, -536, 905, -542, 937, -522, 952, -514, 999, -527, 1075, -707, 1091, -852, 1171, -850, 1269, -786, 1327, -913, 1450, -997, 1548, -1131, 1570.07, -1351.12, 1586, -1510, 1716, -1670, 1731, -1279, 1738, -921, 1768, -667, 1736, -3, 1601, -1, 570, -2)
+
+[node name="MountainFar3" type="Polygon2D" parent="."]
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(-1920, 727)
+rotation = -0.261799
+scale = Vector2(1, 1)
+texture = SubResource("NoiseTexture2D_h7146")
+polygon = PackedVector2Array(1230.79, -1181.71, 1271.26, -1410.02, 1417, -1351, 1497, -1336, 1580, -1088, 1684, -1062, 1747, -1109, 1886, -1046, 1853, -738, 1842.25, -558.212, 1862.12, -369.643, 2041.07, -206.779, 1064.26, -467.479)
+uv = PackedVector2Array(639, -43, 764, -161, 785, -314, 872.881, -464.786, 882, -536, 905, -542, 937, -522, 952, -514, 999, -527, 1075, -707, 1091, -852, 1171, -850, 1269, -786, 1327, -913, 1450, -997, 1548, -1131, 1570.07, -1351.12, 1586, -1510, 1716, -1670, 1731, -1279, 1738, -921, 1768, -667, 1736, -3, 1601, -1, 570, -2)
 
 [node name="Clouds" type="TextureRect" parent="."]
 material = SubResource("ShaderMaterial_ldn54")

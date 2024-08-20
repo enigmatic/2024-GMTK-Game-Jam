@@ -10,8 +10,7 @@ void fragment() {
 	// Called for every pixel the material is visible on.
 	if (COLOR.a >0.01){
 		vec4 new_color = texture(mountain_noise,UV);
-		new_color.a = .1;
-		COLOR += new_color;
+		COLOR == new_color;
 	}
 }
 
