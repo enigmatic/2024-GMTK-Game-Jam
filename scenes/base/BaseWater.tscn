@@ -79,12 +79,6 @@ max_volume = 25
 randomSeed = 18
 variation = 5
 
-[node name="Water13" parent="." instance=ExtResource("1_qmpsn")]
-position = Vector2(1537, 2275)
-max_volume = 35
-randomSeed = 12
-variation = 16
-
 [node name="Water14" parent="." instance=ExtResource("1_qmpsn")]
 position = Vector2(-891, 365)
 randomSeed = 90

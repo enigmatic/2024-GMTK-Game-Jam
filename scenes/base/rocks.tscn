@@ -95,7 +95,7 @@ randomSeed = 15
 position = Vector2(-129, 737)
 rotation = -2.12029
 scale = Vector2(3, 3)
-randomSeed = 123
+randomSeed = 114
 
 [node name="Rock14" parent="." instance=ExtResource("1_r7vqv")]
 position = Vector2(533, 470)
@@ -107,7 +107,7 @@ randomSeed = 89
 position = Vector2(555, 739)
 rotation = -0.0293605
 scale = Vector2(3, 3)
-randomSeed = 60
+randomSeed = 62
 variation = 0
 
 [node name="Rock31" parent="." instance=ExtResource("1_r7vqv")]
@@ -121,7 +121,7 @@ variation = 14
 position = Vector2(-315, 1063)
 rotation = -2.74889
 scale = Vector2(3, 3)
-randomSeed = 1923
+randomSeed = 1926
 variation = 2
 
 [node name="Rock18" parent="." instance=ExtResource("1_r7vqv")]
@@ -228,7 +228,7 @@ variation = 15
 [node name="Rock36" parent="." instance=ExtResource("1_r7vqv")]
 position = Vector2(213, 1035)
 rotation = 3.14257
-randomSeed = 23
+randomSeed = 28
 
 [node name="Rock37" parent="." instance=ExtResource("1_r7vqv")]
 position = Vector2(240, 686)
@@ -296,4 +296,4 @@ randomSeed = 17
 [node name="Rock48" parent="." instance=ExtResource("1_r7vqv")]
 position = Vector2(258, 1153)
 rotation = 3.14257
-randomSeed = 23
+randomSeed = 20
