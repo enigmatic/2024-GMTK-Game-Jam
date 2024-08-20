@@ -74,7 +74,9 @@ end_pos = NodePath("MovePoints/B")
 z_index = -1
 points = PackedVector2Array(-48, 0, 343, 0)
 width = 75.0
-default_color = Color(0.243137, 0.133333, 0.0705882, 1)
+default_color = Color(0.212503, 0.147908, 0.120724, 1)
+begin_cap_mode = 2
+end_cap_mode = 2
 
 [node name="MovePoints" type="Node" parent="."]
 
@@ -84,7 +86,7 @@ default_color = Color(0.243137, 0.133333, 0.0705882, 1)
 position = Vector2(295, 0)
 
 [node name="Area2D" type="Area2D" parent="."]
-position = Vector2(288.333, 0)
+position = Vector2(34.0456, 0)
 scale = Vector2(-1, 1)
 collision_layer = 7
 collision_mask = 7
