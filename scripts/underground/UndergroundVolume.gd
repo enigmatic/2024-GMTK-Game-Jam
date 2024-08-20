@@ -17,6 +17,9 @@ class_name UndergroundVolume
 @onready var _orignalPoints: SS2D_Point_Array = shape.get_point_array();
 
 func _ready():
+	
+	var mat:SS2D_Material_Shape = shape.shape_material;
+	mat.fill_textures = mat.fill_textures.duplicate(true);
 	_randomizeStructure();
 
 func _randomizeStructure():
@@ -34,6 +37,9 @@ func _randomizeStructure():
 		var point_position = point.position.move_toward(Vector2(0,0),randf_range(-variation,variation));
 		points.set_point_position(points.get_point_key_at_index(i), point_position);
 	shape.set_point_array(points);
+	
+	var mat:SS2D_Material_Shape = shape.shape_material;
+	mat.fill_textures.shuffle();
 
 func reset(amount:int):
 	pass
