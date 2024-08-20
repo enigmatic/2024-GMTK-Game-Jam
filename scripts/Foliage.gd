@@ -18,13 +18,13 @@ func _process(delta):
 	if falling:
 		if position.y < -size.y:
 			velocity.y += gravity * delta * randf_range(.8,1.2)
-			if position.y + velocity.y + 1> -size.y:
-				position.y = 0-size.y*.9
-				velocity.y=0
-				done_falling = true
-				fall_sound.pitch_scale = randf_range(.4,1)
-				fall_sound.play()
 		position += velocity
+	if falling and position.y + velocity.y + 1> -size.y:
+		position.y = 0-size.y*.9
+		velocity.y=0
+		done_falling = true
+		fall_sound.pitch_scale = randf_range(.4,1)
+		fall_sound.play()
 	if done_falling:
 		clean_up_timer -=delta
 		size.y *= .98 * (1-delta)

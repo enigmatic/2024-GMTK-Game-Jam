@@ -34,7 +34,7 @@ func increase_tree_size(height: int = 32, tween:bool = false):
 		foliage.material.set_shader_parameter("radius", foliage.size.y * .5)
 	for i in range(0,height,32):
 		add_foliage()
-	tree_growth_sound.pitch_scale = clampf(1028.0/size.y, 0.01, 3)
+	tree_growth_sound.pitch_scale = clampf(5000.0/size.y, 0.7, 3)
 	tree_growth_sound.play()
 	
 	

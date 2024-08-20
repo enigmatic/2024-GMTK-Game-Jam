@@ -55,5 +55,5 @@ script = ExtResource("3_me67i")
 [node name="FallSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_h62qe")
 volume_db = 3.0
-max_polyphony = 16
+max_polyphony = 8
 bus = &"SFX"

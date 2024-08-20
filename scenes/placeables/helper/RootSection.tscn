@@ -1,10 +1,28 @@
-[gd_scene load_steps=15 format=3 uid="uid://xm0ofe0xm664"]
+[gd_scene load_steps=24 format=3 uid="uid://xm0ofe0xm664"]
 
 [ext_resource type="Script" path="res://scripts/underground/RootSection.gd" id="1_3p7t0"]
 [ext_resource type="Script" path="res://scripts/underground/UndergroundCollidable.gd" id="2_h5hy5"]
+[ext_resource type="Shader" path="res://assets/shaders/tree.gdshader" id="2_va6jp"]
 [ext_resource type="AudioStream" uid="uid://disqj38qrgxqa" path="res://assets/audio/root_growing.mp3" id="3_3r5ph"]
 [ext_resource type="Shader" path="res://assets/shaders/water_drop.gdshader" id="3_dw37v"]
 [ext_resource type="Script" path="res://scripts/underground/WaterDrop.gd" id="4_pkolb"]
+
+[sub_resource type="Gradient" id="Gradient_gan77"]
+colors = PackedColorArray(0.212709, 0.0932964, 2.40654e-08, 1, 0.551389, 0.378919, 0, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_kqhbb"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_4a5ee"]
+color_ramp = SubResource("Gradient_gan77")
+noise = SubResource("FastNoiseLite_kqhbb")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s1uh1"]
+shader = ExtResource("2_va6jp")
+shader_parameter/pixelization = 8.0
+shader_parameter/width = 8.0
+shader_parameter/bottom_radius = 5.0
+shader_parameter/color_steps = 8.0
+shader_parameter/base_noise = SubResource("NoiseTexture2D_4a5ee")
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_mhe8i"]
 
@@ -37,6 +55,26 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 1)
 
+[sub_resource type="Gradient" id="Gradient_o4d7o"]
+offsets = PackedFloat32Array(0.00819672, 0.508197, 1)
+colors = PackedColorArray(0.01751, 0.0101868, 0, 1, 0.333928, 0.193695, 4.81308e-08, 1, 0.352131, 0.320432, 0, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_kamd6"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_oiv6w"]
+width = 16
+height = 16
+color_ramp = SubResource("Gradient_o4d7o")
+noise = SubResource("FastNoiseLite_kamd6")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_btt35"]
+shader = ExtResource("2_va6jp")
+shader_parameter/pixelization = 32.0
+shader_parameter/width = 32.0
+shader_parameter/bottom_radius = 5.0
+shader_parameter/color_steps = 4.0
+shader_parameter/base_noise = SubResource("NoiseTexture2D_oiv6w")
+
 [sub_resource type="Gradient" id="Gradient_ypntw"]
 offsets = PackedFloat32Array(0.571429, 0.577922)
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
@@ -54,8 +92,12 @@ fill_to = Vector2(1, 1)
 script = ExtResource("1_3p7t0")
 
 [node name="Line2D" type="Line2D" parent="."]
+material = SubResource("ShaderMaterial_s1uh1")
 width = 2.0
 default_color = Color(0, 0, 0, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_mask = 0
@@ -76,6 +118,8 @@ texture = SubResource("GradientTexture2D_egxcd")
 script = ExtResource("4_pkolb")
 
 [node name="EndCap" type="Sprite2D" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_btt35")
 texture = SubResource("GradientTexture2D_kl15e")
 
 [node name="Drops" type="Node" parent="."]
