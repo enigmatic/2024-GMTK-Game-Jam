@@ -8,6 +8,7 @@ signal water_gathered(amount:int);
 @export var groundLevel: int = 0;
 @export var rootSectionMaxSize = 100;
 @export var rootSectionMinSize = 25;
+@export var rootSectionDragStart = 10;
 
 @onready var rootList = $RootList;
 @onready var targetNode = $Target;
@@ -22,6 +23,7 @@ var _cancelClick = false;
 var _planning_to_draw = false;
 var _removable_roots = [];
 var _total_water_gathered = 0;
+var _dragging = false;
 
 func _process(_delta):
 	if _planning_to_draw:
@@ -46,12 +48,13 @@ func _unhandled_input(event):
 							okToGrow = check_valid_target_node(collideWith);
 							if (collideWith.type == 'water'):
 								_grow_to_position = to_local(hitInfo.position);
-						elif (start_point.distance_to(_grow_to_position) < rootSectionMinSize):
+						elif !_dragging && start_point.distance_to(_grow_to_position) < rootSectionMinSize:
 							okToGrow = false;
 
 						if okToGrow:
 							_growRoot(_grow_to_position, hitInfo);
 						_planning_to_draw = false;
+						_dragging = false;
 					else:
 						_cancelClick = false;
 						_planning_to_draw = true;
@@ -85,7 +88,8 @@ func _root_removed(rootSection):
 func _calculate_path():
 	_grow_to_position = null;
 	var target = get_target_position();
-	_nearestNode = _find_best_node(target);
+	if (!_dragging):
+		_nearestNode = _find_best_node(target);
 	
 	var startPos = _nearestNode.get_end_point();
 	targetNode.position = startPos;
@@ -109,6 +113,12 @@ func _find_best_node(pos: Vector2) -> RootSection:
 		if testPos == null:
 			continue;
 		var dist = testPos.distance_to(pos);
+		
+		if (dist <= rootSectionDragStart):
+			if (_planning_to_draw):
+				_dragging = true;
+			return root;
+		
 		if (dist < nearDist) && (dist > rootSectionMinSize):
 			var hit = checkCollision(pos, testPos);
 			if hit && hit.collider.blocker:
@@ -146,7 +156,7 @@ func _draw_ghost_line(start: Vector2, target: Vector2):
 				ghostLine.set_point_position(1, to_local(hitInfo.position));
 		else:
 			ghostLine.default_color = Color(1,0,0);
-	elif (start.distance_to(target) < rootSectionMinSize):
+	elif (!_dragging && start.distance_to(target) < rootSectionMinSize):
 		ghostLine.default_color = Color(1,1,1);
 	else:
 		ghostLine.default_color = Color(0,1,0);
@@ -193,6 +203,7 @@ func start_growing():
 	_can_grow = true;
 
 func cancel_growing():
+	_dragging = false;
 	_cancelClick = true;
 	ghostLine.visible = false;
 	_planning_to_draw = false;

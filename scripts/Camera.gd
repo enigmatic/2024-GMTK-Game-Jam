@@ -45,7 +45,7 @@ func _input(event):
 	if !moveable_rocks_complete and position.y >= 200:
 		tutorial_step.emit(2)
 		moveable_rocks_complete = true
-	elif !rats_complete and position.y >= 1300:
+	elif !rats_complete and position.y >= 750:
 		tutorial_step.emit(3)
 		rats_complete = true
 		

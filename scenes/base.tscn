@@ -158,13 +158,13 @@ position = Vector2(-54, 219)
 position = Vector2(-9, 442)
 
 [node name="PushablePuzzle3" parent="Puzzles" instance=ExtResource("14_kd780")]
-position = Vector2(-7, 733)
+position = Vector2(-143, 1731)
 
 [node name="RodentPuzzle1" parent="Puzzles" instance=ExtResource("14_huhqa")]
-position = Vector2(-113, 1274)
+position = Vector2(22, 712)
 
 [node name="RodentPuzzle2" parent="Puzzles" instance=ExtResource("15_t2myq")]
-position = Vector2(-97, 1747)
+position = Vector2(-124, 1285)
 
 [node name="RodentPuzzle3" parent="Puzzles" instance=ExtResource("17_f3t5o")]
 position = Vector2(-150, 2135)
