@@ -30,9 +30,8 @@ variation = 30
 
 [node name="Water" parent="." instance=ExtResource("5_oeq2b")]
 position = Vector2(337, 194)
-scale = Vector2(3, 2)
 script = ExtResource("6_rj0ei")
-max_volume = 5
+max_volume = 15
 randomSeed = 2
 variation = 1
 

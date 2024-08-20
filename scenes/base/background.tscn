@@ -49,10 +49,9 @@ fill_from = Vector2(0.290598, 1)
 colors = PackedColorArray(0.198828, 0.136121, 0.0118479, 1, 0.326084, 0.313448, 0.174333, 1)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_ni76y"]
+frequency = 0.0337
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_vxeg8"]
-width = 2000
-height = 2000
 color_ramp = SubResource("Gradient_qp6b5")
 noise = SubResource("FastNoiseLite_ni76y")
 
@@ -63,8 +62,6 @@ colors = PackedColorArray(0, 0, 0, 1, 0.198828, 0.136121, 0.0118479, 1, 0.326084
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_v74go"]
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_asyj7"]
-width = 2000
-height = 2000
 color_ramp = SubResource("Gradient_bau6b")
 noise = SubResource("FastNoiseLite_v74go")
 
@@ -73,8 +70,6 @@ offsets = PackedFloat32Array(0, 0.295775, 0.838028)
 colors = PackedColorArray(0.0579844, 0.0283627, 0, 1, 0.189549, 0.12319, 3.60981e-08, 1, 0.292001, 0.280438, 9.62615e-08, 1)
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_lhopn"]
-width = 3000
-height = 2000
 seamless = true
 seamless_blend_skirt = 0.731
 color_ramp = SubResource("Gradient_r888d")
@@ -85,12 +80,11 @@ offsets = PackedFloat32Array(0, 0.950704)
 colors = PackedColorArray(0.189549, 0.12319, 3.60981e-08, 1, 0.336414, 0.230204, 1.92523e-07, 1)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_dx5pt"]
+frequency = 0.0337
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_h7146"]
-width = 3000
-height = 2000
 seamless = true
-seamless_blend_skirt = 0.731
+seamless_blend_skirt = 0.552
 color_ramp = SubResource("Gradient_b3xfd")
 noise = SubResource("FastNoiseLite_dx5pt")
 
@@ -204,6 +198,7 @@ self_modulate = Color(0.827451, 0.827451, 0.827451, 0.643137)
 texture_filter = 1
 texture_repeat = 2
 position = Vector2(-2356, -2)
+scale = Vector2(1.00483, 0.884347)
 texture = SubResource("NoiseTexture2D_lhopn")
 polygon = PackedVector2Array(1218, -347, 1313, -1171, 1328, -1352, 1417, -1351, 1497, -1336, 1580, -1088, 1684, -1062, 1747, -1109, 1886, -1046, 1853, -738, 1945, -600, 1994, -311, 2083, -246, 2153, -220, 2226, -229, 2258, -203, 2254, -116, 2299, -114, 2363, -90, 2434, 1, 1736, 0, 1317, 1)
 uv = PackedVector2Array(639, -43, 764, -161, 785, -314, 872.881, -464.786, 882, -536, 905, -542, 937, -522, 952, -514, 999, -527, 1075, -707, 1091, -852, 1171, -850, 1269, -786, 1327, -913, 1450, -997, 1548, -1131, 1570.07, -1351.12, 1586, -1510, 1716, -1670, 1731, -1279, 1738, -921, 1768, -667, 1736, -3, 1601, -1, 570, -2)
@@ -213,7 +208,6 @@ texture_filter = 1
 texture_repeat = 2
 position = Vector2(-1920, 727)
 rotation = -0.261799
-scale = Vector2(1, 1)
 texture = SubResource("NoiseTexture2D_h7146")
 polygon = PackedVector2Array(1230.79, -1181.71, 1271.26, -1410.02, 1417, -1351, 1497, -1336, 1580, -1088, 1684, -1062, 1747, -1109, 1886, -1046, 1853, -738, 1842.25, -558.212, 1862.12, -369.643, 2041.07, -206.779, 1064.26, -467.479)
 uv = PackedVector2Array(639, -43, 764, -161, 785, -314, 872.881, -464.786, 882, -536, 905, -542, 937, -522, 952, -514, 999, -527, 1075, -707, 1091, -852, 1171, -850, 1269, -786, 1327, -913, 1450, -997, 1548, -1131, 1570.07, -1351.12, 1586, -1510, 1716, -1670, 1731, -1279, 1738, -921, 1768, -667, 1736, -3, 1601, -1, 570, -2)

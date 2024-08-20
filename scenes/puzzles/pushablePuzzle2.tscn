@@ -53,5 +53,5 @@ randomSeed = -10
 variation = 17
 
 [node name="Water2" parent="." instance=ExtResource("5_g5ihl")]
-position = Vector2(308, 126)
+position = Vector2(316, 132)
 randomSeed = 5
