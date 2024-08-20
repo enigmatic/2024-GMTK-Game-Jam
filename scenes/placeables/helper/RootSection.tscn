@@ -94,12 +94,12 @@ script = ExtResource("1_3p7t0")
 [node name="Line2D" type="Line2D" parent="."]
 material = SubResource("ShaderMaterial_s1uh1")
 width = 2.0
-default_color = Color(0, 0, 0, 1)
 joint_mode = 2
 begin_cap_mode = 2
 end_cap_mode = 2
 
 [node name="Area2D" type="Area2D" parent="."]
+visible = false
 collision_mask = 0
 script = ExtResource("2_h5hy5")
 type = "root"
