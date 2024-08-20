@@ -7,6 +7,8 @@ extends Node2D
 @onready var start_menu:StartMenu = $HUD/StartMenu
 @onready var tutorial:Tutorial = $HUD/Tutorials
 @onready var camera:Camera2D = $Camera
+@onready var background:Background = $Background
+
 var score = 0;
 var root_counter = 2;
 
@@ -37,6 +39,7 @@ func _reset_node(old_node:Node)->Node:
 
 func _reset_game():
 	tree_node.reset()
+	background.reset()
 	root_counter = 2
 	score = 0
 	water_node = _reset_node(water_node);
@@ -81,4 +84,5 @@ func _update_scores():
 
 func _on_goal_water_collected_from_goal_water():
 	start_menu.show_victory_screen();
+	background.victory_rain()
 	camera.move_camera_to(Vector2(0,-705), 0.25);
