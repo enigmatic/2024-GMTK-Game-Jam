@@ -16,14 +16,13 @@
 [ext_resource type="PackedScene" uid="uid://dx2ax4k1aoxyd" path="res://scenes/puzzles/rodentPuzzle1.tscn" id="14_huhqa"]
 [ext_resource type="PackedScene" uid="uid://bce6u6lnqmc2a" path="res://scenes/puzzles/pushablePuzzle3.tscn" id="14_kd780"]
 [ext_resource type="PackedScene" uid="uid://blbynj3na2oc5" path="res://scenes/puzzles/rodentPuzzle2.tscn" id="15_t2myq"]
-[ext_resource type="PackedScene" uid="uid://becy77eneer6y" path="res://scenes/puzzles/rodentPuzzle3.tscn" id="17_f3t5o"]
+[ext_resource type="PackedScene" uid="uid://4gf22rocsed2" path="res://scenes/puzzles/rodentPuzzle3.tscn" id="17_f3t5o"]
 
 [node name="Base" type="Node2D"]
 script = ExtResource("1_20ccf")
 
 [node name="Background" parent="." instance=ExtResource("2_a54lw")]
 z_index = -1
-position = Vector2(-16, 6)
 
 [node name="Tree" parent="." instance=ExtResource("4_78xgr")]
 process_mode = 3
