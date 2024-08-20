@@ -36,19 +36,18 @@ func increase_tree_size(height: int = 32, tween:bool = false):
 		add_foliage()
 	tree_growth_sound.pitch_scale = clampf(5000.0/size.y, 0.7, 3)
 	tree_growth_sound.play()
-	
-	
 
 
 func set_tree_size(height: int= 16, tween:bool = false):
 	_tree_height = height;
 	tree_growing.emit(height);
 	var half_h = (height*.5)
-	var new_size = Vector2(sqrt(height) * (log(height)-2),height)
-	var new_position =  Vector2(320-(sqrt(height) * (log(height)-2)*.5),-height)
-	top_foliage.size = Vector2(size.x,size.x)
-
+	var new_x:float = sqrt(height) * (log(height)-3)
+	var new_size = Vector2(new_x,height)
+	top_foliage.size = Vector2(new_x,new_x)
+	var new_position =  Vector2(320-(new_x*.5),-height)
 	var new_foliage_position = Vector2(top_foliage.size.x*.001,-top_foliage.size.x*.5,)
+
 	if tween:
 		var tween1 = create_tween()
 		var tween2 = create_tween()
@@ -62,7 +61,7 @@ func set_tree_size(height: int= 16, tween:bool = false):
 		top_foliage.position = new_foliage_position
 		top_foliage.position.y = -top_foliage.size.x*.5
 		top_foliage.position.x = top_foliage.size.x*.001
-		
+
 	material.set_shader_parameter("pixelization", half_h)
 	material.set_shader_parameter("width", size.x)
 	top_foliage.material.set_shader_parameter("pixelization", size.x*.5)
