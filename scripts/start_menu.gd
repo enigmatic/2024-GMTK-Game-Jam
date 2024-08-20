@@ -17,10 +17,10 @@ func _input(event):
 	if event.is_action_released("ui_cancel"):
 		if visible:
 			hide()
-			get_tree().paused = false
+			#get_tree().paused = false
 		else:
 			show()
-			get_tree().paused = true
+			#get_tree().paused = true
 
 func show_victory_screen():
 	show()
