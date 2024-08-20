@@ -1,0 +1,21 @@
+shader_type canvas_item;
+
+uniform sampler2D mountain_noise:repeat_enable;
+
+void vertex() {
+	// Called for every vertex the material is visible on.
+}
+
+void fragment() {
+	// Called for every pixel the material is visible on.
+	if (COLOR.a >0.01){
+		vec4 new_color = texture(mountain_noise,UV);
+		new_color.a = .1;
+		COLOR += new_color;
+	}
+}
+
+//void light() {
+	// Called for every pixel for every light affecting the CanvasItem.
+	// Uncomment to replace the default light processing function with this one.
+//}
