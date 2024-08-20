@@ -22,11 +22,11 @@ func _ready():
 
 func _updateVolume():
 	var points = _orignalPoints.clone(true);
-	for i in range(points.get_point_count()-1):
-		var point = points.get_point_at_index(i);
-		
-		var point_position = Vector2(0,0).direction_to(point.position) * _volume;
-		points.set_point_position(points.get_point_key_at_index(i), point_position);
+	var degPerPoint = 360 / (points.get_point_count());
+	for i in range(points.get_point_count()):
+		var degree = deg_to_rad(i * degPerPoint);
+		var key = points.get_point_key_at_index(i);
+		points.set_point_position(key, Vector2(cos(degree), sin(degree)) * _volume);
 	
 	shape.set_point_array(points);
 	_original_water_points = null;
