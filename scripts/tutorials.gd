@@ -10,10 +10,10 @@ const FIRST_CAMERA_MOVEMENT_TUTORIAL_MESSAGE = 5
 const CAMERA_MOVEMENT_UNLOCK = 7
 
 const FIRST_PUSH_ROCKS_TUTORIAL_MESSAGE = 9
-const PUSH_ROCKS_UNLOCK = 11
+const PUSH_ROCKS_UNLOCK = 12
 
-const FIRST_RATS_TUTORIAL_MESSAGE = 12
-const RATS_UNLOCK = 13
+const FIRST_RATS_TUTORIAL_MESSAGE = 13
+const RATS_UNLOCK = 14
 
 var settings:Settings
 
@@ -32,6 +32,7 @@ const TUTORIAL_MESSAGES:Array[String] = [
 	
 	"Some rocks can be pushed with roots",
 	"Press R to undo",
+	"Drag from a valid root node to grow from that node",
 	"Don't forget to see how large your tree has grown!",
 
 	"Watch out for the mice, they eat roots!",
