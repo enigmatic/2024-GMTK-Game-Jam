@@ -55,5 +55,3 @@ variation = 17
 [node name="Water2" parent="." instance=ExtResource("5_g5ihl")]
 position = Vector2(308, 126)
 randomSeed = 5
-
-[connection signal="reset_puzzle" from="." to="Water2" method="_on_puzzle_reset"]
